@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin — Shahriar Rizvi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg:        #0a0a0f;
+      --bg-2:      #0f0f18;
+      --card:      #13131e;
+      --border:    rgba(255,255,255,0.07);
+      --gold:      #c4a05a;
+      --gold-l:    #dfc07a;
+      --text:      #e8e6e0;
+      --muted:     #7a7870;
+      --dim:       #4a4840;
+      --red:       #e05757;
+      --green:     #4ac882;
+      --font:      'Outfit', sans-serif;
+      --mono:      'DM Mono', monospace;
+      --r:         10px;
+      --t:         0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); font-weight: 300; min-height: 100vh; }
+
+    /* ── LOGIN SCREEN ── */
+    #loginScreen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at 60% 40%, rgba(196,160,90,0.05), transparent 60%);
+    }
+    .login-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+    .login-box .logo {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+    .login-box .logo span { color: var(--gold); }
+    .login-box p { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); margin-bottom: 2rem; }
+    .form-field { margin-bottom: 1.1rem; text-align: left; }
+    .form-field label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 0.4rem;
+    }
+    .form-field input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color var(--t);
+    }
+    .form-field input:focus { border-color: var(--gold); }
+    .btn-full {
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--gold);
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all var(--t);
+      margin-top: 0.5rem;
+    }
+    .btn-full:hover { background: var(--gold-l); }
+    .login-error {
+      color: var(--red);
+      font-size: 0.78rem;
+      margin-top: 0.75rem;
+      display: none;
+    }
+
+    /* ── ADMIN SHELL ── */
+    #adminShell { display: none; }
+    .admin-header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .admin-header .brand { font-size: 1rem; color: var(--text); }
+    .admin-header .brand span { color: var(--gold); }
+    .admin-header-right { display: flex; gap: 0.75rem; align-items: center; }
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .btn-sm {
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      border: none;
+      transition: all var(--t);
+    }
+    .btn-outline-sm {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .btn-outline-sm:hover { border-color: var(--red); color: var(--red); }
+    .btn-gold-sm { background: var(--gold); color: #000; font-weight: 600; }
+    .btn-gold-sm:hover { background: var(--gold-l); }
+
+    /* ── LAYOUT ── */
+    .admin-body { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 57px); }
+    .sidebar {
+      background: var(--bg-2);
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 1rem;
+    }
+    .sidebar-section-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dim);
+      padding: 0 0.5rem;
+      margin-bottom: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .sidebar-section-label:first-child { margin-top: 0; }
+    .sidebar-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      color: var(--muted);
+      font-family: var(--font);
+      font-size: 0.85rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all var(--t);
+    }
+    .sidebar-btn i { width: 16px; text-align: center; font-size: 0.8rem; }
+    .sidebar-btn:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+    .sidebar-btn.active { background: rgba(196,160,90,0.1); color: var(--gold); }
+    .sidebar-btn .count {
+      margin-left: auto;
+      background: rgba(255,255,255,0.06);
+      border-radius: 99px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.68rem;
+      font-family: var(--mono);
+    }
+
+    .main-content { padding: 2rem; overflow-y: auto; }
+
+    /* ── VIEWS ── */
+    .view { display: none; }
+    .view.active { display: block; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 { font-size: 1.5rem; font-weight: 400; }
+    .page-header p { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ── STATS ROW ── */
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.25rem 1.5rem;
+    }
+    .stat-card .n { font-size: 2rem; color: var(--gold); font-weight: 300; }
+    .stat-card .l { font-size: 0.72rem; color: var(--dim); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
+
+    /* ── POST TABLE ── */
+    .posts-table {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    .table-head {
+      display: grid;
+      grid-template-columns: 1fr 140px 100px 110px;
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+    .post-row {
+      display: grid;
+      grid-template-columns: 1fr 140px 100px 110px;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      transition: background var(--t);
+    }
+    .post-row:last-child { border-bottom: none; }
+    .post-row:hover { background: rgba(255,255,255,0.02); }
+    .post-row-title { font-size: 0.9rem; color: var(--text); }
+    .post-row-cat { font-family: var(--mono); font-size: 0.72rem; color: var(--gold); }
+    .post-row-date { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+    .post-row-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+    }
+    .status-published { background: rgba(74,200,130,0.1); color: var(--green); border: 1px solid rgba(74,200,130,0.2); }
+    .status-draft { background: rgba(196,160,90,0.1); color: var(--gold); border: 1px solid rgba(196,160,90,0.2); }
+    .post-actions { display: flex; gap: 0.4rem; }
+    .icon-btn {
+      width: 30px; height: 30px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--t);
+    }
+    .icon-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .icon-btn.del:hover { border-color: var(--red); color: var(--red); }
+
+    .empty-state {
+      padding: 3rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .empty-state i { font-size: 2rem; color: var(--dim); margin-bottom: 0.75rem; display: block; }
+
+    /* ── EDITOR ── */
+    .editor-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    .editor-toolbar {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .toolbar-btn {
+      padding: 0.35rem 0.75rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all var(--t);
+    }
+    .toolbar-btn:hover { background: rgba(196,160,90,0.1); color: var(--gold); border-color: var(--gold); }
+    .toolbar-divider { width: 1px; height: 20px; background: var(--border); margin: 0 0.25rem; }
+
+    .editor-fields { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .field label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 0.4rem;
+    }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.7rem 0.9rem;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color var(--t);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--gold); }
+    .field select option { background: var(--bg); }
+    .field textarea { min-height: 320px; resize: vertical; line-height: 1.7; font-size: 0.9rem; }
+    .field textarea.content { font-family: var(--mono); font-size: 0.82rem; }
+    .editor-actions {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .hint { font-size: 0.73rem; color: var(--dim); font-family: var(--mono); }
+    .hint a { color: var(--gold); }
+
+    /* ── SETTINGS ── */
+    .settings-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      max-width: 540px;
+    }
+    .settings-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.25rem; }
+    .settings-card p { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .settings-warning {
+      background: rgba(224,87,87,0.08);
+      border: 1px solid rgba(224,87,87,0.2);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      font-size: 0.78rem;
+      color: #e08080;
+      margin-top: 1rem;
+    }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.35s ease;
+      z-index: 9999;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+    #toast i { color: var(--green); }
+    #toast.error i { color: var(--red); }
+
+    /* ── CONFIRM MODAL ── */
+    .overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 500;
+      align-items: center; justify-content: center;
+    }
+    .overlay.show { display: flex; }
+    .modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 2rem;
+      max-width: 380px;
+      width: 90%;
+      text-align: center;
+    }
+    .modal h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .modal p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .modal-actions { display: flex; gap: 0.75rem; justify-content: center; }
+
+    @media (max-width: 768px) {
+      .admin-body { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .table-head, .post-row { grid-template-columns: 1fr 100px; }
+      .post-row-cat, .post-row-date { display: none; }
+      .field-row { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================ LOGIN -->
+  <div id="loginScreen">
+    <div class="login-box">
+      <div class="logo">Shahriar<span>.</span> Admin</div>
+      <p>// Blog Management Panel</p>
+      <div class="form-field">
+        <label>Password</label>
+        <!-- ✏️ The password is set in the JS below. Default: change123 -->
+        <input type="password" id="loginPass" placeholder="Enter admin password" />
+      </div>
+      <button class="btn-full" onclick="doLogin()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 019.9-1"/></svg> Login
+      </button>
+      <p class="login-error" id="loginError">Incorrect password. Try again.</p>
+      <p style="margin-top:1.5rem; font-size:0.72rem; color: var(--dim);">
+        <a href="index.html" style="color: var(--muted);">← Back to Portfolio</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ============================================ ADMIN SHELL -->
+  <div id="adminShell">
+    <header class="admin-header">
+      <div class="brand">Shahriar<span>.</span> Admin</div>
+      <div class="admin-header-right">
+        <span class="badge">Blog CMS</span>
+        <a href="index.html" target="_blank" class="btn-sm btn-outline-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View Site
+        </a>
+        <button class="btn-sm btn-outline-sm" onclick="doLogout()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout
+        </button>
+      </div>
+    </header>
+
+    <div class="admin-body">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-section-label">Content</div>
+        <button class="sidebar-btn active" onclick="showView('dashboard', this)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Dashboard
+        </button>
+        <button class="sidebar-btn" onclick="showView('posts', this)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/></svg> All Posts
+          <span class="count" id="postsCount">0</span>
+        </button>
+        <button class="sidebar-btn" onclick="showView('new-post', this)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> New Post
+        </button>
+
+        <div class="sidebar-section-label">Site</div>
+        <button class="sidebar-btn" onclick="showView('settings', this)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Settings
+        </button>
+        <button class="sidebar-btn" onclick="window.open('index.html#blog','_blank')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> View Blog
+        </button>
+      </aside>
+
+      <!-- Main -->
+      <main class="main-content">
+
+        <!-- ── DASHBOARD VIEW ── -->
+        <div class="view active" id="view-dashboard">
+          <div class="page-header">
+            <div>
+              <h1>Dashboard</h1>
+              <p>Welcome back, Shahriar.</p>
+            </div>
+            <button class="btn-sm btn-gold-sm" onclick="showView('new-post', document.querySelector('[onclick*=new-post]'))">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Write New Post
+            </button>
+          </div>
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="n" id="dashTotal">0</div>
+              <div class="l">Total Posts</div>
+            </div>
+            <div class="stat-card">
+              <div class="n" id="dashPub">0</div>
+              <div class="l">Published</div>
+            </div>
+            <div class="stat-card">
+              <div class="n" id="dashDraft">0</div>
+              <div class="l">Drafts</div>
+            </div>
+          </div>
+          <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem;">
+            <h3 style="font-size:0.88rem; font-weight:500; color: var(--gold); margin-bottom:0.5rem; font-family: var(--mono); text-transform:uppercase; letter-spacing:0.1em;">Recent Posts</h3>
+            <div id="recentPosts"></div>
+          </div>
+        </div>
+
+        <!-- ── ALL POSTS VIEW ── -->
+        <div class="view" id="view-posts">
+          <div class="page-header">
+            <div>
+              <h1>All Posts</h1>
+              <p>Manage your blog articles</p>
+            </div>
+            <button class="btn-sm btn-gold-sm" onclick="showView('new-post', document.querySelector('[onclick*=new-post]'))">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> New Post
+            </button>
+          </div>
+          <div class="posts-table">
+            <div class="table-head">
+              <span>Title</span>
+              <span>Category</span>
+              <span>Date</span>
+              <span>Status / Actions</span>
+            </div>
+            <div id="postsTableBody"></div>
+          </div>
+        </div>
+
+        <!-- ── NEW / EDIT POST VIEW ── -->
+        <div class="view" id="view-new-post">
+          <div class="page-header">
+            <div>
+              <h1 id="editorHeading">New Post</h1>
+              <p>Write and publish an article to your blog</p>
+            </div>
+          </div>
+
+          <div class="editor-wrap">
+            <div class="editor-toolbar">
+              <span style="font-size:0.72rem; font-family: var(--mono); color: var(--dim);">FORMAT:</span>
+              <button class="toolbar-btn" onclick="insertMd('**','**')"><b>Bold</b></button>
+              <button class="toolbar-btn" onclick="insertMd('*','*')"><em>Italic</em></button>
+              <button class="toolbar-btn" onclick="insertMd('\n## ','')">H2</button>
+              <button class="toolbar-btn" onclick="insertMd('\n### ','')">H3</button>
+              <div class="toolbar-divider"></div>
+              <button class="toolbar-btn" onclick="insertMd('\n- ','')">• List</button>
+              <button class="toolbar-btn" onclick="insertMd('\n> ','')">Quote</button>
+              <button class="toolbar-btn" onclick="insertMd('\n```\n','\n```')">Code</button>
+              <button class="toolbar-btn" onclick="insertMd('[Link text](','https://...)')">Link</button>
+              <div class="toolbar-divider"></div>
+              <span style="font-size:0.72rem; font-family: var(--mono); color: var(--dim);">SUPPORTS MARKDOWN</span>
+            </div>
+
+            <div class="editor-fields">
+              <input type="hidden" id="editId" value="" />
+
+              <div class="field-row">
+                <div class="field">
+                  <label>Post Title *</label>
+                  <input type="text" id="eTitle" placeholder="e.g. Designing a RISC-V CPU from Scratch" />
+                </div>
+                <div class="field">
+                  <label>Category *</label>
+                  <select id="eCat">
+                    <option value="VLSI">VLSI</option>
+                    <option value="Quantum Computing">Quantum Computing</option>
+                    <option value="Network Engineering">Network Engineering</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Research">Research</option>
+                    <option value="Career">Career</option>
+                    <option value="Thoughts">Thoughts</option>
+                    <!-- ✏️ Add more categories here -->
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Excerpt / Summary (shown in cards)</label>
+                <input type="text" id="eExcerpt" placeholder="A 1–2 sentence summary of this post..." />
+              </div>
+
+              <div class="field">
+                <label>Article Body (Markdown supported)</label>
+                <textarea class="content" id="eContent"
+                  placeholder="Write your article here...&#10;&#10;## Introduction&#10;Start writing in Markdown...&#10;&#10;**Bold**, *italic*, `code`, > blockquotes all work."></textarea>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label>Status</label>
+                  <select id="eStatus">
+                    <option value="published">Published (visible on site)</option>
+                    <option value="draft">Draft (hidden)</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Reading Time (auto)</label>
+                  <input type="text" id="eReadTime" placeholder="Auto-calculated..." readonly style="opacity:0.5"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="editor-actions">
+              <button class="btn-sm btn-gold-sm" onclick="savePost()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17,21 17,13 7,13 7,21"/><polyline points="7,3 7,8 15,8"/></svg> Save Post
+              </button>
+              <button class="btn-sm btn-outline-sm" onclick="showView('posts', document.querySelector('[onclick*=posts]'))">
+                Cancel
+              </button>
+              <span class="hint" style="margin-left:auto">
+                Posts are saved to your browser's local storage.
+                <a href="#" onclick="exportJSON()">Export backup ↗</a>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── SETTINGS VIEW ── -->
+        <div class="view" id="view-settings">
+          <div class="page-header">
+            <div>
+              <h1>Settings</h1>
+              <p>Manage admin credentials and data</p>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3>Change Admin Password</h3>
+            <p>Update the password used to access this admin panel.</p>
+            <div class="form-field" style="margin-bottom:0.75rem">
+              <label>Current Password</label>
+              <input type="password" id="sCurrPass" placeholder="Current password" />
+            </div>
+            <div class="form-field" style="margin-bottom:0.75rem">
+              <label>New Password</label>
+              <input type="password" id="sNewPass" placeholder="New password (min. 6 chars)" />
+            </div>
+            <div class="form-field" style="margin-bottom:0.75rem">
+              <label>Confirm New Password</label>
+              <input type="password" id="sConfPass" placeholder="Confirm new password" />
+            </div>
+            <button class="btn-sm btn-gold-sm" onclick="changePassword()">Update Password</button>
+          </div>
+
+          <div class="settings-card">
+            <h3>Data Management</h3>
+            <p>Export or import all your blog posts as a JSON backup file.</p>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <button class="btn-sm btn-gold-sm" onclick="exportJSON()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Export Posts JSON
+              </button>
+              <button class="btn-sm btn-outline-sm" onclick="document.getElementById('importFile').click()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Import from JSON
+              </button>
+              <input type="file" id="importFile" accept=".json" style="display:none" onchange="importJSON(event)"/>
+            </div>
+            <div class="settings-warning">
+              ⚠️ Blog posts are stored in <strong>this browser's localStorage</strong>. 
+              If you clear browser data, posts will be lost. Export regularly as backup!
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3>Delete All Posts</h3>
+            <p>Permanently delete all blog posts from storage. This cannot be undone.</p>
+            <button class="btn-sm" style="background:rgba(224,87,87,0.15); color:var(--red); border:1px solid rgba(224,87,87,0.3); cursor:pointer;" onclick="confirmDelete()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,6 5,6 21,6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg> Delete All Posts
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg> <span id="toastMsg">Done!</span></div>
+
+  <!-- Confirm Modal -->
+  <div class="overlay" id="confirmOverlay">
+    <div class="modal">
+      <h3>Delete All Posts?</h3>
+      <p>This will permanently remove all blog posts from storage. This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button class="btn-sm" style="background:var(--red); color:#fff; border:none; cursor:pointer;" onclick="deleteAll()">Yes, Delete All</button>
+        <button class="btn-sm btn-outline-sm" onclick="document.getElementById('confirmOverlay').classList.remove('show')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ─────────────────────────────────────────────────────
+    // ✏️ ADMIN PASSWORD — Change 'change123' to your password
+    // After first login, you can change it in Settings tab
+    // ─────────────────────────────────────────────────────
+    const DEFAULT_PASS = 'change123';
+    const PASS_KEY     = 'sr_admin_pass';
+    const POSTS_KEY    = 'sr_blog_posts';
+    const AUTH_KEY     = 'sr_authed';
+
+    // ── Auth ──────────────────────────────────────────────
+    function getPass() { return localStorage.getItem(PASS_KEY) || DEFAULT_PASS; }
+
+    function doLogin() {
+      const v = document.getElementById('loginPass').value;
+      if (v === getPass()) {
+        sessionStorage.setItem(AUTH_KEY, '1');
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('adminShell').style.display = 'block';
+        refreshAll();
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+      }
+    }
+    document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key==='Enter') doLogin(); });
+
+    function doLogout() {
+      sessionStorage.removeItem(AUTH_KEY);
+      location.reload();
+    }
+
+    // Auto-login check
+    window.addEventListener('load', () => {
+      if (sessionStorage.getItem(AUTH_KEY)) {
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('adminShell').style.display = 'block';
+        refreshAll();
+      }
+    });
+
+    // ── Data ──────────────────────────────────────────────
+    function getPosts() {
+      try { return JSON.parse(localStorage.getItem(POSTS_KEY)) || []; }
+      catch { return []; }
+    }
+    function savePosts(posts) { localStorage.setItem(POSTS_KEY, JSON.stringify(posts)); }
+
+    // ── Views ─────────────────────────────────────────────
+    function showView(name, btn) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      document.getElementById('view-' + name).classList.add('active');
+      document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      if (name === 'new-post') {
+        document.getElementById('editorHeading').textContent = 'New Post';
+        clearEditor();
+      }
+      if (name === 'dashboard') refreshDashboard();
+      if (name === 'posts') renderPostsTable();
+    }
+
+    // ── Dashboard ─────────────────────────────────────────
+    function refreshDashboard() {
+      const posts = getPosts();
+      const pub   = posts.filter(p => p.status === 'published').length;
+      const dft   = posts.filter(p => p.status === 'draft').length;
+      document.getElementById('dashTotal').textContent = posts.length;
+      document.getElementById('dashPub').textContent   = pub;
+      document.getElementById('dashDraft').textContent = dft;
+      document.getElementById('postsCount').textContent = posts.length;
+
+      const recent = document.getElementById('recentPosts');
+      const sorted = [...posts].sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
+      if (!sorted.length) {
+        recent.innerHTML = '<p style="color:var(--dim);font-size:0.82rem;padding:0.5rem 0">No posts yet. Write your first article!</p>';
+        return;
+      }
+      recent.innerHTML = sorted.map(p => `
+        <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid var(--border);align-items:center;">
+          <span style="font-size:0.88rem">${escHtml(p.title)}</span>
+          <div style="display:flex;gap:0.5rem;align-items:center">
+            <span style="font-family:var(--mono);font-size:0.7rem;color:var(--gold)">${escHtml(p.category)}</span>
+            <span class="post-row-status ${p.status==='published'?'status-published':'status-draft'}">${p.status}</span>
+          </div>
+        </div>`).join('');
+    }
+
+    // ── Posts Table ───────────────────────────────────────
+    function renderPostsTable() {
+      const posts = getPosts();
+      const body  = document.getElementById('postsTableBody');
+      document.getElementById('postsCount').textContent = posts.length;
+      if (!posts.length) {
+        body.innerHTML = `<div class="empty-state"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>No posts yet. Click "New Post" to get started.</div>`;
+        return;
+      }
+      const sorted = [...posts].sort((a,b) => new Date(b.date)-new Date(a.date));
+      body.innerHTML = sorted.map(p => `
+        <div class="post-row">
+          <div class="post-row-title">${escHtml(p.title)}</div>
+          <div class="post-row-cat">${escHtml(p.category)}</div>
+          <div class="post-row-date">${formatDate(p.date)}</div>
+          <div style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+            <span class="post-row-status ${p.status==='published'?'status-published':'status-draft'}">${p.status}</span>
+            <button class="icon-btn" title="Edit" onclick="editPost('${p.id}')"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+            <button class="icon-btn del" title="Delete" onclick="deletePost('${p.id}')"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,6 5,6 21,6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg></button>
+          </div>
+        </div>`).join('');
+    }
+
+    // ── Editor ────────────────────────────────────────────
+    function clearEditor() {
+      document.getElementById('editId').value = '';
+      document.getElementById('eTitle').value = '';
+      document.getElementById('eCat').value = 'VLSI';
+      document.getElementById('eExcerpt').value = '';
+      document.getElementById('eContent').value = '';
+      document.getElementById('eStatus').value = 'published';
+      document.getElementById('eReadTime').value = '';
+    }
+
+    function editPost(id) {
+      const posts = getPosts();
+      const p = posts.find(x => x.id === id);
+      if (!p) return;
+      showView('new-post', null);
+      document.getElementById('editorHeading').textContent = 'Edit Post';
+      document.getElementById('editId').value    = p.id;
+      document.getElementById('eTitle').value    = p.title;
+      document.getElementById('eCat').value      = p.category;
+      document.getElementById('eExcerpt').value  = p.excerpt;
+      document.getElementById('eContent').value  = p.content;
+      document.getElementById('eStatus').value   = p.status;
+      document.getElementById('eReadTime').value = p.readTime || '';
+    }
+
+    function savePost() {
+      const title   = document.getElementById('eTitle').value.trim();
+      const cat     = document.getElementById('eCat').value;
+      const excerpt = document.getElementById('eExcerpt').value.trim();
+      const content = document.getElementById('eContent').value.trim();
+      const status  = document.getElementById('eStatus').value;
+      const editId  = document.getElementById('editId').value;
+
+      if (!title) { toast('Please enter a post title.', true); return; }
+      if (!content) { toast('Please write some content.', true); return; }
+
+      const wordCount = content.split(/\s+/).length;
+      const readTime  = Math.max(1, Math.ceil(wordCount / 200)) + ' min read';
+
+      const posts = getPosts();
+      if (editId) {
+        const i = posts.findIndex(p => p.id === editId);
+        if (i > -1) {
+          posts[i] = { ...posts[i], title, category: cat, excerpt, content, status, readTime, updatedAt: new Date().toISOString() };
+        }
+      } else {
+        posts.unshift({
+          id: 'post_' + Date.now(),
+          title, category: cat, excerpt, content, status, readTime,
+          date: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        });
+      }
+      savePosts(posts);
+      toast(editId ? 'Post updated!' : 'Post published!');
+      showView('posts', document.querySelectorAll('.sidebar-btn')[1]);
+      refreshAll();
+    }
+
+    function deletePost(id) {
+      if (!confirm('Delete this post?')) return;
+      const posts = getPosts().filter(p => p.id !== id);
+      savePosts(posts);
+      renderPostsTable();
+      refreshDashboard();
+      toast('Post deleted.');
+    }
+
+    // ── Markdown toolbar ─────────────────────────────────
+    function insertMd(before, after) {
+      const ta = document.getElementById('eContent');
+      const s = ta.selectionStart, e = ta.selectionEnd;
+      const selected = ta.value.substring(s, e);
+      ta.value = ta.value.substring(0, s) + before + selected + after + ta.value.substring(e);
+      ta.focus();
+      ta.selectionStart = s + before.length;
+      ta.selectionEnd   = e + before.length;
+    }
+
+    // ── Settings ─────────────────────────────────────────
+    function changePassword() {
+      const curr = document.getElementById('sCurrPass').value;
+      const nw   = document.getElementById('sNewPass').value;
+      const cf   = document.getElementById('sConfPass').value;
+      if (curr !== getPass()) { toast('Current password is wrong.', true); return; }
+      if (nw.length < 6) { toast('New password must be at least 6 characters.', true); return; }
+      if (nw !== cf) { toast('Passwords do not match.', true); return; }
+      localStorage.setItem(PASS_KEY, nw);
+      toast('Password updated!');
+      document.getElementById('sCurrPass').value = '';
+      document.getElementById('sNewPass').value  = '';
+      document.getElementById('sConfPass').value = '';
+    }
+
+    function exportJSON() {
+      const posts = getPosts();
+      const blob  = new Blob([JSON.stringify(posts, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'shahriar-blog-backup-' + new Date().toISOString().split('T')[0] + '.json';
+      a.click();
+      toast('Backup downloaded!');
+    }
+
+    function importJSON(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          if (!Array.isArray(data)) throw new Error();
+          savePosts(data);
+          refreshAll();
+          toast(`Imported ${data.length} posts!`);
+        } catch { toast('Invalid JSON file.', true); }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    }
+
+    function confirmDelete() { document.getElementById('confirmOverlay').classList.add('show'); }
+    function deleteAll() {
+      savePosts([]);
+      document.getElementById('confirmOverlay').classList.remove('show');
+      refreshAll();
+      toast('All posts deleted.');
+    }
+
+    // ── Helpers ───────────────────────────────────────────
+    function refreshAll() { refreshDashboard(); renderPostsTable(); }
+    function formatDate(d) {
+      return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    let toastTimer;
+    function toast(msg, isError = false) {
+      const el  = document.getElementById('toast');
+      const ico = el.querySelector('i');
+      document.getElementById('toastMsg').textContent = msg;
+      el.classList.toggle('error', isError);
+      ico.className = isError ? 'fas fa-exclamation-circle' : 'fas fa-check-circle';
+      el.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
+    }
+  </script>
+</body>
+</html>
