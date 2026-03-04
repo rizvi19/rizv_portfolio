@@ -8,8 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <style>
     :root {
       --bg:#0a0a0f; --bg2:#0f0f18; --card:#13131e;
@@ -22,7 +20,6 @@
       --t:.3s cubic-bezier(.4,0,.2,1); --maxw:1100px;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    /* FIX 1: scroll-padding-top so navbar never covers headings */
     html{scroll-behavior:smooth;scroll-padding-top:var(--navh);font-size:16px}
     body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
     ::selection{background:var(--gold);color:#000}
@@ -30,29 +27,24 @@
     a:hover{color:var(--goldl)}
     img{max-width:100%;display:block}
 
-    /* noise */
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.5}
 
-    /* === PROGRESS BAR (unique) === */
     #pbar{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--gold),var(--goldl));z-index:9999;transition:width .1s linear}
 
-    /* === BACK TO TOP (unique) === */
     #btt{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--borderg);color:var(--gold);font-size:.85rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;opacity:0;transform:translateY(20px);transition:all var(--t)}
     #btt.show{opacity:1;transform:translateY(0)}
     #btt:hover{background:rgba(196,160,90,.15);transform:translateY(-2px)}
 
-    /* layout */
     .container{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
     section{padding:6rem 0}
 
-    /* labels + headings */
     .slabel{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
     .slabel::after{content:'';display:block;width:40px;height:1px;background:var(--gold);opacity:.5}
     .sh{font-family:var(--serif);font-size:clamp(2rem,5vw,3.2rem);font-weight:300;line-height:1.15;margin-bottom:3rem;color:var(--text)}
     .sh em{font-style:italic;color:var(--gold)}
     .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--borderg),transparent);margin:1rem 0}
 
-    /* === NAVBAR (FIX: always has background so no overlap) === */
+    /* ── NAVBAR ── */
     #nav{position:fixed;top:0;left:0;right:0;height:var(--navh);z-index:1000;background:rgba(10,10,15,.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
     #nav .container{display:flex;align-items:center;justify-content:space-between;height:100%}
     .nlogo{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--text)}
@@ -62,10 +54,19 @@
     .nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t)}
     .nlinks a:hover,.nlinks a.active{color:var(--gold)}
     .nlinks a:hover::after,.nlinks a.active::after{width:100%}
-    .ntoggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
-    .ntoggle span{display:block;width:24px;height:1.5px;background:var(--text);transition:var(--t)}
 
-    /* === HERO === */
+    /* Hamburger toggle */
+    .ntoggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1003;position:relative}
+    .ntoggle span{display:block;width:24px;height:1.5px;background:var(--text);transition:var(--t);transform-origin:center}
+    .ntoggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .ntoggle.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .ntoggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+    /* Mobile nav backdrop */
+    #nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1001;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+    #nav-backdrop.show{display:block}
+
+    /* ── HERO ── */
     #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:0}
     #hero::before{content:'';position:absolute;top:-30%;right:-20%;width:70vw;height:70vw;background:radial-gradient(circle,rgba(196,160,90,.05),transparent 60%);pointer-events:none}
     #hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:50vw;height:50vw;background:radial-gradient(circle,rgba(74,111,165,.06),transparent 60%);pointer-events:none}
@@ -83,7 +84,6 @@
     .btno{background:transparent;color:var(--text);border:1px solid var(--border)}
     .btno:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 
-    /* hero panel */
     .hpanel{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2.5rem;position:relative;opacity:0;animation:fi 1s .9s forwards}
     .hpanel::before{content:'';position:absolute;inset:0;border-radius:var(--r);background:linear-gradient(135deg,rgba(196,160,90,.04),transparent);pointer-events:none}
     .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
@@ -96,7 +96,6 @@
     .soc{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;transition:all var(--t)}
     .soc:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 
-    /* terminal widget (unique) */
     .term{background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:1rem 1.25rem;margin-top:1.5rem;font-family:var(--mono);font-size:.72rem}
     .term-hdr{display:flex;align-items:center;gap:.4rem;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,.05)}
     .tdot{width:8px;height:8px;border-radius:50%}
@@ -105,7 +104,7 @@
     .tp{color:var(--gold);margin-right:.5rem}
     .tv{color:#4ac882} .ts{color:#7ec8e3}
 
-    /* === ABOUT === */
+    /* ── ABOUT ── */
     #about{background:var(--bg2)}
     .agrid{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:start}
     .atext p{color:var(--muted);margin-bottom:1.2rem;font-size:1.02rem;line-height:1.85}
@@ -113,10 +112,10 @@
     .scard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-bottom:1.25rem}
     .scard h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
     .irow{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:.75rem;font-size:.88rem}
-    .irow i,.irow svg{color:var(--gold);width:16px;min-width:16px;margin-top:.15rem;flex-shrink:0}
+    .irow svg{color:var(--gold);width:16px;min-width:16px;margin-top:.15rem;flex-shrink:0}
     .irow span{color:var(--muted)}
 
-    /* === EDUCATION === */
+    /* ── EDUCATION ── */
     .edulist{display:flex;flex-direction:column;gap:1.5rem}
     .educard{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--r);padding:1.75rem 2rem;display:grid;grid-template-columns:1fr auto;gap:1rem;transition:all var(--t)}
     .educard:hover{border-left-color:var(--goldl);box-shadow:0 4px 40px rgba(196,160,90,.07);transform:translateX(4px)}
@@ -127,7 +126,7 @@
     .gpav{font-family:var(--serif);font-size:1.8rem;color:var(--gold);font-weight:300}
     .gpal{font-size:.68rem;color:var(--dim);font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
 
-    /* === PROJECTS === */
+    /* ── PROJECTS ── */
     #projects{background:var(--bg2)}
     .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
     .pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;transition:all var(--t);position:relative;overflow:hidden}
@@ -146,7 +145,7 @@
     .ptag{padding:.2rem .65rem;border-radius:var(--rs);font-size:.68rem;font-family:var(--mono);background:rgba(255,255,255,.04);color:var(--dim);border:1px solid var(--border)}
     .plink{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--gold);font-family:var(--mono)}
 
-    /* === ACHIEVEMENTS === */
+    /* ── ACHIEVEMENTS ── */
     .achgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
     .achcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:all var(--t)}
     .achcard:hover{border-color:var(--borderg);transform:translateY(-2px)}
@@ -154,7 +153,7 @@
     .acht{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:.2rem;line-height:1.4}
     .achm{font-size:.75rem;color:var(--dim);font-family:var(--mono)}
 
-    /* === SKILLS === */
+    /* ── SKILLS ── */
     #skills{background:var(--bg2)}
     .skgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
     .skcat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem}
@@ -165,7 +164,7 @@
     .skbw{width:100px;height:2px;background:var(--border);border-radius:99px;overflow:hidden}
     .skb{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--goldl));border-radius:99px;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
 
-    /* === EXPERIENCE === */
+    /* ── EXPERIENCE ── */
     .tl{position:relative;padding-left:2px}
     .tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent);opacity:.3}
     .tli{padding-left:2.5rem;padding-bottom:3rem;position:relative}
@@ -176,7 +175,7 @@
     .tlorg{font-size:.85rem;color:var(--muted);margin-bottom:.75rem}
     .tldsc{font-size:.88rem;color:var(--dim);line-height:1.7}
 
-    /* === BLOG === */
+    /* ── BLOG ── */
     #blog{background:var(--bg2)}
     .bintro{font-size:1rem;color:var(--muted);max-width:560px;margin-bottom:2rem;line-height:1.8}
     .bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
@@ -189,17 +188,17 @@
     .bmeta{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--dim);font-family:var(--mono);padding-top:1rem;border-top:1px solid var(--border)}
     .bread{color:var(--gold);display:flex;align-items:center;gap:.3rem}
 
-    /* post modal */
     #pmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.87);z-index:2000;overflow-y:auto;padding:2rem 1rem}
     .mi{max-width:760px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
 
-    /* === CONTACT === */
+    /* ── CONTACT ── */
     .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
     .ctext p{color:var(--muted);line-height:1.8;margin-bottom:2rem}
     .clinks{display:flex;flex-direction:column;gap:1rem}
     .cli{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:var(--rs);transition:all var(--t);color:var(--text)}
     .cli:hover{border-color:var(--gold);transform:translateX(4px);color:var(--text)}
-    .clico{width:36px;height:36px;border-radius:50%;background:rgba(196,160,90,.1);border:1px solid var(--borderg);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0} .clico svg{width:16px;height:16px}
+    .clico{width:36px;height:36px;border-radius:50%;background:rgba(196,160,90,.1);border:1px solid var(--borderg);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0}
+    .clico svg{width:16px;height:16px}
     .cltxt strong{display:block;font-size:.8rem;color:var(--text);margin-bottom:.1rem}
     .cltxt span{font-size:.78rem;color:var(--muted)}
     .fgroup{margin-bottom:1.25rem}
@@ -209,28 +208,58 @@
     .fgroup textarea{min-height:130px;resize:vertical}
     .fnote{font-size:.75rem;color:var(--dim);margin-top:.75rem;font-family:var(--mono)}
 
-    /* === FOOTER === */
+    /* ── FOOTER ── */
     footer{border-top:1px solid var(--border);padding:2.5rem 0}
     .fi{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
     footer p{font-size:.8rem;color:var(--dim)}
     .flogo{font-family:var(--serif);font-size:1.2rem;color:var(--muted)}
     .flogo span{color:var(--gold)}
 
-    /* Content always visible — no JS-dependent reveal */
     .reveal, .reveal-stagger, .reveal-stagger > * { opacity:1 !important; transform:none !important; }
 
     @keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fi{from{opacity:0}to{opacity:1}}
 
+    /* ── RESPONSIVE ── */
     @media(max-width:900px){
       .hinner{grid-template-columns:1fr}
       .hpanel{max-width:480px}
       .agrid{grid-template-columns:1fr}
       .cgrid{grid-template-columns:1fr}
+
+      /* Hide desktop nav links */
       .nlinks{display:none}
       .ntoggle{display:flex}
-      .nlinks.open{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,15,.97);justify-content:center;align-items:center;gap:2.5rem;z-index:999}
-      .nlinks.open a{font-size:1.1rem}
+
+      /* Slide-in drawer from right */
+      .nlinks.open{
+        display:flex;
+        flex-direction:column;
+        position:fixed;
+        top:0; right:0; bottom:0;
+        width:min(300px,80vw);
+        background:var(--card);
+        border-left:1px solid var(--borderg);
+        justify-content:flex-start;
+        align-items:flex-start;
+        padding:5.5rem 2.5rem 2.5rem;
+        gap:0;
+        z-index:1002;
+        box-shadow:-24px 0 80px rgba(0,0,0,.65);
+        animation:drawerIn .3s cubic-bezier(.4,0,.2,1) forwards;
+      }
+      @keyframes drawerIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+      .nlinks.open li{width:100%;border-bottom:1px solid var(--border)}
+      .nlinks.open li:last-child{border-bottom:none}
+      .nlinks.open a{
+        display:block;
+        font-size:.95rem;
+        padding:.9rem 0;
+        color:var(--muted);
+        letter-spacing:.1em;
+      }
+      .nlinks.open a:hover,.nlinks.open a.active{color:var(--gold)}
+      .nlinks.open a::after{display:none}
     }
     @media(max-width:600px){
       section{padding:4rem 0}
@@ -245,6 +274,9 @@
 
 <div id="pbar"></div>
 <button id="btt" onclick="sTo(0)" title="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5,12 12,5 19,12"/></svg></button>
+
+<!-- Mobile nav backdrop -->
+<div id="nav-backdrop"></div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -276,7 +308,9 @@
         <p class="htitle" id="htitle"><span id="typed-text"></span><span class="cursor"></span></p>
         <p class="hdesc">Final-year CSE student at RUET, Bangladesh. Champion at VLSITHON 2024, IBM Qiskit Excellence awardee. Passionate about building hardware from the ground up — from RTL to GDSII.</p>
         <div class="hcta">
-          <a href="Shahriar_Rizvi_CV.pdf" class="btn btng" download><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download CV</a>
+          <a href="https://drive.google.com/file/d/16xxtKuSW_oMnZRNaTtCGWt4BNMgsgGqk/view?usp=sharing" class="btn btng" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download CV
+          </a>
           <a href="#contact" class="btn btno" onclick="nTo('contact');return false;">Get in Touch</a>
         </div>
       </div>
@@ -295,7 +329,6 @@
           <span class="tag">Qiskit</span><span class="tag">FPGA</span>
           <span class="tag">Network Eng.</span><span class="tag">C / C++</span>
         </div>
-        <!-- Terminal widget -->
         <div class="term">
           <div class="term-hdr">
             <div class="tdot" style="background:#ff5f57"></div>
@@ -308,8 +341,8 @@
           <div class="tline"><span class="tp">$</span><span class="tv">status</span>&nbsp; = <span style="color:#4ac882">⬤ active</span></div>
         </div>
         <div class="socials">
-          <a href="https://linkedin.com/in/rizvi-sh/" target="_blank" class="soc" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://github.com/" target="_blank" class="soc" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+          <a href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" class="soc" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://github.com/rizvi19/" target="_blank" class="soc" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
           <a href="mailto:shahriar10rizvi@gmail.com" class="soc" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></a>
         </div>
       </div>
@@ -394,28 +427,28 @@
         <h3 class="ptitle">SigmaCore — RISC-V CPU</h3>
         <p class="pdesc">Designing a full RISC-V architecture processor from scratch using SystemVerilog — Memory, ALU, and Control Unit at RTL level, targeting GDSII tape-out. Future plans include a custom OS and compiler on the silicon.</p>
         <div class="ptags"><span class="ptag">SystemVerilog</span><span class="ptag">RISC-V</span><span class="ptag">RTL</span><span class="ptag">GDSII</span></div>
-        <a href="https://github.com/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
+        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
       </div>
       <div class="pcard">
         <div class="pstatus sact"><span class="sdot"></span> In Progress</div>
         <h3 class="ptitle">CPU Design 01</h3>
         <p class="pdesc">Designing a CPU from scratch in Verilog — implementing Memory, ALU, and Control Unit at RTL level. A deep foundational study in digital computer architecture and HDL engineering.</p>
         <div class="ptags"><span class="ptag">Verilog</span><span class="ptag">RTL Design</span><span class="ptag">ALU</span><span class="ptag">Control Unit</span></div>
-        <a href="https://github.com/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
+        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
       </div>
       <div class="pcard">
         <div class="pstatus sdon"><span class="sdot"></span> Complete</div>
         <h3 class="ptitle">AI Powered Attendance System</h3>
         <p class="pdesc">An automated attendance management system using face recognition that updates attendance sheets in real-time without manual intervention.</p>
         <div class="ptags"><span class="ptag">Python</span><span class="ptag">Face Recognition</span><span class="ptag">AI/ML</span><span class="ptag">OpenCV</span></div>
-        <a href="https://github.com/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
+        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
       </div>
       <div class="pcard">
         <div class="pstatus sdon"><span class="sdot"></span> Complete</div>
         <h3 class="ptitle">BoiKothon — Book Review Platform</h3>
         <p class="pdesc">A full-stack web platform for sharing and discovering book reviews. Built with Django for the backend and HTML/PHP for the frontend.</p>
         <div class="ptags"><span class="ptag">Django</span><span class="ptag">Python</span><span class="ptag">HTML</span><span class="ptag">PHP</span></div>
-        <a href="https://github.com/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
+        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
       </div>
     </div>
   </div>
@@ -525,8 +558,8 @@
         <p>I'm open to research collaborations, academic discussions, graduate school inquiries, and professional opportunities in VLSI, quantum computing, and hardware engineering.</p>
         <div class="clinks">
           <a href="mailto:shahriar10rizvi@gmail.com" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></div><div class="cltxt"><strong>Email</strong><span>shahriar10rizvi@gmail.com</span></div></a>
-          <a href="https://linkedin.com/in/rizvi-sh/" target="_blank" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div class="cltxt"><strong>LinkedIn</strong><span>linkedin.com/in/rizvi-sh/</span></div></a>
-          <a href="https://github.com/" target="_blank" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></div><div class="cltxt"><strong>GitHub</strong><span>github.com/shahriarrizvi</span></div></a>
+          <a href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div class="cltxt"><strong>LinkedIn</strong><span>linkedin.com/in/rizvi-sh/</span></div></a>
+          <a href="https://github.com/rizvi19/" target="_blank" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></div><div class="cltxt"><strong>GitHub</strong><span>github.com/rizvi19</span></div></a>
           <div class="cli" style="cursor:default;"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div class="cltxt"><strong>Location</strong><span>Rajshahi, Bangladesh</span></div></div>
         </div>
       </div>
@@ -556,7 +589,6 @@
 </footer>
 
 <script>
-// ── Scroll helpers (globally scoped so onclick= attrs work) ──────────────────
 var NAV_H = 70;
 
 function sTo(y) {
@@ -565,30 +597,51 @@ function sTo(y) {
 
 function nTo(id) {
   var el = document.getElementById(id);
-  if (!el) { return; }
+  if (!el) return;
   var top = el.getBoundingClientRect().top + window.pageYOffset - NAV_H;
   window.scrollTo({ top: top, behavior: 'smooth' });
-  var nav = document.getElementById('nl');
-  if (nav) nav.classList.remove('open');
+  closeNav();
 }
 
-// ── Footer year ──────────────────────────────────────────────────────────────
+// ── Mobile nav (slide-in drawer) ─────────────────────────────────────────────
+var ntgl = document.getElementById('ntgl');
+var nl   = document.getElementById('nl');
+var bd   = document.getElementById('nav-backdrop');
+
+function openNav() {
+  nl.classList.add('open');
+  ntgl.classList.add('open');
+  bd.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeNav() {
+  nl.classList.remove('open');
+  ntgl.classList.remove('open');
+  bd.classList.remove('show');
+  document.body.style.overflow = '';
+}
+ntgl.addEventListener('click', function() {
+  nl.classList.contains('open') ? closeNav() : openNav();
+});
+bd.addEventListener('click', closeNav);
+
+// ── Footer year ───────────────────────────────────────────────────────────────
 document.getElementById('fy').textContent = new Date().getFullYear();
 
-// ── Scroll progress bar ──────────────────────────────────────────────────────
+// ── Scroll progress bar ───────────────────────────────────────────────────────
 var pb = document.getElementById('pbar');
 window.addEventListener('scroll', function() {
   var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
   pb.style.width = Math.min(pct, 100) + '%';
 }, { passive: true });
 
-// ── Back to top button ───────────────────────────────────────────────────────
+// ── Back to top ───────────────────────────────────────────────────────────────
 var bt = document.getElementById('btt');
 window.addEventListener('scroll', function() {
   bt.classList.toggle('show', window.scrollY > 500);
 }, { passive: true });
 
-// ── Active nav highlight ─────────────────────────────────────────────────────
+// ── Active nav highlight ──────────────────────────────────────────────────────
 var secs = document.querySelectorAll('section[id]');
 var nas  = document.querySelectorAll('.nlinks a');
 var navObs = new IntersectionObserver(function(entries) {
@@ -602,12 +655,7 @@ var navObs = new IntersectionObserver(function(entries) {
 }, { threshold: 0.3 });
 secs.forEach(function(s) { navObs.observe(s); });
 
-// ── Mobile nav toggle ────────────────────────────────────────────────────────
-document.getElementById('ntgl').addEventListener('click', function() {
-  document.getElementById('nl').classList.toggle('open');
-});
-
-// ── Skill bar animation ──────────────────────────────────────────────────────
+// ── Skill bars ────────────────────────────────────────────────────────────────
 var skObs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) {
     if (e.isIntersecting) {
@@ -620,7 +668,7 @@ var skObs = new IntersectionObserver(function(entries) {
 }, { threshold: 0, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.skcat').forEach(function(c) { skObs.observe(c); });
 
-// ── Animated stat counters ───────────────────────────────────────────────────
+// ── Animated counters ─────────────────────────────────────────────────────────
 function animCount(el) {
   var tgt = parseFloat(el.dataset.count);
   var dec = parseInt(el.dataset.dec || 0);
@@ -645,7 +693,7 @@ var cntObs = new IntersectionObserver(function(entries) {
 var hp = document.querySelector('.hpanel');
 if (hp) cntObs.observe(hp);
 
-// ── Typewriter effect ────────────────────────────────────────────────────────
+// ── Typewriter ────────────────────────────────────────────────────────────────
 var phrases = [
   'RTL Designer & Researcher',
   'RISC-V CPU Architect',
@@ -682,7 +730,7 @@ if (twEl) {
   twTick();
 }
 
-// ── Blog system ──────────────────────────────────────────────────────────────
+// ── Blog ──────────────────────────────────────────────────────────────────────
 var PK = 'sr_blog_posts';
 function gp() { try { return JSON.parse(localStorage.getItem(PK)) || []; } catch(e) { return []; } }
 function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -744,13 +792,13 @@ function md2h(md) {
 
 renderBlog();
 
-// ── Contact form ─────────────────────────────────────────────────────────────
+// ── Contact form ──────────────────────────────────────────────────────────────
 document.getElementById('cform').addEventListener('submit', function(e) {
   e.preventDefault();
-  var n = document.getElementById('fn').value;
+  var n  = document.getElementById('fn').value;
   var em = document.getElementById('fe').value;
-  var s = document.getElementById('fs').value || 'Portfolio Inquiry';
-  var m = document.getElementById('fm').value;
+  var s  = document.getElementById('fs').value || 'Portfolio Inquiry';
+  var m  = document.getElementById('fm').value;
   window.location.href = 'mailto:shahriar10rizvi@gmail.com?subject=' + encodeURIComponent(s) + '&body=' + encodeURIComponent('From: ' + n + ' (' + em + ')\n\n' + m);
 });
 </script>
