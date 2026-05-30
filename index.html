@@ -3,804 +3,642 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shahriar Rizvi — Hardware Engineer & VLSI Researcher</title>
-  <meta name="description" content="Shahriar Rizvi — VLSI, Quantum Computing, and Network Engineering researcher at RUET, Bangladesh.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Shahriar Rizvi — IEEE-Published CSE Researcher | RTL, FPGA & Computer Architecture</title>
+  <meta name="description" content="Portfolio of Shahriar Rizvi, a final-semester CSE candidate at RUET and IEEE-published researcher focused on RTL design, FPGA acceleration, computer architecture, quantum-inspired systems, AI, DSP, and computing systems research." />
+  <link rel="canonical" href="https://rizv.dev/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rizv.dev/" />
+  <meta property="og:title" content="Shahriar Rizvi — RTL, FPGA & Computer Architecture" />
+  <meta property="og:description" content="IEEE-published RUET CSE researcher focused on RTL design, FPGA acceleration, computer architecture, quantum-inspired systems, AI, DSP, and computing systems research." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Shahriar Rizvi — RTL, FPGA & Computer Architecture" />
+  <meta name="twitter:description" content="IEEE-published RUET CSE researcher focused on RTL design, FPGA acceleration, computer architecture, quantum-inspired systems, AI, DSP, and computing systems research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shahriar Rizvi",
+    "url": "https://rizv.dev/",
+    "email": "mailto:shahriar10rizvi@gmail.com",
+    "sameAs": [
+      "https://github.com/rizvi19",
+      "https://www.linkedin.com/in/rizvi-sh/",
+      "https://www.researchgate.net/profile/Shahriar-Rizvi",
+      "https://scholar.google.com/citations?user=Qt3KWTQAAAAJ&hl=en",
+      "https://orcid.org/0009-0003-6098-4056"
+    ],
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Rajshahi University of Engineering & Technology"
+    },
+    "knowsAbout": [
+      "RTL Design",
+      "FPGA Acceleration",
+      "Computer Architecture",
+      "VLSI",
+      "RISC-V",
+      "Quantum Computing",
+      "Quantum-Inspired Machine Learning",
+      "Artificial Intelligence",
+      "Digital Signal Processing",
+      "Indoor Localization",
+      "Computer Networks",
+      "Embedded Systems"
+    ]
+  }
+  </script>
   <style>
     :root {
-      --bg:#0a0a0f; --bg2:#0f0f18; --card:#13131e;
-      --border:rgba(255,255,255,0.07); --borderg:rgba(196,160,90,0.35);
-      --gold:#c4a05a; --goldl:#dfc07a;
-      --text:#e8e6e0; --muted:#7a7870; --dim:#4a4840;
+      --bg:#0a0a0f; --bg2:#0f0f18; --card:#13131e; --card2:#171724;
+      --border:rgba(255,255,255,.08); --borderg:rgba(196,160,90,.34);
+      --gold:#c4a05a; --goldl:#dfc07a; --green:#4ac882;
+      --text:#e8e6e0; --muted:#a09d92; --dim:#706d62;
       --serif:'Cormorant Garamond',Georgia,serif;
-      --sans:'Outfit',sans-serif; --mono:'DM Mono',monospace;
-      --r:12px; --rs:6px; --navh:65px;
-      --t:.3s cubic-bezier(.4,0,.2,1); --maxw:1100px;
+      --sans:'Outfit',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      --mono:'DM Mono','SFMono-Regular',Consolas,monospace;
+      --navh:68px; --maxw:1120px; --r:16px; --rs:9px;
+      --t:.28s cubic-bezier(.4,0,.2,1);
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-padding-top:var(--navh);font-size:16px}
-    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
-    ::selection{background:var(--gold);color:#000}
-    a{color:var(--gold);text-decoration:none;transition:color var(--t)}
+    html{scroll-behavior:smooth;scroll-padding-top:calc(var(--navh) + 20px);font-size:16px}
+    body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.55}
+    ::selection{background:var(--gold);color:#09090d}
+    a{color:var(--gold);text-decoration:none;transition:color var(--t),border-color var(--t),background var(--t),transform var(--t)}
     a:hover{color:var(--goldl)}
-    img{max-width:100%;display:block}
-
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.5}
+    strong{font-weight:500;color:var(--text)}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
+    section{padding:6.5rem 0;position:relative}
+    .slabel{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
+    .slabel::after{content:'';width:42px;height:1px;background:var(--gold);opacity:.45}
+    .sh{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:300;line-height:1.1;margin-bottom:1.1rem;color:var(--text)}
+    .sh em{font-style:italic;color:var(--gold)}
+    .sintro{max-width:740px;color:var(--muted);font-size:1rem;margin-bottom:2.4rem}
+    .pill{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--borderg);background:rgba(196,160,90,.08);color:var(--goldl);border-radius:999px;padding:.35rem .75rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase}
+    .chips{display:flex;flex-wrap:wrap;gap:.55rem}
+    .chip{display:inline-flex;align-items:center;border:1px solid var(--border);background:rgba(255,255,255,.035);color:var(--muted);border-radius:999px;padding:.42rem .72rem;font-size:.78rem}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.018));border:1px solid var(--border);border-radius:var(--r);padding:1.45rem;transition:transform var(--t),border-color var(--t),box-shadow var(--t)}
+    .card:hover{transform:translateY(-3px);border-color:var(--borderg);box-shadow:0 20px 60px rgba(0,0,0,.22)}
+    .muted{color:var(--muted)}
+    .mono{font-family:var(--mono)}
 
     #pbar{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--gold),var(--goldl));z-index:9999;transition:width .1s linear}
-
-    #btt{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--borderg);color:var(--gold);font-size:.85rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;opacity:0;transform:translateY(20px);transition:all var(--t)}
+    #btt{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--borderg);color:var(--gold);font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;opacity:0;transform:translateY(20px);transition:all var(--t)}
     #btt.show{opacity:1;transform:translateY(0)}
     #btt:hover{background:rgba(196,160,90,.15);transform:translateY(-2px)}
 
-    .container{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
-    section{padding:6rem 0}
-
-    .slabel{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
-    .slabel::after{content:'';display:block;width:40px;height:1px;background:var(--gold);opacity:.5}
-    .sh{font-family:var(--serif);font-size:clamp(2rem,5vw,3.2rem);font-weight:300;line-height:1.15;margin-bottom:3rem;color:var(--text)}
-    .sh em{font-style:italic;color:var(--gold)}
-    .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--borderg),transparent);margin:1rem 0}
-
-    /* ── NAVBAR ── */
-    #nav{position:fixed;top:0;left:0;right:0;height:var(--navh);z-index:1000;background:rgba(10,10,15,.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    #nav{position:fixed;top:0;left:0;right:0;height:var(--navh);z-index:1100;background:rgba(10,10,15,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
     #nav .container{display:flex;align-items:center;justify-content:space-between;height:100%}
-    .nlogo{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--text)}
+    .nlogo{font-family:var(--serif);font-size:1.45rem;color:var(--text)}
     .nlogo span{color:var(--gold)}
-    .nlinks{display:flex;gap:2rem;list-style:none}
-    .nlinks a{font-size:.78rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color var(--t);position:relative;padding-bottom:2px}
+    .nlinks{display:flex;gap:1.35rem;list-style:none;align-items:center}
+    .nlinks a{font-size:.71rem;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);position:relative;padding-bottom:3px}
     .nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t)}
     .nlinks a:hover,.nlinks a.active{color:var(--gold)}
     .nlinks a:hover::after,.nlinks a.active::after{width:100%}
-
-    /* Hamburger toggle */
-    .ntoggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1003;position:relative}
+    .ntoggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;z-index:1102;position:relative}
     .ntoggle span{display:block;width:24px;height:1.5px;background:var(--text);transition:var(--t);transform-origin:center}
     .ntoggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
     .ntoggle.open span:nth-child(2){opacity:0;transform:scaleX(0)}
     .ntoggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    #nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1050;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity var(--t),visibility var(--t)}
+    #nav-backdrop.show{opacity:1;visibility:visible;pointer-events:auto}
 
-    /* Mobile nav backdrop */
-    #nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1001;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
-    #nav-backdrop.show{display:block}
+    #hero{min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:0}
+    #hero::before{content:'';position:absolute;top:-30%;right:-20%;width:75vw;height:75vw;background:radial-gradient(circle,rgba(196,160,90,.065),transparent 60%);pointer-events:none}
+    #hero::after{content:'';position:absolute;bottom:-25%;left:-15%;width:55vw;height:55vw;background:radial-gradient(circle,rgba(74,111,165,.08),transparent 60%);pointer-events:none}
+    .hinner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:4rem;align-items:center;padding:8rem 0 5rem;position:relative;z-index:1}
+    .eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+    .hname{font-family:var(--serif);font-size:clamp(3.6rem,8vw,6.2rem);font-weight:300;line-height:.96;color:var(--text);margin-bottom:1.2rem}
+    .htitle{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--goldl);font-weight:400;margin-bottom:1.1rem}
+    .hdesc{max-width:680px;color:var(--muted);font-size:1.05rem;line-height:1.85;margin-bottom:2rem}
+    .hcta{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1.8rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.78rem 1.08rem;border-radius:999px;font-weight:500;font-size:.83rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid transparent;cursor:pointer}
+    .btng{background:var(--gold);color:#07070b;border-color:var(--gold)}
+    .btng:hover{background:var(--goldl);color:#07070b;transform:translateY(-2px)}
+    .btno{border-color:var(--borderg);background:rgba(196,160,90,.055);color:var(--gold)}
+    .btno:hover{background:rgba(196,160,90,.12);transform:translateY(-2px)}
+    .hlinks{display:flex;gap:.65rem;flex-wrap:wrap}
+    .hlinks a{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:.36rem .66rem;background:rgba(255,255,255,.025)}
+    .hlinks a:hover{color:var(--gold);border-color:var(--borderg)}
+    .hpanel{background:linear-gradient(145deg,rgba(19,19,30,.92),rgba(10,10,15,.88));border:1px solid var(--borderg);border-radius:24px;padding:1.45rem;box-shadow:0 28px 100px rgba(0,0,0,.42)}
+    .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin-bottom:1rem}
+    .fact{background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:14px;padding:1rem}
+    .fact strong{display:block;font-family:var(--serif);font-size:1.85rem;font-weight:300;color:var(--goldl);line-height:1}
+    .fact span{display:block;margin-top:.45rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .focusbox{border:1px solid var(--border);border-radius:16px;padding:1rem;background:#0d0d14;margin-top:.95rem}
+    .focusbox h3{font-family:var(--mono);font-size:.7rem;color:var(--gold);letter-spacing:.13em;text-transform:uppercase;margin-bottom:.65rem}
+    .focusbox p{color:var(--muted);font-size:.88rem;line-height:1.75}
 
-    /* ── HERO ── */
-    #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:0}
-    #hero::before{content:'';position:absolute;top:-30%;right:-20%;width:70vw;height:70vw;background:radial-gradient(circle,rgba(196,160,90,.05),transparent 60%);pointer-events:none}
-    #hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:50vw;height:50vw;background:radial-gradient(circle,rgba(74,111,165,.06),transparent 60%);pointer-events:none}
-    .hinner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:8rem 0 6rem;width:100%}
-    .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:fu .8s .2s forwards}
-    .hname{font-family:var(--serif);font-size:clamp(3rem,7vw,5.5rem);font-weight:300;line-height:1.05;color:var(--text);margin-bottom:.5rem;opacity:0;animation:fu .8s .35s forwards}
-    .htitle{font-family:var(--serif);font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:300;font-style:italic;color:var(--muted);margin-bottom:2rem;min-height:2.2rem;}
-    .cursor{display:inline-block;width:2px;height:1em;background:var(--gold);margin-left:3px;vertical-align:middle;animation:blink .85s infinite}
-    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-    .hdesc{font-size:1rem;line-height:1.8;color:var(--muted);max-width:440px;margin-bottom:2.5rem;opacity:0;animation:fu .8s .65s forwards}
-    .hcta{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fu .8s .8s forwards}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;border-radius:var(--rs);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:all var(--t);cursor:pointer;border:none}
-    .btng{background:var(--gold);color:#000}
-    .btng:hover{background:var(--goldl);color:#000;transform:translateY(-2px);box-shadow:0 8px 32px rgba(196,160,90,.25)}
-    .btno{background:transparent;color:var(--text);border:1px solid var(--border)}
-    .btno:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+    .about-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:2rem;align-items:start}
+    .about-copy p{color:var(--muted);margin-bottom:1rem;font-size:1rem;line-height:1.9}
+    .info-list{display:grid;gap:.8rem}
+    .info-row{display:flex;gap:.8rem;align-items:flex-start;padding:.95rem;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--rs)}
+    .info-row .key{font-family:var(--mono);font-size:.66rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;min-width:76px}
+    .info-row .value{color:var(--muted);font-size:.9rem}
 
-    .hpanel{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2.5rem;position:relative;opacity:0;animation:fi 1s .9s forwards}
-    .hpanel::before{content:'';position:absolute;inset:0;border-radius:var(--r);background:linear-gradient(135deg,rgba(196,160,90,.04),transparent);pointer-events:none}
-    .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
-    .sval{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--gold);line-height:1}
-    .slbl2{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:.3rem}
-    .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
-    .tag{padding:.3rem .8rem;border-radius:99px;font-size:.72rem;font-family:var(--mono);border:1px solid var(--border);color:var(--muted);transition:all var(--t)}
-    .tag:hover{border-color:var(--gold);color:var(--gold)}
-    .socials{display:flex;gap:1rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
-    .soc{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;transition:all var(--t)}
-    .soc:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+    .edu-list{display:grid;gap:1rem}
+    .edu-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.2rem;align-items:center}
+    .edu-card h3{font-size:1.05rem;font-weight:500;color:var(--text);margin-bottom:.25rem}
+    .edu-card p{color:var(--muted);font-size:.92rem}
+    .edu-result{text-align:right;min-width:150px}
+    .edu-result strong{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--goldl);display:block;line-height:1}
+    .edu-result span{font-family:var(--mono);font-size:.68rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
 
-    .term{background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:1rem 1.25rem;margin-top:1.5rem;font-family:var(--mono);font-size:.72rem}
-    .term-hdr{display:flex;align-items:center;gap:.4rem;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,.05)}
-    .tdot{width:8px;height:8px;border-radius:50%}
-    .tlbl{color:var(--dim);font-size:.65rem;margin-left:.25rem}
-    .tline{color:var(--dim);margin-bottom:.3rem}
-    .tp{color:var(--gold);margin-right:.5rem}
-    .tv{color:#4ac882} .ts{color:#7ec8e3}
+    .research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-bottom:1.3rem}
+    .research-card h3,.pub-card h3,.project-card h3,.xp-card h3,.skill-card h3{font-size:1.08rem;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:.5rem}
+    .status{display:inline-flex;border:1px solid var(--borderg);border-radius:999px;padding:.24rem .55rem;font-family:var(--mono);font-size:.63rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem;background:rgba(196,160,90,.07)}
+    .research-card p,.project-card p,.xp-card p{color:var(--muted);font-size:.9rem;line-height:1.75;margin-bottom:.8rem}
 
-    /* ── ABOUT ── */
-    #about{background:var(--bg2)}
-    .agrid{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:start}
-    .atext p{color:var(--muted);margin-bottom:1.2rem;font-size:1.02rem;line-height:1.85}
-    .atext p strong{color:var(--text);font-weight:500}
-    .scard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-bottom:1.25rem}
-    .scard h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .irow{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:.75rem;font-size:.88rem}
-    .irow svg{color:var(--gold);width:16px;min-width:16px;margin-top:.15rem;flex-shrink:0}
-    .irow span{color:var(--muted)}
+    .pub-list{display:grid;gap:1rem}
+    .pub-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;align-items:start}
+    .pub-meta{font-family:var(--mono);font-size:.72rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem}
+    .pub-card p{color:var(--muted);font-size:.9rem;margin-bottom:.75rem}
+    .doi{white-space:nowrap;align-self:center;border:1px solid var(--borderg);border-radius:999px;padding:.5rem .75rem;font-family:var(--mono);font-size:.72rem;color:var(--gold)}
+    .doi:hover{background:rgba(196,160,90,.11);transform:translateY(-2px)}
 
-    /* ── EDUCATION ── */
-    .edulist{display:flex;flex-direction:column;gap:1.5rem}
-    .educard{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--r);padding:1.75rem 2rem;display:grid;grid-template-columns:1fr auto;gap:1rem;transition:all var(--t)}
-    .educard:hover{border-left-color:var(--goldl);box-shadow:0 4px 40px rgba(196,160,90,.07);transform:translateX(4px)}
-    .eddeg{font-family:var(--serif);font-size:1.25rem;font-weight:400;color:var(--text);margin-bottom:.25rem}
-    .edsch{font-size:.88rem;color:var(--muted);margin-bottom:.25rem}
-    .edyr{font-family:var(--mono);font-size:.75rem;color:var(--dim)}
-    .edgpa{text-align:right}
-    .gpav{font-family:var(--serif);font-size:1.8rem;color:var(--gold);font-weight:300}
-    .gpal{font-size:.68rem;color:var(--dim);font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .project-card.featured{grid-column:1/-1}
+    .tags{display:flex;gap:.45rem;flex-wrap:wrap;margin:.8rem 0 1rem}
+    .tag{font-family:var(--mono);font-size:.64rem;color:var(--gold);border:1px solid rgba(196,160,90,.25);border-radius:999px;padding:.26rem .5rem;background:rgba(196,160,90,.055)}
+    .card-link{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.74rem;color:var(--gold)}
 
-    /* ── PROJECTS ── */
-    #projects{background:var(--bg2)}
-    .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
-    .pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;transition:all var(--t);position:relative;overflow:hidden}
-    .pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity var(--t)}
-    .pcard:hover{border-color:var(--borderg);box-shadow:0 8px 40px rgba(196,160,90,.08);transform:translateY(-4px)}
-    .pcard:hover::before{opacity:1}
-    .pstatus{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:.2rem .6rem;border-radius:99px;display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;width:fit-content}
-    .sact{background:rgba(74,200,130,.1);color:#4ac882;border:1px solid rgba(74,200,130,.2)}
-    .sdon{background:rgba(196,160,90,.1);color:var(--gold);border:1px solid var(--borderg)}
-    .sdot{width:5px;height:5px;border-radius:50%;background:currentColor}
-    .sact .sdot{animation:pulse 1.5s infinite}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-    .ptitle{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--text);margin-bottom:.75rem}
-    .pdesc{font-size:.88rem;color:var(--muted);line-height:1.7;flex-grow:1;margin-bottom:1.5rem}
-    .ptags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.25rem}
-    .ptag{padding:.2rem .65rem;border-radius:var(--rs);font-size:.68rem;font-family:var(--mono);background:rgba(255,255,255,.04);color:var(--dim);border:1px solid var(--border)}
-    .plink{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--gold);font-family:var(--mono)}
+    .ach-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .ach-card h3{font-size:1rem;font-weight:500;margin-bottom:.25rem;color:var(--text)}
+    .ach-card p{font-size:.86rem;color:var(--muted)}
+    .ach-card.primary{border-color:var(--borderg);background:linear-gradient(180deg,rgba(196,160,90,.09),rgba(255,255,255,.018))}
+    .distinctions{margin-top:1rem}
+    .distinctions h3{font-size:1rem;margin-bottom:.75rem}
+    .distinctions ul{display:grid;gap:.45rem;padding-left:1.1rem;color:var(--muted);font-size:.9rem}
 
-    /* ── ACHIEVEMENTS ── */
-    .achgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
-    .achcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:all var(--t)}
-    .achcard:hover{border-color:var(--borderg);transform:translateY(-2px)}
-    .achico{width:40px;height:40px;border-radius:50%;background:rgba(196,160,90,.1);border:1px solid var(--borderg);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-    .acht{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:.2rem;line-height:1.4}
-    .achm{font-size:.75rem;color:var(--dim);font-family:var(--mono)}
+    .xp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .xp-list{display:grid;gap:.85rem;margin-top:.8rem}
+    .xp-item{border-left:1px solid var(--borderg);padding-left:.85rem}
+    .xp-item strong{display:block;font-size:.92rem}
+    .xp-item span{display:block;color:var(--dim);font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;margin:.1rem 0 .25rem}
+    .xp-item p{font-size:.86rem;margin:0;color:var(--muted)}
 
-    /* ── SKILLS ── */
-    #skills{background:var(--bg2)}
-    .skgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
-    .skcat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem}
-    .skct{font-family:var(--serif);font-size:1.15rem;color:var(--text);margin-bottom:.25rem}
-    .skcs{font-size:.75rem;color:var(--dim);font-family:var(--mono);margin-bottom:1.25rem}
-    .ski{display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem}
-    .skn{font-size:.85rem;color:var(--muted)}
-    .skbw{width:100px;height:2px;background:var(--border);border-radius:99px;overflow:hidden}
-    .skb{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--goldl));border-radius:99px;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+    .skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .skill-card h3{margin-bottom:.8rem}
+    .skill-card .chips{gap:.45rem}
+    .skill-card .chip{font-size:.75rem;padding:.36rem .62rem}
 
-    /* ── EXPERIENCE ── */
-    .tl{position:relative;padding-left:2px}
-    .tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent);opacity:.3}
-    .tli{padding-left:2.5rem;padding-bottom:3rem;position:relative}
-    .tli:last-child{padding-bottom:0}
-    .tldot{position:absolute;left:-5px;top:.35rem;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--gold)}
-    .tldt{font-family:var(--mono);font-size:.7rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.4rem}
-    .tltl{font-family:var(--serif);font-size:1.2rem;color:var(--text);margin-bottom:.2rem}
-    .tlorg{font-size:.85rem;color:var(--muted);margin-bottom:.75rem}
-    .tldsc{font-size:.88rem;color:var(--dim);line-height:1.7}
+    .contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(320px,1.1fr);gap:2rem;align-items:start}
+    .contact-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:1rem}
+    .contact-link{display:flex;flex-direction:column;gap:.15rem;padding:1rem;border:1px solid var(--border);border-radius:var(--rs);background:rgba(255,255,255,.025);color:var(--text)}
+    .contact-link strong{font-size:.82rem}
+    .contact-link span{font-size:.78rem;color:var(--muted);overflow-wrap:anywhere}
+    .contact-link:hover{border-color:var(--borderg);transform:translateY(-2px)}
+    .form-group{margin-bottom:1rem}
+    .form-group label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:.4rem}
+    .form-group input,.form-group textarea{width:100%;background:#101019;border:1px solid var(--border);border-radius:var(--rs);padding:.85rem 1rem;color:var(--text);font-family:var(--sans);font-size:.92rem;outline:none;transition:border-color var(--t)}
+    .form-group textarea{min-height:135px;resize:vertical}
+    .form-group input:focus,.form-group textarea:focus{border-color:var(--gold)}
+    .fnote{font-family:var(--mono);font-size:.72rem;color:var(--dim);margin-top:.75rem}
 
-    /* ── BLOG ── */
-    #blog{background:var(--bg2)}
-    .bintro{font-size:1rem;color:var(--muted);max-width:560px;margin-bottom:2rem;line-height:1.8}
-    .bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
-    .bcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all var(--t);cursor:pointer}
-    .bcard:hover{border-color:var(--borderg);transform:translateY(-4px);box-shadow:0 8px 40px rgba(196,160,90,.08)}
-    .bcardbody{padding:1.75rem}
-    .btag{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;display:block}
-    .btitle{font-family:var(--serif);font-size:1.2rem;color:var(--text);margin-bottom:.75rem;line-height:1.35}
-    .bexc{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem}
-    .bmeta{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--dim);font-family:var(--mono);padding-top:1rem;border-top:1px solid var(--border)}
-    .bread{color:var(--gold);display:flex;align-items:center;gap:.3rem}
-
-    #pmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.87);z-index:2000;overflow-y:auto;padding:2rem 1rem}
-    .mi{max-width:760px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
-
-    /* ── CONTACT ── */
-    .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-    .ctext p{color:var(--muted);line-height:1.8;margin-bottom:2rem}
-    .clinks{display:flex;flex-direction:column;gap:1rem}
-    .cli{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:var(--rs);transition:all var(--t);color:var(--text)}
-    .cli:hover{border-color:var(--gold);transform:translateX(4px);color:var(--text)}
-    .clico{width:36px;height:36px;border-radius:50%;background:rgba(196,160,90,.1);border:1px solid var(--borderg);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0}
-    .clico svg{width:16px;height:16px}
-    .cltxt strong{display:block;font-size:.8rem;color:var(--text);margin-bottom:.1rem}
-    .cltxt span{font-size:.78rem;color:var(--muted)}
-    .fgroup{margin-bottom:1.25rem}
-    .fgroup label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem}
-    .fgroup input,.fgroup textarea{width:100%;background:var(--card);border:1px solid var(--border);border-radius:var(--rs);padding:.85rem 1rem;color:var(--text);font-family:var(--sans);font-size:.9rem;outline:none;transition:border-color var(--t)}
-    .fgroup input:focus,.fgroup textarea:focus{border-color:var(--gold)}
-    .fgroup textarea{min-height:130px;resize:vertical}
-    .fnote{font-size:.75rem;color:var(--dim);margin-top:.75rem;font-family:var(--mono)}
-
-    /* ── FOOTER ── */
-    footer{border-top:1px solid var(--border);padding:2.5rem 0}
-    .fi{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-    footer p{font-size:.8rem;color:var(--dim)}
+    footer{border-top:1px solid var(--border);padding:2.5rem 0;color:var(--dim)}
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.82rem}
     .flogo{font-family:var(--serif);font-size:1.2rem;color:var(--muted)}
     .flogo span{color:var(--gold)}
 
-    .reveal, .reveal-stagger, .reveal-stagger > * { opacity:1 !important; transform:none !important; }
-
-    @keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fi{from{opacity:0}to{opacity:1}}
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:900px){
-      .hinner{grid-template-columns:1fr}
-      .hpanel{max-width:480px}
-      .agrid{grid-template-columns:1fr}
-      .cgrid{grid-template-columns:1fr}
-
-      /* Hide desktop nav links */
-      .nlinks{display:none}
+    @media(max-width:980px){
+      .hinner,.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
+      .hpanel{max-width:620px}
+      .nlinks{display:flex;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:min(340px,88vw);max-width:100vw;background:linear-gradient(180deg,rgba(19,19,30,.98),rgba(10,10,15,.98));border-left:1px solid var(--borderg);justify-content:flex-start;align-items:flex-start;padding:5.5rem 2rem 2.5rem;gap:0;z-index:1101;box-shadow:-24px 0 80px rgba(0,0,0,.65);transform:translateX(100%);visibility:hidden;pointer-events:none;transition:transform var(--t),visibility var(--t)}
       .ntoggle{display:flex}
-
-      /* Slide-in drawer from right */
-      .nlinks.open{
-        display:flex;
-        flex-direction:column;
-        position:fixed;
-        top:0; right:0; bottom:0;
-        width:min(300px,80vw);
-        background:var(--card);
-        border-left:1px solid var(--borderg);
-        justify-content:flex-start;
-        align-items:flex-start;
-        padding:5.5rem 2.5rem 2.5rem;
-        gap:0;
-        z-index:1002;
-        box-shadow:-24px 0 80px rgba(0,0,0,.65);
-        animation:drawerIn .3s cubic-bezier(.4,0,.2,1) forwards;
-      }
-      @keyframes drawerIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+      .nlinks.open{transform:translateX(0);visibility:visible;pointer-events:auto}
       .nlinks.open li{width:100%;border-bottom:1px solid var(--border)}
       .nlinks.open li:last-child{border-bottom:none}
-      .nlinks.open a{
-        display:block;
-        font-size:.95rem;
-        padding:.9rem 0;
-        color:var(--muted);
-        letter-spacing:.1em;
-      }
-      .nlinks.open a:hover,.nlinks.open a.active{color:var(--gold)}
+      .nlinks.open a{display:block;font-size:.92rem;padding:.88rem 0;color:var(--muted);width:100%}
       .nlinks.open a::after{display:none}
     }
-    @media(max-width:600px){
-      section{padding:4rem 0}
-      .container{padding:0 1.25rem}
-      .educard{grid-template-columns:1fr}
-      .edgpa{text-align:left}
-      .sgrid{grid-template-columns:1fr 1fr}
+    @media(max-width:760px){
+      section{padding:4.6rem 0}
+      .container{padding:0 1.2rem}
+      .facts,.research-grid,.project-grid,.ach-grid,.xp-grid,.skills-grid,.contact-links{grid-template-columns:1fr}
+      .project-card.featured{grid-column:auto}
+      .pub-card,.edu-card{grid-template-columns:1fr}
+      .pub-card .doi{justify-self:start;white-space:normal}
+      .edu-result{text-align:left}
+      .hcta .btn{width:100%}
+      #btt{right:1rem;bottom:1rem}
     }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
   </style>
 </head>
 <body>
+  <div id="pbar"></div>
+  <button id="btt" onclick="scrollToTop()" title="Back to top" aria-label="Back to top">↑</button>
+  <div id="nav-backdrop" aria-hidden="true"></div>
 
-<div id="pbar"></div>
-<button id="btt" onclick="sTo(0)" title="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5,12 12,5 19,12"/></svg></button>
+  <nav id="nav" aria-label="Primary navigation">
+    <div class="container">
+      <a href="#hero" class="nlogo" onclick="navigateTo('hero');return false;">Shahriar<span>.</span></a>
+      <ul class="nlinks" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="ntoggle" id="navToggle" type="button" aria-label="Open mobile navigation" aria-expanded="false" aria-controls="navLinks">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+  </nav>
 
-<!-- Mobile nav backdrop -->
-<div id="nav-backdrop"></div>
-
-<!-- NAV -->
-<nav id="nav">
-  <div class="container">
-    <a href="#hero" class="nlogo" onclick="sTo(0);return false;">Shahriar<span>.</span></a>
-    <ul class="nlinks" id="nl">
-      <li><a href="#about"        onclick="nTo('about');return false;">About</a></li>
-      <li><a href="#education"    onclick="nTo('education');return false;">Education</a></li>
-      <li><a href="#projects"     onclick="nTo('projects');return false;">Projects</a></li>
-      <li><a href="#achievements" onclick="nTo('achievements');return false;">Achievements</a></li>
-      <li><a href="#skills"       onclick="nTo('skills');return false;">Skills</a></li>
-      <li><a href="#experience"   onclick="nTo('experience');return false;">Experience</a></li>
-      <li><a href="#blog"         onclick="nTo('blog');return false;">Blog</a></li>
-      <li><a href="#contact"      onclick="nTo('contact');return false;">Contact</a></li>
-    </ul>
-    <button class="ntoggle" id="ntgl" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="container">
-    <div class="hinner">
-      <div class="hero-text">
-        <p class="eyebrow">// Hardware Engineer · VLSI · Quantum Computing</p>
-        <h1 class="hname">Shahriar<br>Rizvi</h1>
-        <p class="htitle" id="htitle"><span id="typed-text"></span><span class="cursor"></span></p>
-        <p class="hdesc">Final-year CSE student at RUET, Bangladesh. Champion at VLSITHON 2024, IBM Qiskit Excellence awardee. Passionate about building hardware from the ground up — from RTL to GDSII.</p>
-        <div class="hcta">
-          <a href="https://drive.google.com/file/d/16xxtKuSW_oMnZRNaTtCGWt4BNMgsgGqk/view?usp=sharing" class="btn btng" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download CV
-          </a>
-          <a href="#contact" class="btn btno" onclick="nTo('contact');return false;">Get in Touch</a>
-        </div>
-      </div>
-
-      <div class="hpanel">
-        <div class="sgrid">
-          <div><div class="sval" data-count="3.90" data-dec="2">3.90</div><div class="slbl2">CGPA / 4.00</div></div>
-          <div><div class="sval" data-count="10" data-sfx="+">10+</div><div class="slbl2">Awards Won</div></div>
-          <div><div class="sval" data-count="4" data-sfx="+">4+</div><div class="slbl2">Projects</div></div>
-          <div><div class="sval" data-count="2026">2026</div><div class="slbl2">Graduating</div></div>
-        </div>
-        <div class="divider"></div>
-        <div class="tags">
-          <span class="tag">Verilog</span><span class="tag">SystemVerilog</span>
-          <span class="tag">RISC-V</span><span class="tag">RTL Design</span>
-          <span class="tag">Qiskit</span><span class="tag">FPGA</span>
-          <span class="tag">Network Eng.</span><span class="tag">C / C++</span>
-        </div>
-        <div class="term">
-          <div class="term-hdr">
-            <div class="tdot" style="background:#ff5f57"></div>
-            <div class="tdot" style="background:#ffbd2e"></div>
-            <div class="tdot" style="background:#28ca41"></div>
-            <span class="tlbl">currently_building.sh</span>
+  <main>
+    <section id="hero">
+      <div class="container">
+        <div class="hinner">
+          <div>
+            <p class="eyebrow">Final-semester CSE · IEEE-published research · RTL/FPGA systems</p>
+            <h1 class="hname">Shahriar<br>Rizvi</h1>
+            <p class="htitle">B.Sc. CSE candidate at RUET focused on computing systems research.</p>
+            <p class="hdesc">IEEE-published researcher working across RTL design, FPGA acceleration, computer architecture, quantum-inspired systems, AI, DSP, and reproducible computing-systems research.</p>
+            <div class="hcta">
+              <a href="assets/Shahriar_Rizvi_CV.pdf" class="btn btng" target="_blank" rel="noopener">Download CV</a>
+              <a href="#publications" class="btn btno" onclick="navigateTo('publications');return false;">View Publications</a>
+              <a href="#contact" class="btn btno" onclick="navigateTo('contact');return false;">Contact</a>
+            </div>
+            <div class="hlinks" aria-label="Academic and professional profiles">
+              <a href="https://github.com/rizvi19" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://scholar.google.com/citations?user=Qt3KWTQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+              <a href="https://orcid.org/0009-0003-6098-4056" target="_blank" rel="noopener">ORCID</a>
+            </div>
           </div>
-          <div class="tline"><span class="tp">$</span><span class="tv">project</span> = <span class="ts">"SigmaCore RISC-V CPU"</span></div>
-          <div class="tline"><span class="tp">$</span><span class="tv">stack</span>&nbsp;&nbsp; = <span class="ts">"SystemVerilog → GDSII"</span></div>
-          <div class="tline"><span class="tp">$</span><span class="tv">status</span>&nbsp; = <span style="color:#4ac882">⬤ active</span></div>
-        </div>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" class="soc" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://github.com/rizvi19/" target="_blank" class="soc" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
-          <a href="mailto:shahriar10rizvi@gmail.com" class="soc" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="slabel">01 — About</div>
-    <h2 class="sh">Building Hardware<br>from <em>First Principles</em></h2>
-    <div class="agrid reveal">
-      <div class="atext">
-        <p>I am <strong>Shahriar Rizvi</strong>, a final-year Computer Science &amp; Engineering student at <strong>Rajshahi University of Engineering &amp; Technology (RUET)</strong>, Bangladesh, maintaining a CGPA of <strong>3.90/4.00</strong>. My passion lies at the intersection of hardware and computing — designing processors from scratch, exploring quantum algorithms, and building robust network architectures.</p>
-        <p>My work spans <strong>RTL design</strong> using Verilog and SystemVerilog, where I am currently designing a full RISC-V CPU from RTL all the way to GDSII tape-out. I am simultaneously developing an AI-powered attendance system and have a strong track record in competitive programming and mathematical olympiads.</p>
-        <p>I earned the <strong>IBM Qiskit Excellence</strong> badge at the Qiskit Global Summer School 2025, and was Champion at <strong>VLSITHON 2024</strong> in the RTL Section. I serve as Campus Ambassador for ULKASEMI Private LTD and ICSC, bridging academia and industry. In 2025, my startup received first prize and funding from the University Innovation Hub Program (UIHP).</p>
-        <p>Currently exploring opportunities for <strong>graduate study (MS/PhD)</strong> in VLSI, quantum computing, and computer architecture at leading US universities for Fall 2026–2027.</p>
-      </div>
-      <div>
-        <div class="scard">
-          <h4>Quick Info</h4>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Rajshahi, Bangladesh</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg><span>shahriar10rizvi@gmail.com</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg><span>RUET, CSE Dept.</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Age 22 · Graduating 2026</span></div>
-        </div>
-        <div class="scard">
-          <h4>Research Interests</h4>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><line x1="9" y1="2" x2="9" y2="7"/><line x1="15" y1="2" x2="15" y2="7"/><line x1="2" y1="9" x2="7" y2="9"/><line x1="2" y1="15" x2="7" y2="15"/><line x1="17" y1="9" x2="22" y2="9"/><line x1="17" y1="15" x2="22" y2="15"/><line x1="9" y1="17" x2="9" y2="22"/><line x1="15" y1="17" x2="15" y2="22"/></svg><span>VLSI &amp; RTL Design</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg><span>Quantum Computing</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="17" y="2" width="5" height="5" rx="1"/><rect x="9.5" y="17" width="5" height="5" rx="1"/><line x1="4.5" y1="7" x2="4.5" y2="12"/><line x1="19.5" y1="7" x2="19.5" y2="12"/><line x1="4.5" y1="12" x2="19.5" y2="12"/><line x1="12" y1="12" x2="12" y2="17"/></svg><span>Network Engineering</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg><span>Competitive Programming</span></div>
+          <aside class="hpanel" aria-label="Portfolio highlights">
+            <div class="facts">
+              <div class="fact"><strong>3.88</strong><span>CGPA / 4.00</span></div>
+              <div class="fact"><strong>Jul 2026</strong><span>Expected completion</span></div>
+              <div class="fact"><strong>2</strong><span>IEEE papers</span></div>
+              <div class="fact"><strong>5</strong><span>Selected projects</span></div>
+            </div>
+            <div class="focusbox">
+              <h3>Current focus</h3>
+              <p>FPGA-based quantum-inspired acceleration, multicycle RISC-V CPU design, bare-metal systems, and DSP-assisted indoor localization.</p>
+            </div>
+            <div class="chips" style="margin-top:1rem">
+              <span class="chip">SystemVerilog</span>
+              <span class="chip">RISC-V</span>
+              <span class="chip">FPGA</span>
+              <span class="chip">Computer Architecture</span>
+              <span class="chip">Quantum-Inspired ML</span>
+              <span class="chip">DSP</span>
+            </div>
+          </aside>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <div class="slabel">02 — Education</div>
-    <h2 class="sh">Academic <em>Background</em></h2>
-    <div class="edulist reveal-stagger">
-      <div class="educard">
-        <div>
-          <div class="eddeg">B.Sc. in Computer Science &amp; Engineering</div>
-          <div class="edsch">Rajshahi University of Engineering &amp; Technology (RUET), Bangladesh</div>
-          <div class="edyr">2021 – 2026 (Expected)</div>
-        </div>
-        <div class="edgpa"><div class="gpav">3.90</div><div class="gpal">CGPA / 4.00</div></div>
-      </div>
-      <div class="educard">
-        <div>
-          <div class="eddeg">Higher Secondary Certificate (H.S.C.)</div>
-          <div class="edsch">Government Edward College, Pabna, Bangladesh</div>
-          <div class="edyr">2020</div>
-        </div>
-        <div class="edgpa"><div class="gpav">5.00</div><div class="gpal">GPA / 5.00</div></div>
-      </div>
-      <div class="educard">
-        <div>
-          <div class="eddeg">Secondary School Certificate (S.S.C.)</div>
-          <div class="edsch">Pabna Zilla School, Pabna, Bangladesh</div>
-          <div class="edyr">2018</div>
-        </div>
-        <div class="edgpa"><div class="gpav">5.00</div><div class="gpal">GPA / 5.00</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <div class="slabel">03 — Projects</div>
-    <h2 class="sh">Selected <em>Work</em></h2>
-    <div class="pgrid reveal-stagger">
-      <div class="pcard">
-        <div class="pstatus sact"><span class="sdot"></span> In Progress</div>
-        <h3 class="ptitle">SigmaCore — RISC-V CPU</h3>
-        <p class="pdesc">Designing a full RISC-V architecture processor from scratch using SystemVerilog — Memory, ALU, and Control Unit at RTL level, targeting GDSII tape-out. Future plans include a custom OS and compiler on the silicon.</p>
-        <div class="ptags"><span class="ptag">SystemVerilog</span><span class="ptag">RISC-V</span><span class="ptag">RTL</span><span class="ptag">GDSII</span></div>
-        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
-      </div>
-      <div class="pcard">
-        <div class="pstatus sact"><span class="sdot"></span> In Progress</div>
-        <h3 class="ptitle">CPU Design 01</h3>
-        <p class="pdesc">Designing a CPU from scratch in Verilog — implementing Memory, ALU, and Control Unit at RTL level. A deep foundational study in digital computer architecture and HDL engineering.</p>
-        <div class="ptags"><span class="ptag">Verilog</span><span class="ptag">RTL Design</span><span class="ptag">ALU</span><span class="ptag">Control Unit</span></div>
-        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
-      </div>
-      <div class="pcard">
-        <div class="pstatus sdon"><span class="sdot"></span> Complete</div>
-        <h3 class="ptitle">AI Powered Attendance System</h3>
-        <p class="pdesc">An automated attendance management system using face recognition that updates attendance sheets in real-time without manual intervention.</p>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">Face Recognition</span><span class="ptag">AI/ML</span><span class="ptag">OpenCV</span></div>
-        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
-      </div>
-      <div class="pcard">
-        <div class="pstatus sdon"><span class="sdot"></span> Complete</div>
-        <h3 class="ptitle">BoiKothon — Book Review Platform</h3>
-        <p class="pdesc">A full-stack web platform for sharing and discovering book reviews. Built with Django for the backend and HTML/PHP for the frontend.</p>
-        <div class="ptags"><span class="ptag">Django</span><span class="ptag">Python</span><span class="ptag">HTML</span><span class="ptag">PHP</span></div>
-        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="container">
-    <div class="slabel">04 — Achievements</div>
-    <h2 class="sh">Honours &amp; <em>Recognition</em></h2>
-    <div class="achgrid reveal-stagger">
-      <div class="achcard"><div class="achico">🏆</div><div><div class="acht">Champion — VLSITHON RTL Section</div><div class="achm">ULKASEMI Private LTD · 2024</div></div></div>
-      <div class="achcard"><div class="achico">⚛️</div><div><div class="acht">Quantum Excellence — Qiskit Global Summer School</div><div class="achm">IBM · 2025</div></div></div>
-      <div class="achcard"><div class="achico">🥉</div><div><div class="acht">Bronze Honour — International Youth Math Challenge</div><div class="achm">IYMC · 2024</div></div></div>
-      <div class="achcard"><div class="achico">💡</div><div><div class="acht">1st Prize — University Innovation Hub Program (UIHP)</div><div class="achm">Startup Funded · 2025</div></div></div>
-      <div class="achcard"><div class="achico">🏆</div><div><div class="acht">Champion — HULT Prize On Campus</div><div class="achm">RUET · 2023</div></div></div>
-      <div class="achcard"><div class="achico">💻</div><div><div class="acht">Champion — National High School Programming Contest</div><div class="achm">2016</div></div></div>
-      <div class="achcard"><div class="achico">📐</div><div><div class="acht">1st &amp; 2nd Runners Up — Bangladesh Math Olympiad Regional</div><div class="achm">2017 &amp; 2019</div></div></div>
-      <div class="achcard"><div class="achico">🔬</div><div><div class="acht">Champion — Science Olympiad</div><div class="achm">2018 &amp; 2019</div></div></div>
-      <div class="achcard"><div class="achico">🎯</div><div><div class="acht">Champion — Creative Talent Hunt Regional</div><div class="achm">2019</div></div></div>
-      <div class="achcard"><div class="achico">🥈</div><div><div class="acht">1st Runners Up — Science Fair</div><div class="achm">2020</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="slabel">05 — Skills</div>
-    <h2 class="sh">Technical <em>Expertise</em></h2>
-    <div class="skgrid reveal-stagger">
-      <div class="skcat">
-        <div class="skct">Hardware Design</div><div class="skcs">RTL / HDL</div>
-        <div class="ski"><span class="skn">Verilog</span><div class="skbw"><div class="skb" data-w="90"></div></div></div>
-        <div class="ski"><span class="skn">SystemVerilog</span><div class="skbw"><div class="skb" data-w="80"></div></div></div>
-        <div class="ski"><span class="skn">RTL Design</span><div class="skbw"><div class="skb" data-w="85"></div></div></div>
-        <div class="ski"><span class="skn">FPGA / Embedded</span><div class="skbw"><div class="skb" data-w="70"></div></div></div>
-      </div>
-      <div class="skcat">
-        <div class="skct">Programming</div><div class="skcs">Languages</div>
-        <div class="ski"><span class="skn">C / C++</span><div class="skbw"><div class="skb" data-w="88"></div></div></div>
-        <div class="ski"><span class="skn">Python</span><div class="skbw"><div class="skb" data-w="82"></div></div></div>
-        <div class="ski"><span class="skn">SQL / Node.js</span><div class="skbw"><div class="skb" data-w="65"></div></div></div>
-        <div class="ski"><span class="skn">LaTeX</span><div class="skbw"><div class="skb" data-w="78"></div></div></div>
-      </div>
-      <div class="skcat">
-        <div class="skct">Quantum &amp; Networks</div><div class="skcs">Emerging Tech</div>
-        <div class="ski"><span class="skn">Qiskit</span><div class="skbw"><div class="skb" data-w="75"></div></div></div>
-        <div class="ski"><span class="skn">Routing (RIP/OSPF)</span><div class="skbw"><div class="skb" data-w="72"></div></div></div>
-        <div class="ski"><span class="skn">Subnetting / VLSM</span><div class="skbw"><div class="skb" data-w="76"></div></div></div>
-        <div class="ski"><span class="skn">Cisco Packet Tracer</span><div class="skbw"><div class="skb" data-w="70"></div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <div class="slabel">06 — Experience &amp; Roles</div>
-    <h2 class="sh">Positions of <em>Responsibility</em></h2>
-    <div class="tl reveal">
-      <div class="tli"><div class="tldot"></div><div class="tldt">June 2025 – Present</div><div class="tltl">Official Ambassador — ICSC</div><div class="tlorg">International Computer Science Competition</div><div class="tldsc">Representing ICSC at RUET, coordinating student participation in international programming competitions.</div></div>
-      <div class="tli"><div class="tldot"></div><div class="tldt">March 2025 – Present</div><div class="tltl">Campus Ambassador — ULKASEMI</div><div class="tlorg">ULKASEMI Private LTD</div><div class="tldsc">Bridging academia and industry by connecting students with VLSI-focused opportunities and competitions organized by ULKASEMI.</div></div>
-      <div class="tli"><div class="tldot"></div><div class="tldt">2021 – Present</div><div class="tltl">Class Representative &amp; Coordinator</div><div class="tlorg">RUET CSE-2020 Batch</div><div class="tldsc">Managing departmental schedules and events, acting as liaison between students and faculty, cultivating leadership and organizational skills.</div></div>
-      <div class="tli"><div class="tldot"></div><div class="tldt">2021 – Present</div><div class="tltl">Vice President — RUET Computing Society</div><div class="tlorg">RUET</div><div class="tldsc">Leading computing society initiatives, organizing technical workshops and hackathons, mentoring junior students in competitive programming.</div></div>
-      <div class="tli"><div class="tldot"></div><div class="tldt">2021 – Present</div><div class="tltl">Joint Secretary — Pabna District Association RUET</div><div class="tlorg">RUET</div><div class="tldsc">Managing association affairs and connecting students from Pabna district studying at RUET.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section id="blog">
-  <div class="container">
-    <div class="slabel">07 — Blog &amp; Writing</div>
-    <h2 class="sh">Thoughts &amp; <em>Articles</em></h2>
-    <p class="bintro">Beyond engineering, I write about technology, quantum computing, hardware design, and ideas that shape the future. Occasional reflections on learning and research.</p>
-    <div id="bfilters" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;"></div>
-    <div class="bgrid" id="bgrid"></div>
-  </div>
-</section>
-
-<!-- Blog post modal -->
-<div id="pmodal">
-  <div class="mi">
-    <div style="padding:1.25rem 2rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-      <span style="font-family:var(--mono);font-size:.7rem;color:var(--gold)" id="mcat"></span>
-      <button onclick="closePost()" style="background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:.4rem 1rem;cursor:pointer;font-size:.8rem;">✕ Close</button>
-    </div>
-    <div style="padding:2.5rem 2rem;">
-      <h1 id="mtitle" style="font-family:var(--serif);font-size:2rem;font-weight:300;margin-bottom:1rem;line-height:1.2;color:var(--text)"></h1>
-      <div style="display:flex;gap:1.5rem;margin-bottom:2rem;font-family:var(--mono);font-size:.72rem;color:var(--dim);">
-        <span id="mdate"></span><span id="mread"></span>
-      </div>
-      <div id="mbody" style="line-height:1.9;color:var(--muted);font-size:.95rem;"></div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="slabel">08 — Contact</div>
-    <h2 class="sh">Let's <em>Connect</em></h2>
-    <div class="cgrid reveal">
-      <div class="ctext">
-        <p>I'm open to research collaborations, academic discussions, graduate school inquiries, and professional opportunities in VLSI, quantum computing, and hardware engineering.</p>
-        <div class="clinks">
-          <a href="mailto:shahriar10rizvi@gmail.com" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></div><div class="cltxt"><strong>Email</strong><span>shahriar10rizvi@gmail.com</span></div></a>
-          <a href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div class="cltxt"><strong>LinkedIn</strong><span>linkedin.com/in/rizvi-sh/</span></div></a>
-          <a href="https://github.com/rizvi19/" target="_blank" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></div><div class="cltxt"><strong>GitHub</strong><span>github.com/rizvi19</span></div></a>
-          <div class="cli" style="cursor:default;"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div class="cltxt"><strong>Location</strong><span>Rajshahi, Bangladesh</span></div></div>
+    <section id="about">
+      <div class="container">
+        <div class="slabel">01 — About</div>
+        <h2 class="sh">Computing systems from <em>RTL to research</em></h2>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>I am <strong>Shahriar Rizvi</strong>, a final-semester B.Sc. candidate in Computer Science &amp; Engineering at <strong>Rajshahi University of Engineering &amp; Technology (RUET)</strong>, Bangladesh, with a CGPA of <strong>3.88/4.00</strong>. My academic requirements are expected to be completed by <strong>July 2026</strong>.</p>
+            <p>My work spans <strong>IEEE-published research</strong>, FPGA acceleration, RTL/VLSI design, computer architecture, quantum-inspired systems, AI, operating systems, computer graphics, DSP, Wi-Fi sensing, and visible light positioning.</p>
+            <p>I also bring teaching and mentoring experience through competitive-programming instruction, peer-learning activities, and long-term academic mentoring for SSC, HSC, engineering-admission, and university-level learners.</p>
+          </div>
+          <aside class="card">
+            <div class="info-list">
+              <div class="info-row"><div class="key">Status</div><div class="value">Final-semester B.Sc. CSE candidate at RUET</div></div>
+              <div class="info-row"><div class="key">Research</div><div class="value">IEEE-published work in FPGA/quantum-circuit acceleration and multimodal deepfake provenance research</div></div>
+              <div class="info-row"><div class="key">Location</div><div class="value">Rajshahi / Dhaka, Bangladesh</div></div>
+              <div class="info-row"><div class="key">Email</div><div class="value"><a href="mailto:shahriar10rizvi@gmail.com">shahriar10rizvi@gmail.com</a></div></div>
+            </div>
+          </aside>
         </div>
       </div>
-      <div>
-        <form id="cform">
-          <div class="fgroup"><label>Your Name</label><input type="text" id="fn" placeholder="Dr. Jane Smith" required /></div>
-          <div class="fgroup"><label>Email Address</label><input type="email" id="fe" placeholder="jane@university.edu" required /></div>
-          <div class="fgroup"><label>Subject</label><input type="text" id="fs" placeholder="Research Collaboration / Inquiry" /></div>
-          <div class="fgroup"><label>Message</label><textarea id="fm" placeholder="Hello Shahriar, I'd like to discuss..." required></textarea></div>
-          <button type="submit" class="btn btng" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg> Send Message</button>
-          <p class="fnote">* Opens your email client to send.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="fi">
+    <section id="education">
+      <div class="container">
+        <div class="slabel">02 — Education</div>
+        <h2 class="sh">Academic <em>background</em></h2>
+        <div class="edu-list">
+          <article class="card edu-card">
+            <div>
+              <h3>B.Sc. in Computer Science &amp; Engineering</h3>
+              <p>Rajshahi University of Engineering &amp; Technology (RUET), Bangladesh</p>
+              <p class="mono muted">Final semester · Academic requirements expected by July 2026</p>
+            </div>
+            <div class="edu-result"><strong>3.88</strong><span>CGPA / 4.00</span></div>
+          </article>
+          <article class="card edu-card">
+            <div>
+              <h3>Higher Secondary Certificate (HSC), Science</h3>
+              <p>Government Edward College, Pabna, Bangladesh</p>
+              <p class="mono muted">2020</p>
+            </div>
+            <div class="edu-result"><strong>5.00</strong><span>GPA / 5.00</span></div>
+          </article>
+          <article class="card edu-card">
+            <div>
+              <h3>Secondary School Certificate (SSC), Science</h3>
+              <p>Pabna Zilla School, Pabna, Bangladesh</p>
+              <p class="mono muted">2018</p>
+            </div>
+            <div class="edu-result"><strong>5.00</strong><span>GPA / 5.00</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="slabel">03 — Research / Current Work</div>
+        <h2 class="sh">Research in <em>accelerated systems</em></h2>
+        <p class="sintro">Current work bridges RTL design, FPGA prototyping, quantum-inspired acceleration, DSP-assisted localization, and reproducible experimental analysis.</p>
+        <div class="research-grid">
+          <article class="card research-card">
+            <span class="status">Thesis / Ongoing</span>
+            <h3>FPGA-Based Quantum Neural Network Accelerator: A Quantum-Inspired VLSI Design Approach</h3>
+            <p><strong>Supervisor:</strong> Prof. Dr. Md. Nazrul Islam Mondal, Department of CSE, RUET.</p>
+            <div class="chips">
+              <span class="chip">Quantum-inspired acceleration</span><span class="chip">RTL design</span><span class="chip">FPGA prototyping</span><span class="chip">Fixed-point datapaths</span><span class="chip">Microcoded control</span><span class="chip">Simulation validation</span><span class="chip">Open-source EDA/VLSI evaluation</span>
+            </div>
+          </article>
+          <article class="card research-card">
+            <span class="status">Ongoing conference research</span>
+            <h3>DSP-Assisted Hybrid Wi-Fi and Visible Light Positioning for Indoor Localization</h3>
+            <p>Exploring low-cost indoor positioning by combining Wi-Fi signal behavior, visible light positioning, DSP-based feature processing, and reproducible experimental analysis.</p>
+            <div class="chips">
+              <span class="chip">Wi-Fi signal behavior</span><span class="chip">Visible light positioning</span><span class="chip">DSP-based features</span><span class="chip">Indoor localization</span><span class="chip">Communication research</span>
+            </div>
+          </article>
+        </div>
+        <div class="chips" aria-label="Research interests">
+          <span class="pill">Computer Architecture</span><span class="pill">FPGA Acceleration</span><span class="pill">RTL/VLSI</span><span class="pill">Quantum Computing</span><span class="pill">Quantum-Inspired Machine Learning</span><span class="pill">DSP</span><span class="pill">Indoor Localization</span><span class="pill">AI / Explainable AI</span><span class="pill">Embedded Systems</span><span class="pill">Computer Networks</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="slabel">04 — Publications / Papers</div>
+        <h2 class="sh">IEEE-published <em>research</em></h2>
+        <div class="pub-list">
+          <article class="card pub-card">
+            <div>
+              <div class="pub-meta">IEEE ICECTE 2026</div>
+              <h3>FPGA Acceleration of Quantum Circuit Primitives: Fixed-Point Microcoded Design and CPU Comparison</h3>
+              <p>Shahriar Rizvi; Md. Nazrul Islam Mondal</p>
+              <p class="mono muted">DOI: 10.1109/ICECTE69292.2026.11429464</p>
+            </div>
+            <a class="doi" href="https://doi.org/10.1109/ICECTE69292.2026.11429464" target="_blank" rel="noopener">View DOI</a>
+          </article>
+          <article class="card pub-card">
+            <div>
+              <div class="pub-meta">IEEE ICCIT 2025</div>
+              <h3>Beyond Artifacts: Semantic Deepfake Detection and Digital Provenance Tracking with Multimodal Large Language Models</h3>
+              <p>Jabunnesa Jahan Sara; Shahriar Rizvi; Tasfia Jannat Tasfi</p>
+              <p class="mono muted">DOI: 10.1109/ICCIT68739.2025.11490141</p>
+            </div>
+            <a class="doi" href="https://doi.org/10.1109/ICCIT68739.2025.11490141" target="_blank" rel="noopener">View DOI</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="slabel">05 — Selected Projects</div>
+        <h2 class="sh">Verified <em>technical work</em></h2>
+        <div class="project-grid">
+          <article class="card project-card featured">
+            <span class="status">RTL / Computer Architecture</span>
+            <h3>SigmaCore RISC-V CPU Design</h3>
+            <p>32-bit multicycle RISC-V CPU in SystemVerilog with modular ALU, control unit, register file, memory, instruction decoder, sign extender, and top-level testbench. Uses FSM-based control, smart-monitor traces, and waveform debugging with Icarus Verilog and GTKWave.</p>
+            <div class="tags"><span class="tag">SystemVerilog</span><span class="tag">RISC-V</span><span class="tag">FSM control</span><span class="tag">Icarus Verilog</span><span class="tag">GTKWave</span></div>
+            <a class="card-link" href="https://github.com/rizvi19/SigmaCore-RISC-V-CPU-Design" target="_blank" rel="noopener">View project on GitHub →</a>
+          </article>
+          <article class="card project-card">
+            <span class="status">Ongoing / Systems</span>
+            <h3>SigmaCore Operating System</h3>
+            <p>Ongoing small operating-system project from scratch using low-level Assembly-focused boot components, connecting operating-system concepts with processor architecture and bare-metal system design.</p>
+            <div class="tags"><span class="tag">Operating Systems</span><span class="tag">Assembly</span><span class="tag">Bare-metal</span></div>
+            <a class="card-link" href="https://github.com/rizvi19/SigmaCore_Operating_System" target="_blank" rel="noopener">View project on GitHub →</a>
+          </article>
+          <article class="card project-card">
+            <span class="status">Computer Graphics</span>
+            <h3>Bezier Breakout: Curve Ball Arena</h3>
+            <p>C++17 OpenGL/GLUT computer graphics game using primitives and procedural visuals, with paddle control, levels, camera/help controls, and sound fallback without an external game engine.</p>
+            <div class="tags"><span class="tag">C++17</span><span class="tag">OpenGL</span><span class="tag">GLUT</span><span class="tag">Procedural visuals</span></div>
+            <a class="card-link" href="https://github.com/rizvi19/Bezier_Breakout" target="_blank" rel="noopener">View project on GitHub →</a>
+          </article>
+          <article class="card project-card">
+            <span class="status">AI / Computer Vision</span>
+            <h3>AI-Powered Attendance System</h3>
+            <p>Python-based facial-recognition attendance system with GUI, model training, real-time camera recognition, CSV attendance import/export, and student attendance reporting.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Face recognition</span><span class="tag">GUI</span><span class="tag">CSV reporting</span></div>
+            <a class="card-link" href="https://github.com/rizvi19/AI_powered_Attendance_System" target="_blank" rel="noopener">View project on GitHub →</a>
+          </article>
+          <article class="card project-card">
+            <span class="status">Web / Database</span>
+            <h3>BoiKothon — Book Review Sharing Platform</h3>
+            <p>Django-based book-community web application with authentication, group creation/joining, post discussions, responsive design, and SQLite-backed development workflow.</p>
+            <div class="tags"><span class="tag">Django</span><span class="tag">Authentication</span><span class="tag">SQLite</span><span class="tag">Responsive design</span></div>
+            <a class="card-link" href="https://github.com/rizvi19/BoiKothon" target="_blank" rel="noopener">View project on GitHub →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <div class="container">
+        <div class="slabel">06 — Achievements</div>
+        <h2 class="sh">Honours &amp; <em>recognition</em></h2>
+        <div class="ach-grid">
+          <article class="card ach-card primary"><h3>Champion, VLSITHON 2024</h3><p>RTL Section, ULKASEMI.</p></article>
+          <article class="card ach-card primary"><h3>Quantum Excellence</h3><p>IBM Qiskit Global Summer School 2025.</p></article>
+          <article class="card ach-card primary"><h3>Government Technical Scholarship</h3><p>Recipient for all 4 undergraduate years.</p></article>
+          <article class="card ach-card primary"><h3>1st Prize and Funding Recipient</h3><p>University Innovation Hub Program, 2025.</p></article>
+          <article class="card ach-card"><h3>Bronze Honour</h3><p>International Youth Math Challenge, 2024.</p></article>
+          <article class="card ach-card"><h3>Champion</h3><p>HULT Prize on Campus RUET, 2023.</p></article>
+        </div>
+        <article class="card distinctions">
+          <h3>Earlier Academic Distinctions</h3>
+          <ul>
+            <li>Champion, National High School Programming Contest, 2016.</li>
+            <li>Champion, Science Olympiad, 2018 and 2019.</li>
+            <li>Champion, Creative Talent Hunt Regional, 2019.</li>
+            <li>Bangladesh Math Olympiad Regional Runners Up, 2017 and 2019.</li>
+            <li>1st Runner-up, Science Fair 2020.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="slabel">07 — Teaching / Experience / Leadership</div>
+        <h2 class="sh">Mentoring and <em>leadership</em></h2>
+        <div class="xp-grid">
+          <article class="card xp-card">
+            <h3>Teaching / Mentoring</h3>
+            <div class="xp-list">
+              <div class="xp-item"><strong>Competitive Programming Instructor / Mentor</strong><span>RUET Analytical and Programming Lab · 1+ years</span><p>Mentored 100+ junior students in C/C++, algorithms, debugging, and contest-oriented problem solving.</p></div>
+              <div class="xp-item"><strong>Private Tutor / Academic Mentor</strong><span>5+ years</span><p>Mentored SSC, HSC, engineering admission test, and university-level students with an emphasis on conceptual understanding and structured problem solving.</p></div>
+            </div>
+          </article>
+          <article class="card xp-card">
+            <h3>Leadership / Management</h3>
+            <div class="xp-list">
+              <div class="xp-item"><strong>Class Representative and Coordinator</strong><span>Department of CSE, RUET · 2023–2025</span><p>Served as a regular communication bridge between faculty members and students.</p></div>
+              <div class="xp-item"><strong>Vice President</strong><span>RUET Computing Society · 2025–Present</span><p>Supported computing culture, peer learning, student engagement, and technical-event coordination.</p></div>
+              <div class="xp-item"><strong>Campus Ambassador</strong><span>ULKASEMI Private LTD · 2025–2026</span><p>Promoted semiconductor, RTL, and VLSI career awareness through campus-level engagement.</p></div>
+              <div class="xp-item"><strong>Official Ambassador</strong><span>International Computer Science Competition · 2025</span><p>Encouraged student participation in international computer science and problem-solving competitions.</p></div>
+              <div class="xp-item"><strong>Joint Secretary</strong><span>Pabna District Association, RUET · 2025–Present</span><p>Assisted in community coordination, student networking, event organization, and association communication.</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="slabel">08 — Skills</div>
+        <h2 class="sh">Technical <em>toolkit</em></h2>
+        <div class="skills-grid">
+          <article class="card skill-card"><h3>Programming</h3><div class="chips"><span class="chip">C</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">JavaScript/Node.js</span><span class="chip">LaTeX</span></div></article>
+          <article class="card skill-card"><h3>Hardware / RTL</h3><div class="chips"><span class="chip">Verilog</span><span class="chip">SystemVerilog</span><span class="chip">RTL design</span><span class="chip">Finite-state machines</span><span class="chip">CPU datapath</span><span class="chip">FPGA-oriented design</span></div></article>
+          <article class="card skill-card"><h3>Systems / Graphics</h3><div class="chips"><span class="chip">Bare-metal programming</span><span class="chip">Assembly fundamentals</span><span class="chip">Operating-system concepts</span><span class="chip">OpenGL/GLUT</span><span class="chip">Computer graphics</span></div></article>
+          <article class="card skill-card"><h3>AI / ML</h3><div class="chips"><span class="chip">Classification</span><span class="chip">Feature engineering</span><span class="chip">Model evaluation</span><span class="chip">Explainable AI basics</span><span class="chip">Computer vision basics</span></div></article>
+          <article class="card skill-card"><h3>Signal / Positioning</h3><div class="chips"><span class="chip">DSP fundamentals</span><span class="chip">Signal-feature analysis</span><span class="chip">Wi-Fi sensing</span><span class="chip">Visible light positioning</span><span class="chip">Indoor localization</span></div></article>
+          <article class="card skill-card"><h3>Tools</h3><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Linux/Ubuntu</span><span class="chip">Icarus Verilog</span><span class="chip">Verilator</span><span class="chip">GTKWave</span><span class="chip">Vivado</span><span class="chip">Jupyter/Colab</span></div></article>
+          <article class="card skill-card"><h3>Web / Database</h3><div class="chips"><span class="chip">Django</span><span class="chip">Laravel</span><span class="chip">Backend fundamentals</span><span class="chip">SQL database design</span><span class="chip">SQLite</span><span class="chip">MySQL</span></div></article>
+          <article class="card skill-card"><h3>Networking</h3><div class="chips"><span class="chip">IP addressing</span><span class="chip">Subnetting</span><span class="chip">VLAN concepts</span><span class="chip">RIP/OSPF basics</span><span class="chip">Cisco Packet Tracer</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="slabel">09 — Contact</div>
+        <h2 class="sh">Let’s <em>connect</em></h2>
+        <div class="contact-grid">
+          <div>
+            <p class="sintro">I am open to research collaboration, academic discussion, teaching/mentoring opportunities, and professional work in RTL, FPGA, computer architecture, AI, DSP, and computing systems.</p>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:shahriar10rizvi@gmail.com"><strong>Email</strong><span>shahriar10rizvi@gmail.com</span></a>
+              <a class="contact-link" href="https://github.com/rizvi19" target="_blank" rel="noopener"><strong>GitHub</strong><span>github.com/rizvi19</span></a>
+              <a class="contact-link" href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" rel="noopener"><strong>LinkedIn</strong><span>linkedin.com/in/rizvi-sh</span></a>
+              <a class="contact-link" href="https://www.researchgate.net/profile/Shahriar-Rizvi" target="_blank" rel="noopener"><strong>ResearchGate</strong><span>Shahriar-Rizvi</span></a>
+              <a class="contact-link" href="https://scholar.google.com/citations?user=Qt3KWTQAAAAJ&amp;hl=en" target="_blank" rel="noopener"><strong>Google Scholar</strong><span>Qt3KWTQAAAAJ</span></a>
+              <a class="contact-link" href="https://orcid.org/0009-0003-6098-4056" target="_blank" rel="noopener"><strong>ORCID</strong><span>0009-0003-6098-4056</span></a>
+              <a class="contact-link" href="https://rizv.dev" target="_blank" rel="noopener"><strong>Portfolio</strong><span>rizv.dev</span></a>
+              <a class="contact-link" href="assets/Shahriar_Rizvi_CV.pdf" target="_blank" rel="noopener"><strong>CV</strong><span>Download PDF</span></a>
+            </div>
+          </div>
+          <form id="contactForm" class="card">
+            <div class="form-group"><label for="fromName">Your Name</label><input type="text" id="fromName" placeholder="Dr. Jane Smith" required /></div>
+            <div class="form-group"><label for="fromEmail">Email Address</label><input type="email" id="fromEmail" placeholder="jane@university.edu" required /></div>
+            <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" placeholder="Research collaboration / opportunity" /></div>
+            <div class="form-group"><label for="message">Message</label><textarea id="message" placeholder="Hello Shahriar, I’d like to discuss..." required></textarea></div>
+            <button type="submit" class="btn btng" style="width:100%">Send Message</button>
+            <p class="fnote">This opens your email client with the message pre-filled.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
       <div class="flogo">Shahriar<span>.</span></div>
-      <p>&copy; <span id="fy"></span> Shahriar Rizvi. All rights reserved.</p>
-      <p style="font-family:var(--mono);font-size:.7rem;">Designed &amp; Built from Scratch</p>
+      <p>&copy; <span id="year"></span> Shahriar Rizvi. Built for Cloudflare Pages.</p>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-var NAV_H = 70;
+  <script>
+    const NAV_H = 78;
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navBackdrop = document.getElementById('nav-backdrop');
 
-function sTo(y) {
-  window.scrollTo({ top: y, behavior: 'smooth' });
-}
-
-function nTo(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  var top = el.getBoundingClientRect().top + window.pageYOffset - NAV_H;
-  window.scrollTo({ top: top, behavior: 'smooth' });
-  closeNav();
-}
-
-// ── Mobile nav (slide-in drawer) ─────────────────────────────────────────────
-var ntgl = document.getElementById('ntgl');
-var nl   = document.getElementById('nl');
-var bd   = document.getElementById('nav-backdrop');
-
-function openNav() {
-  nl.classList.add('open');
-  ntgl.classList.add('open');
-  bd.classList.add('show');
-  document.body.style.overflow = 'hidden';
-}
-function closeNav() {
-  nl.classList.remove('open');
-  ntgl.classList.remove('open');
-  bd.classList.remove('show');
-  document.body.style.overflow = '';
-}
-ntgl.addEventListener('click', function() {
-  nl.classList.contains('open') ? closeNav() : openNav();
-});
-bd.addEventListener('click', closeNav);
-
-// ── Footer year ───────────────────────────────────────────────────────────────
-document.getElementById('fy').textContent = new Date().getFullYear();
-
-// ── Scroll progress bar ───────────────────────────────────────────────────────
-var pb = document.getElementById('pbar');
-window.addEventListener('scroll', function() {
-  var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-  pb.style.width = Math.min(pct, 100) + '%';
-}, { passive: true });
-
-// ── Back to top ───────────────────────────────────────────────────────────────
-var bt = document.getElementById('btt');
-window.addEventListener('scroll', function() {
-  bt.classList.toggle('show', window.scrollY > 500);
-}, { passive: true });
-
-// ── Active nav highlight ──────────────────────────────────────────────────────
-var secs = document.querySelectorAll('section[id]');
-var nas  = document.querySelectorAll('.nlinks a');
-var navObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      nas.forEach(function(a) { a.classList.remove('active'); });
-      var a = document.querySelector('.nlinks a[href="#' + e.target.id + '"]');
-      if (a) a.classList.add('active');
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      closeNav();
     }
-  });
-}, { threshold: 0.3 });
-secs.forEach(function(s) { navObs.observe(s); });
 
-// ── Skill bars ────────────────────────────────────────────────────────────────
-var skObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.skb').forEach(function(b) {
-        b.style.width = b.dataset.w + '%';
+    function navigateTo(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.pageYOffset - NAV_H;
+      window.scrollTo({ top, behavior: 'smooth' });
+      closeNav();
+    }
+
+    function setNavOpen(isOpen) {
+      navLinks.classList.toggle('open', isOpen);
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Close mobile navigation' : 'Open mobile navigation');
+      navBackdrop.classList.toggle('show', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    function openNav() {
+      setNavOpen(true);
+    }
+
+    function closeNav() {
+      setNavOpen(false);
+    }
+
+    navToggle.addEventListener('click', () => setNavOpen(!navLinks.classList.contains('open')));
+    navBackdrop.addEventListener('click', closeNav);
+    navLinks.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const targetId = link.getAttribute('href').slice(1);
+        if (!targetId) return;
+        event.preventDefault();
+        navigateTo(targetId);
       });
-      skObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('.skcat').forEach(function(c) { skObs.observe(c); });
+    });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeNav(); });
 
-// ── Animated counters ─────────────────────────────────────────────────────────
-function animCount(el) {
-  var tgt = parseFloat(el.dataset.count);
-  var dec = parseInt(el.dataset.dec || 0);
-  var sfx = el.dataset.sfx || '';
-  var dur = 1400, t0 = performance.now();
-  function step(now) {
-    var p = Math.min((now - t0) / dur, 1);
-    var ease = 1 - Math.pow(1 - p, 3);
-    el.textContent = (tgt * ease).toFixed(dec) + sfx;
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-var cntObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('[data-count]').forEach(animCount);
-      cntObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.4 });
-var hp = document.querySelector('.hpanel');
-if (hp) cntObs.observe(hp);
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-// ── Typewriter ────────────────────────────────────────────────────────────────
-var phrases = [
-  'RTL Designer & Researcher',
-  'RISC-V CPU Architect',
-  'Quantum Computing Enthusiast',
-  'VLSITHON Champion 2024',
-  'Network Engineer'
-];
-var twEl = document.getElementById('typed-text');
-if (twEl) {
-  var twPi = 0, twCi = 0, twDel = false;
-  function twTick() {
-    var phrase = phrases[twPi];
-    if (!twDel) {
-      twCi++;
-      twEl.textContent = phrase.substring(0, twCi);
-      if (twCi === phrase.length) {
-        twDel = true;
-        setTimeout(twTick, 2000);
-      } else {
-        setTimeout(twTick, 75);
-      }
-    } else {
-      twCi--;
-      twEl.textContent = phrase.substring(0, twCi);
-      if (twCi === 0) {
-        twDel = false;
-        twPi = (twPi + 1) % phrases.length;
-        setTimeout(twTick, 400);
-      } else {
-        setTimeout(twTick, 40);
-      }
-    }
-  }
-  twTick();
-}
+    const progressBar = document.getElementById('pbar');
+    const backToTop = document.getElementById('btt');
+    window.addEventListener('scroll', () => {
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const pct = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+      progressBar.style.width = Math.min(pct, 100) + '%';
+      backToTop.classList.toggle('show', window.scrollY > 500);
+    }, { passive: true });
 
-// ── Blog ──────────────────────────────────────────────────────────────────────
-var PK = 'sr_blog_posts';
-function gp() { try { return JSON.parse(localStorage.getItem(PK)) || []; } catch(e) { return []; } }
-function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function fd(d) { return new Date(d).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }); }
+    const sections = document.querySelectorAll('main section[id]');
+    const navAnchors = document.querySelectorAll('.nlinks a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach((anchor) => anchor.classList.toggle('active', anchor.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    sections.forEach((section) => observer.observe(section));
 
-function renderBlog(fc) {
-  if (!fc) fc = 'All';
-  var posts = gp().filter(function(p) { return p.status === 'published'; });
-  var cats = ['All'];
-  posts.forEach(function(p) { if (cats.indexOf(p.category) === -1) cats.push(p.category); });
-  var fEl = document.getElementById('bfilters');
-  fEl.innerHTML = cats.map(function(c) {
-    return '<button onclick="renderBlog(\'' + c + '\')" style="padding:.3rem 1rem;border-radius:99px;font-size:.72rem;font-family:var(--mono);cursor:pointer;transition:all .25s;background:' + (c===fc?'rgba(196,160,90,.15)':'transparent') + ';border:1px solid ' + (c===fc?'var(--gold)':'rgba(255,255,255,.07)') + ';color:' + (c===fc?'var(--gold)':'#7a7870') + '">' + c + '</button>';
-  }).join('');
-  var filtered = fc === 'All' ? posts : posts.filter(function(p) { return p.category === fc; });
-  var sorted = filtered.slice().sort(function(a,b) { return new Date(b.date) - new Date(a.date); });
-  var g = document.getElementById('bgrid');
-  if (!sorted.length) {
-    g.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;background:var(--card);border:1px dashed var(--border);border-radius:var(--r);"><p style="color:var(--muted)">No published posts yet.</p><p style="font-size:.78rem;color:var(--dim);margin-top:.5rem;font-family:var(--mono)">Go to <a href="admin.html" style="color:var(--gold)">admin.html</a> to write your first article.</p></div>';
-    return;
-  }
-  g.innerHTML = sorted.map(function(p) {
-    return '<div class="bcard" onclick="openPost(\'' + p.id + '\')"><div class="bcardbody"><span class="btag">' + esc(p.category) + '</span><h3 class="btitle">' + esc(p.title) + '</h3><p class="bexc">' + esc(p.excerpt || p.content.substring(0,140)+'…') + '</p><div class="bmeta"><span>' + fd(p.date) + '</span><span class="bread">' + (p.readTime||'3 min read') + ' →</span></div></div></div>';
-  }).join('');
-}
-
-function openPost(id) {
-  var p = gp().find(function(x) { return x.id === id; });
-  if (!p) return;
-  document.getElementById('mcat').textContent   = p.category;
-  document.getElementById('mtitle').textContent = p.title;
-  document.getElementById('mdate').textContent  = fd(p.date);
-  document.getElementById('mread').textContent  = p.readTime || '';
-  document.getElementById('mbody').innerHTML    = md2h(p.content);
-  document.getElementById('pmodal').style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
-function closePost() {
-  document.getElementById('pmodal').style.display = 'none';
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePost(); });
-document.getElementById('pmodal').addEventListener('click', function(e) { if (e.target === this) closePost(); });
-
-function md2h(md) {
-  return md
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/^### (.+)$/gm,'<h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:1.5rem 0 .5rem;color:var(--text)">$1</h3>')
-    .replace(/^## (.+)$/gm,'<h2 style="font-family:var(--serif);font-size:1.6rem;font-weight:300;margin:2rem 0 .75rem;color:var(--text)">$1</h2>')
-    .replace(/^# (.+)$/gm,'<h1 style="font-family:var(--serif);font-size:2rem;font-weight:300;margin:2rem 0 1rem;color:var(--text)">$1</h1>')
-    .replace(/\*\*(.+?)\*\*/g,'<strong style="color:var(--text);font-weight:500">$1</strong>')
-    .replace(/\*(.+?)\*/g,'<em>$1</em>')
-    .replace(/`(.+?)`/g,'<code style="font-family:var(--mono);background:rgba(255,255,255,.06);padding:.15rem .4rem;border-radius:4px;font-size:.85em">$1</code>')
-    .replace(/^\> (.+)$/gm,'<blockquote style="border-left:3px solid var(--gold);padding-left:1rem;margin:1rem 0;color:var(--muted);font-style:italic">$1</blockquote>')
-    .replace(/^- (.+)$/gm,'<li style="margin-bottom:.3rem">$1</li>')
-    .replace(/\n\n/g,'</p><p style="margin-bottom:1rem">')
-    .replace(/^(.)/,'<p style="margin-bottom:1rem">$1') + '</p>';
-}
-
-renderBlog();
-
-// ── Contact form ──────────────────────────────────────────────────────────────
-document.getElementById('cform').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var n  = document.getElementById('fn').value;
-  var em = document.getElementById('fe').value;
-  var s  = document.getElementById('fs').value || 'Portfolio Inquiry';
-  var m  = document.getElementById('fm').value;
-  window.location.href = 'mailto:shahriar10rizvi@gmail.com?subject=' + encodeURIComponent(s) + '&body=' + encodeURIComponent('From: ' + n + ' (' + em + ')\n\n' + m);
-});
-</script>
+    document.getElementById('contactForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = document.getElementById('fromName').value.trim();
+      const email = document.getElementById('fromEmail').value.trim();
+      const subject = document.getElementById('subject').value.trim() || 'Portfolio Inquiry';
+      const message = document.getElementById('message').value.trim();
+      const body = `From: ${name} (${email})\n\n${message}`;
+      window.location.href = `mailto:shahriar10rizvi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
 </body>
 </html>
