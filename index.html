@@ -90,7 +90,7 @@
     #btt.show{opacity:1;transform:translateY(0)}
     #btt:hover{background:rgba(196,160,90,.15);transform:translateY(-2px)}
 
-    #nav{position:fixed;top:0;left:0;right:0;height:var(--navh);z-index:1000;background:rgba(10,10,15,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    #nav{position:fixed;top:0;left:0;right:0;height:var(--navh);z-index:1100;background:rgba(10,10,15,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
     #nav .container{display:flex;align-items:center;justify-content:space-between;height:100%}
     .nlogo{font-family:var(--serif);font-size:1.45rem;color:var(--text)}
     .nlogo span{color:var(--gold)}
@@ -99,13 +99,13 @@
     .nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t)}
     .nlinks a:hover,.nlinks a.active{color:var(--gold)}
     .nlinks a:hover::after,.nlinks a.active::after{width:100%}
-    .ntoggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1003;position:relative}
+    .ntoggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;z-index:1102;position:relative}
     .ntoggle span{display:block;width:24px;height:1.5px;background:var(--text);transition:var(--t);transform-origin:center}
     .ntoggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
     .ntoggle.open span:nth-child(2){opacity:0;transform:scaleX(0)}
     .ntoggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-    #nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1001;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
-    #nav-backdrop.show{display:block}
+    #nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1050;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity var(--t),visibility var(--t)}
+    #nav-backdrop.show{opacity:1;visibility:visible;pointer-events:auto}
 
     #hero{min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:0}
     #hero::before{content:'';position:absolute;top:-30%;right:-20%;width:75vw;height:75vw;background:radial-gradient(circle,rgba(196,160,90,.065),transparent 60%);pointer-events:none}
@@ -207,13 +207,12 @@
     @media(max-width:980px){
       .hinner,.about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
       .hpanel{max-width:620px}
-      .nlinks{display:none}
+      .nlinks{display:flex;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:min(340px,88vw);max-width:100vw;background:linear-gradient(180deg,rgba(19,19,30,.98),rgba(10,10,15,.98));border-left:1px solid var(--borderg);justify-content:flex-start;align-items:flex-start;padding:5.5rem 2rem 2.5rem;gap:0;z-index:1101;box-shadow:-24px 0 80px rgba(0,0,0,.65);transform:translateX(100%);visibility:hidden;pointer-events:none;transition:transform var(--t),visibility var(--t)}
       .ntoggle{display:flex}
-      .nlinks.open{display:flex;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:min(320px,84vw);background:var(--card);border-left:1px solid var(--borderg);justify-content:flex-start;align-items:flex-start;padding:5.5rem 2.2rem 2.5rem;gap:0;z-index:1002;box-shadow:-24px 0 80px rgba(0,0,0,.65);animation:drawerIn .3s cubic-bezier(.4,0,.2,1) forwards}
-      @keyframes drawerIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+      .nlinks.open{transform:translateX(0);visibility:visible;pointer-events:auto}
       .nlinks.open li{width:100%;border-bottom:1px solid var(--border)}
       .nlinks.open li:last-child{border-bottom:none}
-      .nlinks.open a{display:block;font-size:.92rem;padding:.88rem 0;color:var(--muted)}
+      .nlinks.open a{display:block;font-size:.92rem;padding:.88rem 0;color:var(--muted);width:100%}
       .nlinks.open a::after{display:none}
     }
     @media(max-width:760px){
@@ -233,24 +232,24 @@
 <body>
   <div id="pbar"></div>
   <button id="btt" onclick="scrollToTop()" title="Back to top" aria-label="Back to top">↑</button>
-  <div id="nav-backdrop"></div>
+  <div id="nav-backdrop" aria-hidden="true"></div>
 
   <nav id="nav" aria-label="Primary navigation">
     <div class="container">
       <a href="#hero" class="nlogo" onclick="navigateTo('hero');return false;">Shahriar<span>.</span></a>
       <ul class="nlinks" id="navLinks">
-        <li><a href="#about" onclick="navigateTo('about');return false;">About</a></li>
-        <li><a href="#education" onclick="navigateTo('education');return false;">Education</a></li>
-        <li><a href="#research" onclick="navigateTo('research');return false;">Research</a></li>
-        <li><a href="#publications" onclick="navigateTo('publications');return false;">Publications</a></li>
-        <li><a href="#projects" onclick="navigateTo('projects');return false;">Projects</a></li>
-        <li><a href="#achievements" onclick="navigateTo('achievements');return false;">Achievements</a></li>
-        <li><a href="#experience" onclick="navigateTo('experience');return false;">Experience</a></li>
-        <li><a href="#skills" onclick="navigateTo('skills');return false;">Skills</a></li>
-        <li><a href="#contact" onclick="navigateTo('contact');return false;">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="ntoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
+      <button class="ntoggle" id="navToggle" type="button" aria-label="Open mobile navigation" aria-expanded="false" aria-controls="navLinks">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
     </div>
   </nav>
@@ -580,24 +579,33 @@
       closeNav();
     }
 
+    function setNavOpen(isOpen) {
+      navLinks.classList.toggle('open', isOpen);
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Close mobile navigation' : 'Open mobile navigation');
+      navBackdrop.classList.toggle('show', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
     function openNav() {
-      navLinks.classList.add('open');
-      navToggle.classList.add('open');
-      navToggle.setAttribute('aria-expanded', 'true');
-      navBackdrop.classList.add('show');
-      document.body.style.overflow = 'hidden';
+      setNavOpen(true);
     }
 
     function closeNav() {
-      navLinks.classList.remove('open');
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      navBackdrop.classList.remove('show');
-      document.body.style.overflow = '';
+      setNavOpen(false);
     }
 
-    navToggle.addEventListener('click', () => navLinks.classList.contains('open') ? closeNav() : openNav());
+    navToggle.addEventListener('click', () => setNavOpen(!navLinks.classList.contains('open')));
     navBackdrop.addEventListener('click', closeNav);
+    navLinks.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const targetId = link.getAttribute('href').slice(1);
+        if (!targetId) return;
+        event.preventDefault();
+        navigateTo(targetId);
+      });
+    });
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeNav(); });
 
     document.getElementById('year').textContent = new Date().getFullYear();
