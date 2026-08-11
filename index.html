@@ -7,6 +7,7 @@
   <meta name="description" content="Shahriar Rizvi is a CSE graduate from RUET working in computer architecture, FPGA/RTL systems, hardware acceleration, and VLSI research.">
   <meta name="author" content="Shahriar Rizvi">
   <meta name="theme-color" content="#0a0b10">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090a0f'/%3E%3Cpath d='M11 16h42v32H11z' fill='none' stroke='%23d3ab63' stroke-width='2'/%3E%3Cpath d='M17 22l10 0 5 10-5 10H17M47 22H36v20h11' fill='none' stroke='%23f0ca80' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <meta property="og:title" content="Shahriar Rizvi — Computer Architecture, FPGA & VLSI Research">
   <meta property="og:description" content="CSE graduate from RUET | Computer Architecture | FPGA/RTL Systems | Hardware Acceleration | VLSI Research">
   <meta property="og:type" content="website">
@@ -42,10 +43,18 @@
       --serif:'Playfair Display',Georgia,serif;--mono:'DM Mono',ui-monospace,monospace;
     }
     *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:var(--nav)}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7}
-    body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:
+    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-3;background:
       radial-gradient(circle at 82% 12%,rgba(211,171,99,.10),transparent 30%),
-      radial-gradient(circle at 10% 45%,rgba(85,110,190,.08),transparent 27%)}
+      radial-gradient(circle at 10% 45%,rgba(85,110,190,.08),transparent 27%),
+      linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+      background-size:auto,auto,48px 48px,48px 48px}
+    #scrollProgress{position:fixed;z-index:1000;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));box-shadow:0 0 14px rgba(211,171,99,.45);transform-origin:left center}
+    #geoCanvas{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none;opacity:.62}
+    .click-geo{position:fixed;z-index:999;pointer-events:none;width:10px;height:10px;border:1px solid rgba(240,202,128,.72);transform:translate(-50%,-50%) rotate(0deg);animation:geoBurst .72s cubic-bezier(.17,.67,.28,1) forwards}
+    .click-geo.circle{border-radius:50%}.click-geo.diamond{transform:translate(-50%,-50%) rotate(45deg)}
+    @keyframes geoBurst{0%{opacity:.9;width:8px;height:8px}100%{opacity:0;width:68px;height:68px}}
     a{color:inherit;text-decoration:none}.container{width:min(calc(100% - 40px),var(--max));margin:auto}
     nav{position:fixed;z-index:100;inset:0 0 auto;height:var(--nav);background:rgba(9,10,15,.88);
       backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
@@ -60,16 +69,20 @@
     h1 em{color:var(--gold);font-weight:500}.lead{font-size:clamp(1.05rem,2vw,1.25rem);max-width:760px;color:#c6c8ce}
     .hero p{max-width:760px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid var(--line);
-      border-radius:10px;font-weight:600;font-size:.82rem;letter-spacing:.02em;transition:.2s}
-    .btn.primary{background:var(--gold);color:#14110c;border-color:var(--gold)}.btn:hover{transform:translateY(-2px);border-color:var(--gold)}
+      border-radius:10px;font-weight:600;font-size:.82rem;letter-spacing:.02em;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative;overflow:hidden}
+    .btn.primary{background:var(--gold);color:#14110c;border-color:var(--gold)}.btn:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 8px 28px rgba(211,171,99,.12)}
     .social{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font:400 .76rem var(--mono);color:var(--muted)}
-    .social a:hover{color:var(--gold2)}.statbox{background:linear-gradient(155deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--r);padding:28px}
-    .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+    .social a:hover{color:var(--gold2)}.statbox{background:linear-gradient(155deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:transform .28s ease,border-color .28s ease}
+    .statbox::after,.panel::after,.card::after,.thesis::after,.contactBox::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(211,171,99,.075),transparent 42%);opacity:0;transition:opacity .25s}
+    .statbox:hover::after,.panel:hover::after,.card:hover::after,.thesis:hover::after,.contactBox:hover::after{opacity:1}
+    .statbox::before{content:"";position:absolute;right:-55px;top:-55px;width:150px;height:150px;border:1px solid rgba(211,171,99,.13);transform:rotate(30deg);border-radius:26px;pointer-events:none}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:13px;overflow:hidden;position:relative;z-index:1}
     .stat{background:var(--card);padding:22px 16px}.sv{font:500 2rem var(--serif);color:var(--gold2);line-height:1}.sl{color:var(--dim);font-size:.73rem;margin-top:7px}
     .focus{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}.focus p{margin:8px 0 0;color:var(--muted);font-size:.9rem}
     section{padding:92px 0;border-top:1px solid rgba(255,255,255,.045)}.sectionHead{display:grid;grid-template-columns:.32fr .68fr;gap:40px;margin-bottom:42px}
     h2{font:500 clamp(2rem,5vw,3.6rem)/1.15 var(--serif);margin:0;letter-spacing:-.03em}.sub{color:var(--muted);max-width:720px;margin:9px 0 0}
-    .aboutGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}.panel,.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+    .aboutGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}.panel,.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);position:relative;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+    .card:hover,.panel:hover{transform:translateY(-3px);border-color:rgba(211,171,99,.28)}
     .panel{padding:30px}.panel p{color:#c2c4ca;margin:0 0 16px}.panel p:last-child{margin-bottom:0}
     .quick{display:grid;gap:10px}.qrow{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#0d1017}
     .qrow b{display:block;font-size:.78rem;color:var(--gold);margin-bottom:3px}.qrow span{color:var(--muted);font-size:.9rem}
@@ -80,7 +93,7 @@
     .pub,.project,.award,.skill,.role{padding:25px}.pubNo{font:400 .7rem var(--mono);color:var(--gold);margin-bottom:12px;text-transform:uppercase;letter-spacing:.1em}
     .pub h3{font-size:1.08rem;line-height:1.45}.authors,.desc{color:var(--muted);font-size:.9rem}.venue{margin:15px 0 0;color:#d7d8db;font-size:.84rem}
     .link{display:inline-block;margin-top:14px;color:var(--gold2);font:400 .76rem var(--mono)}.link:hover{text-decoration:underline}
-    .thesis{padding:32px;background:linear-gradient(145deg,#141824,#10131b);border:1px solid rgba(211,171,99,.28);border-radius:var(--r)}
+    .thesis{padding:32px;background:linear-gradient(145deg,#141824,#10131b);border:1px solid rgba(211,171,99,.28);border-radius:var(--r);position:relative;overflow:hidden}
     .thesis h3{font:500 1.55rem/1.35 var(--serif);margin:8px 0}.thesis p{color:var(--muted);max-width:980px}
     .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.metric{padding:18px;background:#0c0e14;border:1px solid var(--line);border-radius:12px}
     .metric b{display:block;font-size:1.24rem;color:var(--gold2)}.metric span{font-size:.76rem;color:var(--dim)}
@@ -89,16 +102,18 @@
     .project .link{margin-top:auto;padding-top:18px}.award h3,.role h3,.skill h3{font-size:1rem}.award p,.role p,.skill p{color:var(--muted);font-size:.88rem;margin:5px 0 0}
     .skillGrid{grid-template-columns:repeat(3,1fr)}.skill{min-height:150px}.skill h3{color:var(--gold2)}
     .interest{display:flex;gap:8px;flex-wrap:wrap}.interest span{padding:8px 11px;background:var(--card);border:1px solid var(--line);border-radius:9px;color:#c4c6cc;font-size:.82rem}
-    .contactBox{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;padding:36px;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+    .contactBox{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;padding:36px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);position:relative;overflow:hidden}
     .contactBox h2{font-size:clamp(1.8rem,4vw,3rem)}.contactBox p{color:var(--muted);max-width:720px}.contactLinks{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     footer{padding:30px 0;color:var(--dim);font-size:.78rem;border-top:1px solid var(--line)}.footerIn{display:flex;justify-content:space-between;gap:20px}
     .reveal{opacity:0;transform:translateY(12px);transition:.55s ease}.reveal.show{opacity:1;transform:none}
     @media(max-width:900px){.heroGrid,.aboutGrid,.sectionHead,.contactBox{grid-template-columns:1fr}.hero{min-height:auto}.pubgrid,.projectGrid,.awardGrid,.roleGrid{grid-template-columns:1fr}.skillGrid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr}.sectionHead{gap:12px}.contactLinks{justify-content:flex-start}}
     @media(max-width:680px){.container{width:min(calc(100% - 28px),var(--max))}.navlinks{display:none;position:absolute;top:var(--nav);left:0;right:0;padding:18px 22px;background:#0c0e14;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu{display:block}.stats{grid-template-columns:1fr 1fr}.eduCard{grid-template-columns:1fr}.score{text-align:left}.skillGrid{grid-template-columns:1fr}.footerIn{flex-direction:column}section{padding:72px 0}.heroGrid{gap:38px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.panel,.card,.statbox{transition:none}.click-geo{display:none}#geoCanvas{display:none}}
   </style>
 </head>
 <body>
+<div id="scrollProgress" aria-hidden="true"></div>
+<canvas id="geoCanvas" aria-hidden="true"></canvas>
 <nav>
   <div class="container navin">
     <a class="brand" href="#top">Shahriar<span>.</span></a>
@@ -133,7 +148,7 @@
     <aside class="statbox reveal">
       <div class="stats">
         <div class="stat"><div class="sv">3.89</div><div class="sl">Final CGPA / 4.00</div></div>
-        <div class="stat"><div class="sv">5 / 181</div><div class="sl">CSE department rank</div></div>
+        <div class="stat"><div class="sv">5th</div><div class="sl">of 181 students · CSE department</div></div>
         <div class="stat"><div class="sv">3</div><div class="sl">Research publications / accepted papers</div></div>
         <div class="stat"><div class="sv">2026</div><div class="sl">B.Sc. Engg. completed</div></div>
       </div>
@@ -355,6 +370,7 @@
 </footer>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
   const menu = document.getElementById('menu');
   const links = document.getElementById('navlinks');
   menu.addEventListener('click', () => {
@@ -362,12 +378,101 @@
     menu.setAttribute('aria-expanded', String(open));
   });
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    links.classList.remove('open'); menu.setAttribute('aria-expanded','false');
+    links.classList.remove('open');
+    menu.setAttribute('aria-expanded','false');
   }));
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
   }, {threshold:.08});
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const progress = document.getElementById('scrollProgress');
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    progress.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+  };
+  updateProgress();
+  window.addEventListener('scroll', updateProgress, {passive:true});
+  window.addEventListener('resize', updateProgress);
+
+  const interactiveSurfaces = document.querySelectorAll('.card,.panel,.statbox,.thesis,.contactBox');
+  interactiveSurfaces.forEach(surface => {
+    surface.addEventListener('pointermove', (event) => {
+      const r = surface.getBoundingClientRect();
+      surface.style.setProperty('--mx', `${event.clientX-r.left}px`);
+      surface.style.setProperty('--my', `${event.clientY-r.top}px`);
+    });
+  });
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reducedMotion) {
+    const canvas = document.getElementById('geoCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = 0, height = 0, dpr = 1;
+    let points = [];
+    const pointer = {x:-9999,y:-9999};
+
+    const resizeCanvas = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.round(width*dpr);
+      canvas.height = Math.round(height*dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      const count = Math.max(18, Math.min(42, Math.round((width*height)/36000)));
+      points = Array.from({length:count}, () => ({
+        x:Math.random()*width,y:Math.random()*height,
+        vx:(Math.random()-.5)*.16,vy:(Math.random()-.5)*.16,
+        r:Math.random()*1.15+.45
+      }));
+    };
+
+    const draw = () => {
+      ctx.clearRect(0,0,width,height);
+      for (const p of points) {
+        const dx = pointer.x-p.x, dy = pointer.y-p.y;
+        const pd = Math.hypot(dx,dy);
+        if (pd < 150 && pd > 0) { p.vx += dx/pd*.0009; p.vy += dy/pd*.0009; }
+        p.x += p.vx; p.y += p.vy;
+        p.vx *= .998; p.vy *= .998;
+        if (p.x < -20) p.x=width+20; if (p.x > width+20) p.x=-20;
+        if (p.y < -20) p.y=height+20; if (p.y > height+20) p.y=-20;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(240,202,128,.32)'; ctx.fill();
+      }
+      for (let i=0;i<points.length;i++) for (let j=i+1;j<points.length;j++) {
+        const a=points[i],b=points[j],dist=Math.hypot(a.x-b.x,a.y-b.y);
+        if (dist<125) {
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+          ctx.strokeStyle=`rgba(211,171,99,${(1-dist/125)*.095})`; ctx.lineWidth=.7; ctx.stroke();
+        }
+      }
+      requestAnimationFrame(draw);
+    };
+
+    window.addEventListener('pointermove', e => {pointer.x=e.clientX;pointer.y=e.clientY}, {passive:true});
+    window.addEventListener('pointerleave', () => {pointer.x=-9999;pointer.y=-9999});
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    draw();
+
+    document.addEventListener('click', (event) => {
+      const shapes=['circle','diamond','square'];
+      for (let i=0;i<3;i++) {
+        const el=document.createElement('span');
+        el.className=`click-geo ${shapes[(i+Math.floor(Math.random()*3))%3]}`;
+        el.style.left=`${event.clientX}px`;
+        el.style.top=`${event.clientY}px`;
+        el.style.animationDelay=`${i*45}ms`;
+        document.body.appendChild(el);
+        window.setTimeout(() => el.remove(), 900);
+      }
+    });
+  }
 </script>
 </body>
 </html>
