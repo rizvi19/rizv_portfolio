@@ -1,806 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shahriar Rizvi — Hardware Engineer & VLSI Researcher</title>
-  <meta name="description" content="Shahriar Rizvi — VLSI, Quantum Computing, and Network Engineering researcher at RUET, Bangladesh.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shahriar Rizvi — Computer Architecture, FPGA & VLSI Research</title>
+  <meta name="description" content="Shahriar Rizvi is a CSE graduate from RUET working in computer architecture, FPGA/RTL systems, hardware acceleration, and VLSI research.">
+  <meta name="author" content="Shahriar Rizvi">
+  <meta name="theme-color" content="#0a0b10">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090a0f'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23d3ab63' stroke-width='2'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Arial,sans-serif' font-size='21' font-weight='700' fill='%23f0ca80'%3ESR%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="Shahriar Rizvi — Computer Architecture, FPGA & VLSI Research">
+  <meta property="og:description" content="CSE graduate from RUET | Computer Architecture | FPGA/RTL Systems | Hardware Acceleration | VLSI Research">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rizv.dev/">
+  <link rel="canonical" href="https://rizv.dev/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Shahriar Rizvi",
+    "url":"https://rizv.dev/",
+    "email":"mailto:shahriar10rizvi@gmail.com",
+    "jobTitle":"CSE Graduate and Computing Systems Researcher",
+    "alumniOf":{"@type":"CollegeOrUniversity","name":"Rajshahi University of Engineering & Technology"},
+    "sameAs":[
+      "https://github.com/rizvi19",
+      "https://www.linkedin.com/in/rizvi-sh/",
+      "https://orcid.org/0009-0003-6098-4056",
+      "https://scholar.google.com/citations?hl=en&user=Qt3KWTQAAAAJ"
+    ],
+    "knowsAbout":["Computer Architecture","FPGA","RTL Design","Hardware Acceleration","VLSI","Operating Systems","Reconfigurable Computing"]
+  }
+  </script>
   <style>
-    :root {
-      --bg:#0a0a0f; --bg2:#0f0f18; --card:#13131e;
-      --border:rgba(255,255,255,0.07); --borderg:rgba(196,160,90,0.35);
-      --gold:#c4a05a; --goldl:#dfc07a;
-      --text:#e8e6e0; --muted:#7a7870; --dim:#4a4840;
-      --serif:'Cormorant Garamond',Georgia,serif;
-      --sans:'Outfit',sans-serif; --mono:'DM Mono',monospace;
-      --r:12px; --rs:6px; --navh:65px;
-      --t:.3s cubic-bezier(.4,0,.2,1); --maxw:1100px;
+    :root{
+      --bg:#090a0f;--bg2:#0d0f16;--card:#11141d;--card2:#151925;--text:#f1efe9;
+      --muted:#a3a6af;--dim:#6e727d;--line:#252a36;--gold:#d3ab63;--gold2:#f0ca80;
+      --green:#71d39a;--max:1160px;--r:18px;--nav:70px;
+      --sans:'Manrope',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      --serif:'Playfair Display',Georgia,serif;--mono:'DM Mono',ui-monospace,monospace;
     }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-padding-top:var(--navh);font-size:16px}
-    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
-    ::selection{background:var(--gold);color:#000}
-    a{color:var(--gold);text-decoration:none;transition:color var(--t)}
-    a:hover{color:var(--goldl)}
-    img{max-width:100%;display:block}
-
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.5}
-
-    #pbar{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--gold),var(--goldl));z-index:9999;transition:width .1s linear}
-
-    #btt{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--borderg);color:var(--gold);font-size:.85rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;opacity:0;transform:translateY(20px);transition:all var(--t)}
-    #btt.show{opacity:1;transform:translateY(0)}
-    #btt:hover{background:rgba(196,160,90,.15);transform:translateY(-2px)}
-
-    .container{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
-    section{padding:6rem 0}
-
-    .slabel{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
-    .slabel::after{content:'';display:block;width:40px;height:1px;background:var(--gold);opacity:.5}
-    .sh{font-family:var(--serif);font-size:clamp(2rem,5vw,3.2rem);font-weight:300;line-height:1.15;margin-bottom:3rem;color:var(--text)}
-    .sh em{font-style:italic;color:var(--gold)}
-    .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--borderg),transparent);margin:1rem 0}
-
-    /* ── NAVBAR ── */
-    #nav{position:fixed;top:0;left:0;right:0;height:var(--navh);z-index:1000;background:rgba(10,10,15,.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-    #nav .container{display:flex;align-items:center;justify-content:space-between;height:100%}
-    .nlogo{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--text)}
-    .nlogo span{color:var(--gold)}
-    .nlinks{display:flex;gap:2rem;list-style:none}
-    .nlinks a{font-size:.78rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color var(--t);position:relative;padding-bottom:2px}
-    .nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t)}
-    .nlinks a:hover,.nlinks a.active{color:var(--gold)}
-    .nlinks a:hover::after,.nlinks a.active::after{width:100%}
-
-    /* Hamburger toggle */
-    .ntoggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1003;position:relative}
-    .ntoggle span{display:block;width:24px;height:1.5px;background:var(--text);transition:var(--t);transform-origin:center}
-    .ntoggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-    .ntoggle.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-    .ntoggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-
-    /* Mobile nav backdrop */
-    #nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1001;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
-    #nav-backdrop.show{display:block}
-
-    /* ── HERO ── */
-    #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:0}
-    #hero::before{content:'';position:absolute;top:-30%;right:-20%;width:70vw;height:70vw;background:radial-gradient(circle,rgba(196,160,90,.05),transparent 60%);pointer-events:none}
-    #hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:50vw;height:50vw;background:radial-gradient(circle,rgba(74,111,165,.06),transparent 60%);pointer-events:none}
-    .hinner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:8rem 0 6rem;width:100%}
-    .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:fu .8s .2s forwards}
-    .hname{font-family:var(--serif);font-size:clamp(3rem,7vw,5.5rem);font-weight:300;line-height:1.05;color:var(--text);margin-bottom:.5rem;opacity:0;animation:fu .8s .35s forwards}
-    .htitle{font-family:var(--serif);font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:300;font-style:italic;color:var(--muted);margin-bottom:2rem;min-height:2.2rem;}
-    .cursor{display:inline-block;width:2px;height:1em;background:var(--gold);margin-left:3px;vertical-align:middle;animation:blink .85s infinite}
-    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-    .hdesc{font-size:1rem;line-height:1.8;color:var(--muted);max-width:440px;margin-bottom:2.5rem;opacity:0;animation:fu .8s .65s forwards}
-    .hcta{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fu .8s .8s forwards}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;border-radius:var(--rs);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:all var(--t);cursor:pointer;border:none}
-    .btng{background:var(--gold);color:#000}
-    .btng:hover{background:var(--goldl);color:#000;transform:translateY(-2px);box-shadow:0 8px 32px rgba(196,160,90,.25)}
-    .btno{background:transparent;color:var(--text);border:1px solid var(--border)}
-    .btno:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
-
-    .hpanel{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2.5rem;position:relative;opacity:0;animation:fi 1s .9s forwards}
-    .hpanel::before{content:'';position:absolute;inset:0;border-radius:var(--r);background:linear-gradient(135deg,rgba(196,160,90,.04),transparent);pointer-events:none}
-    .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
-    .sval{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--gold);line-height:1}
-    .slbl2{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:.3rem}
-    .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
-    .tag{padding:.3rem .8rem;border-radius:99px;font-size:.72rem;font-family:var(--mono);border:1px solid var(--border);color:var(--muted);transition:all var(--t)}
-    .tag:hover{border-color:var(--gold);color:var(--gold)}
-    .socials{display:flex;gap:1rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
-    .soc{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;transition:all var(--t)}
-    .soc:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
-
-    .term{background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:1rem 1.25rem;margin-top:1.5rem;font-family:var(--mono);font-size:.72rem}
-    .term-hdr{display:flex;align-items:center;gap:.4rem;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,.05)}
-    .tdot{width:8px;height:8px;border-radius:50%}
-    .tlbl{color:var(--dim);font-size:.65rem;margin-left:.25rem}
-    .tline{color:var(--dim);margin-bottom:.3rem}
-    .tp{color:var(--gold);margin-right:.5rem}
-    .tv{color:#4ac882} .ts{color:#7ec8e3}
-
-    /* ── ABOUT ── */
-    #about{background:var(--bg2)}
-    .agrid{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:start}
-    .atext p{color:var(--muted);margin-bottom:1.2rem;font-size:1.02rem;line-height:1.85}
-    .atext p strong{color:var(--text);font-weight:500}
-    .scard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-bottom:1.25rem}
-    .scard h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .irow{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:.75rem;font-size:.88rem}
-    .irow svg{color:var(--gold);width:16px;min-width:16px;margin-top:.15rem;flex-shrink:0}
-    .irow span{color:var(--muted)}
-
-    /* ── EDUCATION ── */
-    .edulist{display:flex;flex-direction:column;gap:1.5rem}
-    .educard{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--r);padding:1.75rem 2rem;display:grid;grid-template-columns:1fr auto;gap:1rem;transition:all var(--t)}
-    .educard:hover{border-left-color:var(--goldl);box-shadow:0 4px 40px rgba(196,160,90,.07);transform:translateX(4px)}
-    .eddeg{font-family:var(--serif);font-size:1.25rem;font-weight:400;color:var(--text);margin-bottom:.25rem}
-    .edsch{font-size:.88rem;color:var(--muted);margin-bottom:.25rem}
-    .edyr{font-family:var(--mono);font-size:.75rem;color:var(--dim)}
-    .edgpa{text-align:right}
-    .gpav{font-family:var(--serif);font-size:1.8rem;color:var(--gold);font-weight:300}
-    .gpal{font-size:.68rem;color:var(--dim);font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
-
-    /* ── PROJECTS ── */
-    #projects{background:var(--bg2)}
-    .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
-    .pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;transition:all var(--t);position:relative;overflow:hidden}
-    .pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity var(--t)}
-    .pcard:hover{border-color:var(--borderg);box-shadow:0 8px 40px rgba(196,160,90,.08);transform:translateY(-4px)}
-    .pcard:hover::before{opacity:1}
-    .pstatus{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:.2rem .6rem;border-radius:99px;display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;width:fit-content}
-    .sact{background:rgba(74,200,130,.1);color:#4ac882;border:1px solid rgba(74,200,130,.2)}
-    .sdon{background:rgba(196,160,90,.1);color:var(--gold);border:1px solid var(--borderg)}
-    .sdot{width:5px;height:5px;border-radius:50%;background:currentColor}
-    .sact .sdot{animation:pulse 1.5s infinite}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-    .ptitle{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--text);margin-bottom:.75rem}
-    .pdesc{font-size:.88rem;color:var(--muted);line-height:1.7;flex-grow:1;margin-bottom:1.5rem}
-    .ptags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.25rem}
-    .ptag{padding:.2rem .65rem;border-radius:var(--rs);font-size:.68rem;font-family:var(--mono);background:rgba(255,255,255,.04);color:var(--dim);border:1px solid var(--border)}
-    .plink{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--gold);font-family:var(--mono)}
-
-    /* ── ACHIEVEMENTS ── */
-    .achgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
-    .achcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:all var(--t)}
-    .achcard:hover{border-color:var(--borderg);transform:translateY(-2px)}
-    .achico{width:40px;height:40px;border-radius:50%;background:rgba(196,160,90,.1);border:1px solid var(--borderg);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-    .acht{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:.2rem;line-height:1.4}
-    .achm{font-size:.75rem;color:var(--dim);font-family:var(--mono)}
-
-    /* ── SKILLS ── */
-    #skills{background:var(--bg2)}
-    .skgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
-    .skcat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem}
-    .skct{font-family:var(--serif);font-size:1.15rem;color:var(--text);margin-bottom:.25rem}
-    .skcs{font-size:.75rem;color:var(--dim);font-family:var(--mono);margin-bottom:1.25rem}
-    .ski{display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem}
-    .skn{font-size:.85rem;color:var(--muted)}
-    .skbw{width:100px;height:2px;background:var(--border);border-radius:99px;overflow:hidden}
-    .skb{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--goldl));border-radius:99px;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
-
-    /* ── EXPERIENCE ── */
-    .tl{position:relative;padding-left:2px}
-    .tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent);opacity:.3}
-    .tli{padding-left:2.5rem;padding-bottom:3rem;position:relative}
-    .tli:last-child{padding-bottom:0}
-    .tldot{position:absolute;left:-5px;top:.35rem;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--gold)}
-    .tldt{font-family:var(--mono);font-size:.7rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.4rem}
-    .tltl{font-family:var(--serif);font-size:1.2rem;color:var(--text);margin-bottom:.2rem}
-    .tlorg{font-size:.85rem;color:var(--muted);margin-bottom:.75rem}
-    .tldsc{font-size:.88rem;color:var(--dim);line-height:1.7}
-
-    /* ── BLOG ── */
-    #blog{background:var(--bg2)}
-    .bintro{font-size:1rem;color:var(--muted);max-width:560px;margin-bottom:2rem;line-height:1.8}
-    .bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
-    .bcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all var(--t);cursor:pointer}
-    .bcard:hover{border-color:var(--borderg);transform:translateY(-4px);box-shadow:0 8px 40px rgba(196,160,90,.08)}
-    .bcardbody{padding:1.75rem}
-    .btag{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;display:block}
-    .btitle{font-family:var(--serif);font-size:1.2rem;color:var(--text);margin-bottom:.75rem;line-height:1.35}
-    .bexc{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem}
-    .bmeta{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--dim);font-family:var(--mono);padding-top:1rem;border-top:1px solid var(--border)}
-    .bread{color:var(--gold);display:flex;align-items:center;gap:.3rem}
-
-    #pmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.87);z-index:2000;overflow-y:auto;padding:2rem 1rem}
-    .mi{max-width:760px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
-
-    /* ── CONTACT ── */
-    .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-    .ctext p{color:var(--muted);line-height:1.8;margin-bottom:2rem}
-    .clinks{display:flex;flex-direction:column;gap:1rem}
-    .cli{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:var(--rs);transition:all var(--t);color:var(--text)}
-    .cli:hover{border-color:var(--gold);transform:translateX(4px);color:var(--text)}
-    .clico{width:36px;height:36px;border-radius:50%;background:rgba(196,160,90,.1);border:1px solid var(--borderg);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0}
-    .clico svg{width:16px;height:16px}
-    .cltxt strong{display:block;font-size:.8rem;color:var(--text);margin-bottom:.1rem}
-    .cltxt span{font-size:.78rem;color:var(--muted)}
-    .fgroup{margin-bottom:1.25rem}
-    .fgroup label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem}
-    .fgroup input,.fgroup textarea{width:100%;background:var(--card);border:1px solid var(--border);border-radius:var(--rs);padding:.85rem 1rem;color:var(--text);font-family:var(--sans);font-size:.9rem;outline:none;transition:border-color var(--t)}
-    .fgroup input:focus,.fgroup textarea:focus{border-color:var(--gold)}
-    .fgroup textarea{min-height:130px;resize:vertical}
-    .fnote{font-size:.75rem;color:var(--dim);margin-top:.75rem;font-family:var(--mono)}
-
-    /* ── FOOTER ── */
-    footer{border-top:1px solid var(--border);padding:2.5rem 0}
-    .fi{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-    footer p{font-size:.8rem;color:var(--dim)}
-    .flogo{font-family:var(--serif);font-size:1.2rem;color:var(--muted)}
-    .flogo span{color:var(--gold)}
-
-    .reveal, .reveal-stagger, .reveal-stagger > * { opacity:1 !important; transform:none !important; }
-
-    @keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fi{from{opacity:0}to{opacity:1}}
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:900px){
-      .hinner{grid-template-columns:1fr}
-      .hpanel{max-width:480px}
-      .agrid{grid-template-columns:1fr}
-      .cgrid{grid-template-columns:1fr}
-
-      /* Hide desktop nav links */
-      .nlinks{display:none}
-      .ntoggle{display:flex}
-
-      /* Slide-in drawer from right */
-      .nlinks.open{
-        display:flex;
-        flex-direction:column;
-        position:fixed;
-        top:0; right:0; bottom:0;
-        width:min(300px,80vw);
-        background:var(--card);
-        border-left:1px solid var(--borderg);
-        justify-content:flex-start;
-        align-items:flex-start;
-        padding:5.5rem 2.5rem 2.5rem;
-        gap:0;
-        z-index:1002;
-        box-shadow:-24px 0 80px rgba(0,0,0,.65);
-        animation:drawerIn .3s cubic-bezier(.4,0,.2,1) forwards;
-      }
-      @keyframes drawerIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
-      .nlinks.open li{width:100%;border-bottom:1px solid var(--border)}
-      .nlinks.open li:last-child{border-bottom:none}
-      .nlinks.open a{
-        display:block;
-        font-size:.95rem;
-        padding:.9rem 0;
-        color:var(--muted);
-        letter-spacing:.1em;
-      }
-      .nlinks.open a:hover,.nlinks.open a.active{color:var(--gold)}
-      .nlinks.open a::after{display:none}
-    }
-    @media(max-width:600px){
-      section{padding:4rem 0}
-      .container{padding:0 1.25rem}
-      .educard{grid-template-columns:1fr}
-      .edgpa{text-align:left}
-      .sgrid{grid-template-columns:1fr 1fr}
-    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:var(--nav);background:var(--bg)}
+    body{margin:0;background:transparent;color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:
+      radial-gradient(circle at 88% 8%,rgba(238,196,118,.105) 0%,rgba(211,171,99,.055) 13%,rgba(211,171,99,.018) 25%,transparent 39%),
+      radial-gradient(circle at 9% 63%,rgba(78,95,150,.035),transparent 31%)}
+    #starCanvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+    #scrollProgress{position:fixed;z-index:1000;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));box-shadow:0 0 12px rgba(211,171,99,.30)}
+    main,footer{position:relative;z-index:1}
+    a{color:inherit;text-decoration:none}.container{width:min(calc(100% - 40px),var(--max));margin:auto}
+    nav{position:fixed;z-index:100;inset:0 0 auto;height:var(--nav);background:rgba(9,10,15,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .navin{height:100%;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-family:var(--serif);font-size:1.42rem}.brand span{color:var(--gold)}
+    .navlinks{display:flex;gap:24px;align-items:center}.navlinks a{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .navlinks a:hover{color:var(--gold2)}.menu{display:none;background:none;border:0;color:var(--text);font-size:1.4rem}
+    .hero{min-height:100vh;display:grid;align-items:center;padding:125px 0 75px}
+    .heroGrid{display:grid;grid-template-columns:1.32fr .68fr;gap:58px;align-items:center}
+    .kicker,.label{font:500 .72rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+    h1{font-family:var(--serif);font-size:clamp(3.4rem,8vw,6.8rem);font-weight:500;line-height:.96;margin:18px 0 18px;letter-spacing:-.045em}
+    h1 em{color:var(--gold);font-weight:500}.lead{font-size:clamp(1.05rem,2vw,1.25rem);max-width:760px;color:#c6c8ce}
+    .hero p{max-width:760px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid var(--line);border-radius:10px;font-weight:600;font-size:.82rem;letter-spacing:.02em;transition:transform .2s,border-color .2s,box-shadow .2s}
+    .btn.primary{background:var(--gold);color:#14110c;border-color:var(--gold)}.btn:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 8px 28px rgba(211,171,99,.12)}
+    .social{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font:400 .76rem var(--mono);color:var(--muted)}
+    .social a:hover{color:var(--gold2)}.statbox{background:linear-gradient(155deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .statbox:hover{transform:translateY(-3px);border-color:rgba(211,171,99,.25);box-shadow:0 16px 42px rgba(0,0,0,.16)}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+    .stat{background:var(--card);padding:22px 16px}.sv{font:500 2rem var(--serif);color:var(--gold2);line-height:1}.sl{color:var(--dim);font-size:.73rem;margin-top:7px}
+    .focus{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}.focus p{margin:8px 0 0;color:var(--muted);font-size:.9rem}
+    section{padding:92px 0;border-top:1px solid rgba(255,255,255,.045)}.sectionHead{display:grid;grid-template-columns:.32fr .68fr;gap:40px;margin-bottom:42px}
+    h2{font:500 clamp(2rem,5vw,3.6rem)/1.15 var(--serif);margin:0;letter-spacing:-.03em}.sub{color:var(--muted);max-width:720px;margin:9px 0 0}
+    .aboutGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}.panel,.card{background:rgba(17,20,29,.94);border:1px solid var(--line);border-radius:var(--r);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .panel:hover,.card:hover{transform:translateY(-3px);border-color:rgba(211,171,99,.24);box-shadow:0 16px 42px rgba(0,0,0,.14)}
+    .panel{padding:30px}.panel p{color:#c2c4ca;margin:0 0 16px}.panel p:last-child{margin-bottom:0}
+    .quick{display:grid;gap:10px}.qrow{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#0d1017}
+    .qrow b{display:block;font-size:.78rem;color:var(--gold);margin-bottom:3px}.qrow span{color:var(--muted);font-size:.9rem}
+    .edu{display:grid;gap:14px}.eduCard{display:grid;grid-template-columns:1fr auto;gap:24px;padding:24px 26px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+    .eduCard h3,.card h3{margin:0 0 5px;font-size:1.05rem}.meta{font:400 .75rem var(--mono);color:var(--dim)}.score{text-align:right;color:var(--gold2);font-weight:700}
+    .score span{display:block;color:var(--dim);font-size:.72rem;font-weight:400}
+    .pubgrid,.projectGrid,.awardGrid,.skillGrid,.roleGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .pub,.project,.award,.skill,.role{padding:25px}.pubNo{font:400 .7rem var(--mono);color:var(--gold);margin-bottom:12px;text-transform:uppercase;letter-spacing:.1em}
+    .pub h3{font-size:1.08rem;line-height:1.45}.authors,.desc{color:var(--muted);font-size:.9rem}.venue{margin:15px 0 0;color:#d7d8db;font-size:.84rem}
+    .link{display:inline-block;margin-top:14px;color:var(--gold2);font:400 .76rem var(--mono)}.link:hover{text-decoration:underline}
+    .thesis{padding:32px;background:linear-gradient(145deg,#141824,#10131b);border:1px solid rgba(211,171,99,.28);border-radius:var(--r)}
+    .thesis h3{font:500 1.55rem/1.35 var(--serif);margin:8px 0}.thesis p{color:var(--muted);max-width:980px}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.metric{padding:18px;background:#0c0e14;border:1px solid var(--line);border-radius:12px}
+    .metric b{display:block;font-size:1.24rem;color:var(--gold2)}.metric span{font-size:.76rem;color:var(--dim)}
+    .project{display:flex;flex-direction:column}.tagrow{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}.tag{font:400 .68rem var(--mono);color:#b7bac1;padding:5px 9px;border:1px solid var(--line);border-radius:99px}
+    .status{color:var(--green);font:500 .69rem var(--mono);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}.status.done{color:var(--gold)}
+    .project .link{margin-top:auto;padding-top:18px}.award h3,.role h3,.skill h3{font-size:1rem}.award p,.role p,.skill p{color:var(--muted);font-size:.88rem;margin:5px 0 0}
+    .skillGrid{grid-template-columns:repeat(3,1fr)}.skill{min-height:150px}.skill h3{color:var(--gold2)}
+    .interest{display:flex;gap:8px;flex-wrap:wrap}.interest span{padding:8px 11px;background:var(--card);border:1px solid var(--line);border-radius:9px;color:#c4c6cc;font-size:.82rem}
+    .contactBox{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;padding:36px;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+    .contactBox h2{font-size:clamp(1.8rem,4vw,3rem)}.contactBox p{color:var(--muted);max-width:720px}.contactLinks{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    footer{padding:30px 0;color:var(--dim);font-size:.78rem;border-top:1px solid var(--line)}.footerIn{display:flex;justify-content:space-between;gap:20px}
+    .reveal{opacity:0;transform:translateY(12px);transition:.55s ease}.reveal.show{opacity:1;transform:none}
+    @media(max-width:900px){.heroGrid,.aboutGrid,.sectionHead,.contactBox{grid-template-columns:1fr}.hero{min-height:auto}.pubgrid,.projectGrid,.awardGrid,.roleGrid{grid-template-columns:1fr}.skillGrid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr}.sectionHead{gap:12px}.contactLinks{justify-content:flex-start}}
+    @media(max-width:680px){.container{width:min(calc(100% - 28px),var(--max))}.navlinks{display:none;position:absolute;top:var(--nav);left:0;right:0;padding:18px 22px;background:#0c0e14;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu{display:block}.stats{grid-template-columns:1fr 1fr}.eduCard{grid-template-columns:1fr}.score{text-align:left}.skillGrid{grid-template-columns:1fr}.footerIn{flex-direction:column}section{padding:72px 0}.heroGrid{gap:38px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.panel,.card,.statbox{transition:none}}
   </style>
 </head>
 <body>
-
-<div id="pbar"></div>
-<button id="btt" onclick="sTo(0)" title="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5,12 12,5 19,12"/></svg></button>
-
-<!-- Mobile nav backdrop -->
-<div id="nav-backdrop"></div>
-
-<!-- NAV -->
-<nav id="nav">
-  <div class="container">
-    <a href="#hero" class="nlogo" onclick="sTo(0);return false;">Shahriar<span>.</span></a>
-    <ul class="nlinks" id="nl">
-      <li><a href="#about"        onclick="nTo('about');return false;">About</a></li>
-      <li><a href="#education"    onclick="nTo('education');return false;">Education</a></li>
-      <li><a href="#projects"     onclick="nTo('projects');return false;">Projects</a></li>
-      <li><a href="#achievements" onclick="nTo('achievements');return false;">Achievements</a></li>
-      <li><a href="#skills"       onclick="nTo('skills');return false;">Skills</a></li>
-      <li><a href="#experience"   onclick="nTo('experience');return false;">Experience</a></li>
-      <li><a href="#blog"         onclick="nTo('blog');return false;">Blog</a></li>
-      <li><a href="#contact"      onclick="nTo('contact');return false;">Contact</a></li>
-    </ul>
-    <button class="ntoggle" id="ntgl" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+<div id="scrollProgress" aria-hidden="true"></div>
+<canvas id="starCanvas" aria-hidden="true"></canvas>
+<nav>
+  <div class="container navin">
+    <a class="brand" href="#top">Shahriar<span>.</span></a>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About</a><a href="#research">Research</a><a href="#projects">Projects</a>
+      <a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </div>
+    <button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
   </div>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="container">
-    <div class="hinner">
-      <div class="hero-text">
-        <p class="eyebrow">// Hardware Engineer · VLSI · Quantum Computing</p>
-        <h1 class="hname">Shahriar<br>Rizvi</h1>
-        <p class="htitle" id="htitle"><span id="typed-text"></span><span class="cursor"></span></p>
-        <p class="hdesc">Final-year CSE student at RUET, Bangladesh. Champion at VLSITHON 2024, IBM Qiskit Excellence awardee. Passionate about building hardware from the ground up — from RTL to GDSII.</p>
-        <div class="hcta">
-          <a href="https://drive.google.com/file/d/16xxtKuSW_oMnZRNaTtCGWt4BNMgsgGqk/view?usp=sharing" class="btn btng" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download CV
-          </a>
-          <a href="#contact" class="btn btno" onclick="nTo('contact');return false;">Get in Touch</a>
-        </div>
+<main id="top">
+<section class="hero">
+  <div class="container heroGrid">
+    <div>
+      <div class="kicker">CSE Graduate · Computer Architecture · FPGA / RTL · VLSI Research</div>
+      <h1>Shahriar <em>Rizvi</em></h1>
+      <p class="lead">Computing-systems researcher and engineer focused on computer architecture, FPGA/RTL systems, hardware acceleration, and hardware–software co-design.</p>
+      <p style="color:var(--muted)">B.Sc. Engg. in Computer Science &amp; Engineering from RUET with a final CGPA of <strong style="color:var(--text)">3.89/4.00</strong> and <strong style="color:var(--text)">5th rank out of 181</strong> students in the CSE Department.</p>
+      <div class="actions">
+        <a class="btn primary" href="Shahriar_Rizvi_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn" href="#research">View Research</a>
+        <a class="btn" href="mailto:shahriar10rizvi@gmail.com">Contact</a>
       </div>
-
-      <div class="hpanel">
-        <div class="sgrid">
-          <div><div class="sval" data-count="3.90" data-dec="2">3.90</div><div class="slbl2">CGPA / 4.00</div></div>
-          <div><div class="sval" data-count="10" data-sfx="+">10+</div><div class="slbl2">Awards Won</div></div>
-          <div><div class="sval" data-count="4" data-sfx="+">4+</div><div class="slbl2">Projects</div></div>
-          <div><div class="sval" data-count="2026">2026</div><div class="slbl2">Graduating</div></div>
-        </div>
-        <div class="divider"></div>
-        <div class="tags">
-          <span class="tag">Verilog</span><span class="tag">SystemVerilog</span>
-          <span class="tag">RISC-V</span><span class="tag">RTL Design</span>
-          <span class="tag">Qiskit</span><span class="tag">FPGA</span>
-          <span class="tag">Network Eng.</span><span class="tag">C / C++</span>
-        </div>
-        <div class="term">
-          <div class="term-hdr">
-            <div class="tdot" style="background:#ff5f57"></div>
-            <div class="tdot" style="background:#ffbd2e"></div>
-            <div class="tdot" style="background:#28ca41"></div>
-            <span class="tlbl">currently_building.sh</span>
-          </div>
-          <div class="tline"><span class="tp">$</span><span class="tv">project</span> = <span class="ts">"SigmaCore RISC-V CPU"</span></div>
-          <div class="tline"><span class="tp">$</span><span class="tv">stack</span>&nbsp;&nbsp; = <span class="ts">"SystemVerilog → GDSII"</span></div>
-          <div class="tline"><span class="tp">$</span><span class="tv">status</span>&nbsp; = <span style="color:#4ac882">⬤ active</span></div>
-        </div>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" class="soc" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://github.com/rizvi19/" target="_blank" class="soc" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
-          <a href="mailto:shahriar10rizvi@gmail.com" class="soc" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></a>
-        </div>
+      <div class="social">
+        <a href="https://github.com/rizvi19" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://scholar.google.com/citations?hl=en&user=Qt3KWTQAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org/0009-0003-6098-4056" target="_blank" rel="noopener">ORCID ↗</a>
       </div>
     </div>
+    <aside class="statbox reveal">
+      <div class="stats">
+        <div class="stat"><div class="sv">3.89</div><div class="sl">Final CGPA / 4.00</div></div>
+        <div class="stat"><div class="sv">5th</div><div class="sl">of 181 students · CSE department</div></div>
+        <div class="stat"><div class="sv">3</div><div class="sl">Research publications / accepted papers</div></div>
+        <div class="stat"><div class="sv">2026</div><div class="sl">B.Sc. Engg. completed</div></div>
+      </div>
+      <div class="focus">
+        <div class="label">Current technical focus</div>
+        <p>RISC-V processor design, operating systems, FPGA acceleration, fixed-point hardware, and reconfigurable computing.</p>
+      </div>
+    </aside>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="slabel">01 — About</div>
-    <h2 class="sh">Building Hardware<br>from <em>First Principles</em></h2>
-    <div class="agrid reveal">
-      <div class="atext">
-        <p>I am <strong>Shahriar Rizvi</strong>, a final-year Computer Science &amp; Engineering student at <strong>Rajshahi University of Engineering &amp; Technology (RUET)</strong>, Bangladesh, maintaining a CGPA of <strong>3.90/4.00</strong>. My passion lies at the intersection of hardware and computing — designing processors from scratch, exploring quantum algorithms, and building robust network architectures.</p>
-        <p>My work spans <strong>RTL design</strong> using Verilog and SystemVerilog, where I am currently designing a full RISC-V CPU from RTL all the way to GDSII tape-out. I am simultaneously developing an AI-powered attendance system and have a strong track record in competitive programming and mathematical olympiads.</p>
-        <p>I earned the <strong>IBM Qiskit Excellence</strong> badge at the Qiskit Global Summer School 2025, and was Champion at <strong>VLSITHON 2024</strong> in the RTL Section. I serve as Campus Ambassador for ULKASEMI Private LTD and ICSC, bridging academia and industry. In 2025, my startup received first prize and funding from the University Innovation Hub Program (UIHP).</p>
-        <p>Currently exploring opportunities for <strong>graduate study (MS/PhD)</strong> in VLSI, quantum computing, and computer architecture at leading US universities for Fall 2026–2027.</p>
+    <div class="sectionHead">
+      <div class="label">01 — About</div>
+      <div><h2>Engineering systems from architecture to hardware.</h2><p class="sub">A research-oriented CSE graduate with hands-on work spanning RTL, FPGA prototypes, hardware acceleration, computing systems, and mentoring.</p></div>
+    </div>
+    <div class="aboutGrid">
+      <div class="panel reveal">
+        <p>I am a Computer Science &amp; Engineering graduate from <strong>Rajshahi University of Engineering &amp; Technology (RUET)</strong>. I completed an Outcome-Based Education (OBE) curriculum with a final CGPA of <strong>3.89/4.00</strong>, ranking <strong>5th among 181 students</strong> in the CSE Department.</p>
+        <p>My research centers on <strong>computer architecture, FPGA/RTL systems, hardware acceleration, reconfigurable computing, and hardware–software co-design</strong>. My peer-reviewed work also extends into multimodal deepfake detection, digital provenance, and WiFi–visible-light indoor positioning.</p>
+        <p>I enjoy building systems close to the hardware—from SystemVerilog datapaths and finite-state machines to FPGA prototyping, bare-metal execution, and operating-system development—while keeping experimental results reproducible and explainable.</p>
       </div>
-      <div>
-        <div class="scard">
-          <h4>Quick Info</h4>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Rajshahi, Bangladesh</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg><span>shahriar10rizvi@gmail.com</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg><span>RUET, CSE Dept.</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Age 22 · Graduating 2026</span></div>
-        </div>
-        <div class="scard">
-          <h4>Research Interests</h4>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><line x1="9" y1="2" x2="9" y2="7"/><line x1="15" y1="2" x2="15" y2="7"/><line x1="2" y1="9" x2="7" y2="9"/><line x1="2" y1="15" x2="7" y2="15"/><line x1="17" y1="9" x2="22" y2="9"/><line x1="17" y1="15" x2="22" y2="15"/><line x1="9" y1="17" x2="9" y2="22"/><line x1="15" y1="17" x2="15" y2="22"/></svg><span>VLSI &amp; RTL Design</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg><span>Quantum Computing</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="17" y="2" width="5" height="5" rx="1"/><rect x="9.5" y="17" width="5" height="5" rx="1"/><line x1="4.5" y1="7" x2="4.5" y2="12"/><line x1="19.5" y1="7" x2="19.5" y2="12"/><line x1="4.5" y1="12" x2="19.5" y2="12"/><line x1="12" y1="12" x2="12" y2="17"/></svg><span>Network Engineering</span></div>
-          <div class="irow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg><span>Competitive Programming</span></div>
-        </div>
+      <div class="quick reveal">
+        <div class="qrow"><b>Location</b><span>Rajshahi / Dhaka, Bangladesh</span></div>
+        <div class="qrow"><b>Education</b><span>B.Sc. Engg. in CSE, RUET · 2026</span></div>
+        <div class="qrow"><b>Research identity</b><span>Computer Architecture · FPGA/RTL · Hardware Acceleration · VLSI</span></div>
+        <div class="qrow"><b>Teaching</b><span>Programming, algorithms, digital systems, architecture, OS, networks, AI/ML</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
   <div class="container">
-    <div class="slabel">02 — Education</div>
-    <h2 class="sh">Academic <em>Background</em></h2>
-    <div class="edulist reveal-stagger">
-      <div class="educard">
-        <div>
-          <div class="eddeg">B.Sc. in Computer Science &amp; Engineering</div>
-          <div class="edsch">Rajshahi University of Engineering &amp; Technology (RUET), Bangladesh</div>
-          <div class="edyr">2021 – 2026 (Expected)</div>
-        </div>
-        <div class="edgpa"><div class="gpav">3.90</div><div class="gpal">CGPA / 4.00</div></div>
-      </div>
-      <div class="educard">
-        <div>
-          <div class="eddeg">Higher Secondary Certificate (H.S.C.)</div>
-          <div class="edsch">Government Edward College, Pabna, Bangladesh</div>
-          <div class="edyr">2020</div>
-        </div>
-        <div class="edgpa"><div class="gpav">5.00</div><div class="gpal">GPA / 5.00</div></div>
-      </div>
-      <div class="educard">
-        <div>
-          <div class="eddeg">Secondary School Certificate (S.S.C.)</div>
-          <div class="edsch">Pabna Zilla School, Pabna, Bangladesh</div>
-          <div class="edyr">2018</div>
-        </div>
-        <div class="edgpa"><div class="gpav">5.00</div><div class="gpal">GPA / 5.00</div></div>
-      </div>
+    <div class="sectionHead">
+      <div class="label">02 — Education</div>
+      <div><h2>Academic background.</h2><p class="sub">Strong performance across undergraduate engineering and earlier science education.</p></div>
+    </div>
+    <div class="edu">
+      <div class="eduCard reveal"><div><h3>B.Sc. Engg. in Computer Science &amp; Engineering</h3><div class="desc">Rajshahi University of Engineering &amp; Technology (RUET), Bangladesh</div><div class="meta">Completed 2026 · Outcome-Based Education (OBE) curriculum · Department rank: 5th / 181</div></div><div class="score">3.89 / 4.00<span>CGPA</span></div></div>
+      <div class="eduCard reveal"><div><h3>Higher Secondary Certificate (HSC), Science</h3><div class="desc">Government Edward College, Pabna, Bangladesh</div><div class="meta">2020</div></div><div class="score">5.00 / 5.00<span>GPA</span></div></div>
+      <div class="eduCard reveal"><div><h3>Secondary School Certificate (SSC), Science</h3><div class="desc">Pabna Zilla School, Pabna, Bangladesh</div><div class="meta">2018</div></div><div class="score">5.00 / 5.00<span>GPA</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
+<section id="research">
+  <div class="container">
+    <div class="sectionHead">
+      <div class="label">03 — Research</div>
+      <div><h2>Research publications &amp; undergraduate thesis.</h2><p class="sub">Work across FPGA acceleration, multimodal AI, digital provenance, and hybrid indoor positioning.</p></div>
+    </div>
+    <div class="pubgrid">
+      <article class="card pub reveal">
+        <div class="pubNo">[1] IEEE ICECTE 2026</div>
+        <h3>FPGA Acceleration of Quantum Circuit Primitives: Fixed-Point Microcoded Design and CPU Comparison</h3>
+        <p class="authors">Shahriar Rizvi and Md. Nazrul Islam Mondal</p>
+        <p class="venue">IEEE ICECTE 2026 · DOI: 10.1109/ICECTE69292.2026.11429464</p>
+        <a class="link" href="https://doi.org/10.1109/ICECTE69292.2026.11429464" target="_blank" rel="noopener">View DOI ↗</a>
+      </article>
+      <article class="card pub reveal">
+        <div class="pubNo">[2] IEEE ICCIT 2025</div>
+        <h3>Beyond Artifacts: Semantic Deepfake Detection and Digital Provenance Tracking with Multimodal Large Language Models</h3>
+        <p class="authors">Jabunnesa Jahan Sara, Shahriar Rizvi, and Tasfia Jannat Tasfi</p>
+        <p class="venue">IEEE ICCIT 2025 · DOI: 10.1109/ICCIT68739.2025.11490141</p>
+        <a class="link" href="https://doi.org/10.1109/ICCIT68739.2025.11490141" target="_blank" rel="noopener">View DOI ↗</a>
+      </article>
+      <article class="card pub reveal">
+        <div class="pubNo">[3] IEEE SPICSCON 2026 · Accepted, to appear</div>
+        <h3>Topology-Aware Adaptive WiFi–Visible-Light Fusion for Robust Simulated Indoor Positioning</h3>
+        <p class="authors">Shahriar Rizvi, Tasfia Jannat Tasfi, and Md. Nazrul Islam Mondal</p>
+        <p class="venue">IEEE SPICSCON 2026 · Accepted, to appear.</p>
+      </article>
+      <article class="card pub reveal">
+        <div class="pubNo">Research profile</div>
+        <h3>Primary research direction</h3>
+        <p class="authors">Computer architecture; FPGA/RTL systems; hardware acceleration; reconfigurable computing; hardware–software co-design; operating systems; embedded systems.</p>
+        <a class="link" href="https://scholar.google.com/citations?hl=en&user=Qt3KWTQAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+      </article>
+    </div>
+    <div style="height:18px"></div>
+    <article class="thesis reveal">
+      <div class="label">Undergraduate Thesis · Completed 2026</div>
+      <h3>QFlow: A Fixed-Point FPGA Accelerator for Adaptive Key-Resource-Aware Route-Candidate Evaluation in Trusted-Relay QKD Networks</h3>
+      <p>Supervised by Prof. Dr. Md. Nazrul Islam Mondal, Department of CSE, RUET. The work proposes a fixed-point FPGA accelerator for adaptive, key-resource-aware route-candidate evaluation, combining hardware-efficient route scoring with adaptive profile selection. The RTL architecture was prototyped on a Digilent Nexys 3 (Spartan-6 XC6LX16), with an offline reinforcement-learning policy mapped into deterministic hardware policy/profile ROMs.</p>
+      <div class="metrics">
+        <div class="metric"><b>0 mismatches</b><span>Across 420 validation records / 3,780 comparisons</span></div>
+        <div class="metric"><b>≈ 102.02 MHz</b><span>Post-route frequency</span></div>
+        <div class="metric"><b>2.048 μs</b><span>Mean kernel latency</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
 <section id="projects">
   <div class="container">
-    <div class="slabel">03 — Projects</div>
-    <h2 class="sh">Selected <em>Work</em></h2>
-    <div class="pgrid reveal-stagger">
-      <div class="pcard">
-        <div class="pstatus sact"><span class="sdot"></span> In Progress</div>
-        <h3 class="ptitle">SigmaCore — RISC-V CPU</h3>
-        <p class="pdesc">Designing a full RISC-V architecture processor from scratch using SystemVerilog — Memory, ALU, and Control Unit at RTL level, targeting GDSII tape-out. Future plans include a custom OS and compiler on the silicon.</p>
-        <div class="ptags"><span class="ptag">SystemVerilog</span><span class="ptag">RISC-V</span><span class="ptag">RTL</span><span class="ptag">GDSII</span></div>
-        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
-      </div>
-      <div class="pcard">
-        <div class="pstatus sact"><span class="sdot"></span> In Progress</div>
-        <h3 class="ptitle">CPU Design 01</h3>
-        <p class="pdesc">Designing a CPU from scratch in Verilog — implementing Memory, ALU, and Control Unit at RTL level. A deep foundational study in digital computer architecture and HDL engineering.</p>
-        <div class="ptags"><span class="ptag">Verilog</span><span class="ptag">RTL Design</span><span class="ptag">ALU</span><span class="ptag">Control Unit</span></div>
-        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
-      </div>
-      <div class="pcard">
-        <div class="pstatus sdon"><span class="sdot"></span> Complete</div>
-        <h3 class="ptitle">AI Powered Attendance System</h3>
-        <p class="pdesc">An automated attendance management system using face recognition that updates attendance sheets in real-time without manual intervention.</p>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">Face Recognition</span><span class="ptag">AI/ML</span><span class="ptag">OpenCV</span></div>
-        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
-      </div>
-      <div class="pcard">
-        <div class="pstatus sdon"><span class="sdot"></span> Complete</div>
-        <h3 class="ptitle">BoiKothon — Book Review Platform</h3>
-        <p class="pdesc">A full-stack web platform for sharing and discovering book reviews. Built with Django for the backend and HTML/PHP for the frontend.</p>
-        <div class="ptags"><span class="ptag">Django</span><span class="ptag">Python</span><span class="ptag">HTML</span><span class="ptag">PHP</span></div>
-        <a href="https://github.com/rizvi19/" target="_blank" class="plink"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View on GitHub</a>
-      </div>
+    <div class="sectionHead">
+      <div class="label">04 — Projects</div>
+      <div><h2>Selected technical projects.</h2><p class="sub">Projects chosen to show depth in processor design, systems, computer graphics, and applied computer vision.</p></div>
+    </div>
+    <div class="projectGrid">
+      <article class="card project reveal">
+        <div class="status">Ongoing · RTL / Computer Architecture</div>
+        <h3>SigmaCore RISC-V CPU Design</h3>
+        <p class="desc">Implementing a 32-bit multicycle RISC-V CPU in SystemVerilog with modular ALU, control unit, register file, memory, instruction decoder, sign extender, and top-level testbench. FSM-based control is verified with Icarus Verilog simulation and GTKWave tracing.</p>
+        <div class="tagrow"><span class="tag">SystemVerilog</span><span class="tag">RISC-V</span><span class="tag">FSM</span><span class="tag">Icarus Verilog</span><span class="tag">GTKWave</span></div>
+        <a class="link" href="https://github.com/rizvi19/SigmaCore-RISC-V-CPU-Design" target="_blank" rel="noopener">View project ↗</a>
+      </article>
+      <article class="card project reveal">
+        <div class="status">Ongoing · Operating Systems</div>
+        <h3>SigmaCore Operating System</h3>
+        <p class="desc">Developing a small operating system from scratch with assembly-focused boot and low-level components, connecting processor architecture, bare-metal execution, and core operating-system concepts.</p>
+        <div class="tagrow"><span class="tag">Operating Systems</span><span class="tag">Assembly</span><span class="tag">Bare-metal</span><span class="tag">Computer Architecture</span></div>
+        <a class="link" href="https://github.com/rizvi19/SigmaCore_Operating_System" target="_blank" rel="noopener">View project ↗</a>
+      </article>
+      <article class="card project reveal">
+        <div class="status done">Completed · Computer Graphics</div>
+        <h3>Bezier Breakout: Curve Ball Arena</h3>
+        <p class="desc">Created a C++17 OpenGL/GLUT game with procedural graphics and primitives, including paddle control, levels, camera/help controls, and no external game engine.</p>
+        <div class="tagrow"><span class="tag">C++17</span><span class="tag">OpenGL</span><span class="tag">GLUT</span><span class="tag">Procedural Graphics</span></div>
+        <a class="link" href="https://github.com/rizvi19/Bezier_Breakout" target="_blank" rel="noopener">View project ↗</a>
+      </article>
+      <article class="card project reveal">
+        <div class="status done">Completed · AI / Computer Vision</div>
+        <h3>AI-Powered Attendance System</h3>
+        <p class="desc">Implemented a Python facial-recognition attendance system with GUI, model training, real-time recognition, CSV import/export, and attendance reporting.</p>
+        <div class="tagrow"><span class="tag">Python</span><span class="tag">Computer Vision</span><span class="tag">Face Recognition</span><span class="tag">GUI</span></div>
+        <a class="link" href="https://github.com/rizvi19/AI_powered_Attendance_System" target="_blank" rel="noopener">View project ↗</a>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="container">
-    <div class="slabel">04 — Achievements</div>
-    <h2 class="sh">Honours &amp; <em>Recognition</em></h2>
-    <div class="achgrid reveal-stagger">
-      <div class="achcard"><div class="achico">🏆</div><div><div class="acht">Champion — VLSITHON RTL Section</div><div class="achm">ULKASEMI Private LTD · 2024</div></div></div>
-      <div class="achcard"><div class="achico">⚛️</div><div><div class="acht">Quantum Excellence — Qiskit Global Summer School</div><div class="achm">IBM · 2025</div></div></div>
-      <div class="achcard"><div class="achico">🥉</div><div><div class="acht">Bronze Honour — International Youth Math Challenge</div><div class="achm">IYMC · 2024</div></div></div>
-      <div class="achcard"><div class="achico">💡</div><div><div class="acht">1st Prize — University Innovation Hub Program (UIHP)</div><div class="achm">Startup Funded · 2025</div></div></div>
-      <div class="achcard"><div class="achico">🏆</div><div><div class="acht">Champion — HULT Prize On Campus</div><div class="achm">RUET · 2023</div></div></div>
-      <div class="achcard"><div class="achico">💻</div><div><div class="acht">Champion — National High School Programming Contest</div><div class="achm">2016</div></div></div>
-      <div class="achcard"><div class="achico">📐</div><div><div class="acht">1st &amp; 2nd Runners Up — Bangladesh Math Olympiad Regional</div><div class="achm">2017 &amp; 2019</div></div></div>
-      <div class="achcard"><div class="achico">🔬</div><div><div class="acht">Champion — Science Olympiad</div><div class="achm">2018 &amp; 2019</div></div></div>
-      <div class="achcard"><div class="achico">🎯</div><div><div class="acht">Champion — Creative Talent Hunt Regional</div><div class="achm">2019</div></div></div>
-      <div class="achcard"><div class="achico">🥈</div><div><div class="acht">1st Runners Up — Science Fair</div><div class="achm">2020</div></div></div>
+    <div class="sectionHead">
+      <div class="label">05 — Recognition</div>
+      <div><h2>Honours &amp; awards.</h2><p class="sub">Selected distinctions spanning RTL/VLSI, quantum computing, scholarships, entrepreneurship, programming, mathematics, and science.</p></div>
+    </div>
+    <div class="awardGrid">
+      <div class="card award reveal"><h3>5th Rank — CSE Department</h3><p>B.Sc. Engg. final result, RUET · 2026.</p></div>
+      <div class="card award reveal"><h3>Champion — VLSITHON 2024</h3><p>RTL Section · ULKASEMI.</p></div>
+      <div class="card award reveal"><h3>Quantum Excellence</h3><p>IBM Qiskit Global Summer School · 2025.</p></div>
+      <div class="card award reveal"><h3>Government Technical Scholarship</h3><p>Recipient for all four undergraduate years.</p></div>
+      <div class="card award reveal"><h3>1st Prize &amp; Funding Recipient</h3><p>University Innovation Hub Program (UIHP) · 2025.</p></div>
+      <div class="card award reveal"><h3>Champion — HULT Prize on Campus RUET</h3><p>2023.</p></div>
+      <div class="card award reveal"><h3>Bronze Honour — IYMC</h3><p>International Youth Math Challenge · 2024.</p></div>
+      <div class="card award reveal"><h3>Earlier Academic Distinctions</h3><p>National High School Programming Contest Champion (2016); Science Olympiad Champion (2018, 2019); Creative Talent Hunt Regional Champion (2019); Bangladesh Math Olympiad regional 1st runner-up awards (2017, 2019); Science Fair 1st runner-up (2020).</p></div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="slabel">05 — Skills</div>
-    <h2 class="sh">Technical <em>Expertise</em></h2>
-    <div class="skgrid reveal-stagger">
-      <div class="skcat">
-        <div class="skct">Hardware Design</div><div class="skcs">RTL / HDL</div>
-        <div class="ski"><span class="skn">Verilog</span><div class="skbw"><div class="skb" data-w="90"></div></div></div>
-        <div class="ski"><span class="skn">SystemVerilog</span><div class="skbw"><div class="skb" data-w="80"></div></div></div>
-        <div class="ski"><span class="skn">RTL Design</span><div class="skbw"><div class="skb" data-w="85"></div></div></div>
-        <div class="ski"><span class="skn">FPGA / Embedded</span><div class="skbw"><div class="skb" data-w="70"></div></div></div>
-      </div>
-      <div class="skcat">
-        <div class="skct">Programming</div><div class="skcs">Languages</div>
-        <div class="ski"><span class="skn">C / C++</span><div class="skbw"><div class="skb" data-w="88"></div></div></div>
-        <div class="ski"><span class="skn">Python</span><div class="skbw"><div class="skb" data-w="82"></div></div></div>
-        <div class="ski"><span class="skn">SQL / Node.js</span><div class="skbw"><div class="skb" data-w="65"></div></div></div>
-        <div class="ski"><span class="skn">LaTeX</span><div class="skbw"><div class="skb" data-w="78"></div></div></div>
-      </div>
-      <div class="skcat">
-        <div class="skct">Quantum &amp; Networks</div><div class="skcs">Emerging Tech</div>
-        <div class="ski"><span class="skn">Qiskit</span><div class="skbw"><div class="skb" data-w="75"></div></div></div>
-        <div class="ski"><span class="skn">Routing (RIP/OSPF)</span><div class="skbw"><div class="skb" data-w="72"></div></div></div>
-        <div class="ski"><span class="skn">Subnetting / VLSM</span><div class="skbw"><div class="skb" data-w="76"></div></div></div>
-        <div class="ski"><span class="skn">Cisco Packet Tracer</span><div class="skbw"><div class="skb" data-w="70"></div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
-    <div class="slabel">06 — Experience &amp; Roles</div>
-    <h2 class="sh">Positions of <em>Responsibility</em></h2>
-    <div class="tl reveal">
-      <div class="tli"><div class="tldot"></div><div class="tldt">June 2025 – Present</div><div class="tltl">Official Ambassador — ICSC</div><div class="tlorg">International Computer Science Competition</div><div class="tldsc">Representing ICSC at RUET, coordinating student participation in international programming competitions.</div></div>
-      <div class="tli"><div class="tldot"></div><div class="tldt">March 2025 – Present</div><div class="tltl">Campus Ambassador — ULKASEMI</div><div class="tlorg">ULKASEMI Private LTD</div><div class="tldsc">Bridging academia and industry by connecting students with VLSI-focused opportunities and competitions organized by ULKASEMI.</div></div>
-      <div class="tli"><div class="tldot"></div><div class="tldt">2021 – Present</div><div class="tltl">Class Representative &amp; Coordinator</div><div class="tlorg">RUET CSE-2020 Batch</div><div class="tldsc">Managing departmental schedules and events, acting as liaison between students and faculty, cultivating leadership and organizational skills.</div></div>
-      <div class="tli"><div class="tldot"></div><div class="tldt">2021 – Present</div><div class="tltl">Vice President — RUET Computing Society</div><div class="tlorg">RUET</div><div class="tldsc">Leading computing society initiatives, organizing technical workshops and hackathons, mentoring junior students in competitive programming.</div></div>
-      <div class="tli"><div class="tldot"></div><div class="tldt">2021 – Present</div><div class="tltl">Joint Secretary — Pabna District Association RUET</div><div class="tlorg">RUET</div><div class="tldsc">Managing association affairs and connecting students from Pabna district studying at RUET.</div></div>
+    <div class="sectionHead">
+      <div class="label">06 — Teaching &amp; Leadership</div>
+      <div><h2>Mentoring, instruction &amp; service.</h2><p class="sub">Teaching experience is paired with sustained academic and technical leadership.</p></div>
+    </div>
+    <div class="roleGrid">
+      <div class="card role reveal"><h3>Competitive Programming Instructor / Mentor</h3><div class="meta">RUET Analytical and Programming Lab (RAPL) · 1+ years</div><p>Mentored 100+ junior students in C/C++, algorithms, debugging, contest-oriented problem solving, and peer-learning sessions.</p></div>
+      <div class="card role reveal"><h3>Private Tutor / Academic Mentor</h3><div class="meta">5+ years</div><p>Long-term mentoring for SSC, HSC, engineering admission, and selected university-level subjects with a concept-first, step-by-step approach.</p></div>
+      <div class="card role reveal"><h3>Class Representative &amp; Coordinator</h3><div class="meta">Department of CSE, RUET · 2023–2025</div><p>Coordinated academic communication among faculty members and students, including schedules, course updates, notices, and departmental matters.</p></div>
+      <div class="card role reveal"><h3>Campus Ambassador</h3><div class="meta">ULKASEMI Private Ltd. · 2025–2026</div><p>Promoted semiconductor, RTL, and VLSI career awareness through campus-level student engagement.</p></div>
+      <div class="card role reveal"><h3>Official Ambassador</h3><div class="meta">International Computer Science Competition (ICSC) · 2025</div><p>Promoted participation in international computer science, algorithmic, and problem-solving competitions.</p></div>
+      <div class="card role reveal"><h3>Vice President</h3><div class="meta">RUET Computing Society · 2025–2026</div><p>Contributed to peer learning, computing activities, student engagement, and technical-event coordination.</p></div>
+      <div class="card role reveal"><h3>Joint Secretary</h3><div class="meta">Pabna District Association, RUET · 2025–2026</div><p>Supported student networking, event organization, and community coordination.</p></div>
     </div>
   </div>
 </section>
 
-<!-- BLOG -->
-<section id="blog">
+<section id="skills">
   <div class="container">
-    <div class="slabel">07 — Blog &amp; Writing</div>
-    <h2 class="sh">Thoughts &amp; <em>Articles</em></h2>
-    <p class="bintro">Beyond engineering, I write about technology, quantum computing, hardware design, and ideas that shape the future. Occasional reflections on learning and research.</p>
-    <div id="bfilters" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;"></div>
-    <div class="bgrid" id="bgrid"></div>
+    <div class="sectionHead">
+      <div class="label">07 — Skills</div>
+      <div><h2>Technical toolkit.</h2><p class="sub">Presented as domains rather than subjective percentage bars.</p></div>
+    </div>
+    <div class="skillGrid">
+      <div class="card skill reveal"><h3>Programming</h3><p>C, C++, Python, SQL, JavaScript/Node.js, LaTeX</p></div>
+      <div class="card skill reveal"><h3>HDL / Hardware</h3><p>Verilog, SystemVerilog, RTL Design, FPGA Prototyping, Fixed-Point Design, FSM Design, CPU Datapath &amp; Control</p></div>
+      <div class="card skill reveal"><h3>Systems / Architecture</h3><p>Computer Architecture, Assembly, Bare-Metal Programming, Operating-System Development / Concepts, OpenGL/GLUT</p></div>
+      <div class="card skill reveal"><h3>EDA / Development</h3><p>Vivado, Icarus Verilog, Verilator, GTKWave, Git, GitHub, Linux/Ubuntu, Jupyter/Colab</p></div>
+      <div class="card skill reveal"><h3>AI / Data</h3><p>Classification, Feature Engineering, Model Evaluation, Explainable AI, Computer Vision</p></div>
+      <div class="card skill reveal"><h3>Web / Databases</h3><p>Django, Laravel, SQL Database Design, SQLite, MySQL</p></div>
+      <div class="card skill reveal"><h3>Networking / Sensing</h3><p>IP Addressing, Subnetting, VLANs, RIP/OSPF, Cisco Packet Tracer, Wi-Fi Sensing, Visible-Light Positioning</p></div>
+    </div>
+    <div style="height:34px"></div>
+    <div class="label" style="margin-bottom:15px">Research &amp; Academic Interests</div>
+    <div class="interest reveal">
+      <span>Computer Architecture</span><span>FPGA/RTL Systems</span><span>Hardware Acceleration</span><span>Reconfigurable Computing</span>
+      <span>Hardware–Software Co-Design</span><span>Operating Systems</span><span>Embedded Systems</span><span>Quantum Computing Systems</span>
+      <span>Artificial Intelligence</span><span>Computer Networks</span><span>Wi-Fi / Visible-Light Positioning</span><span>Computer Graphics</span>
+    </div>
   </div>
 </section>
 
-<!-- Blog post modal -->
-<div id="pmodal">
-  <div class="mi">
-    <div style="padding:1.25rem 2rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-      <span style="font-family:var(--mono);font-size:.7rem;color:var(--gold)" id="mcat"></span>
-      <button onclick="closePost()" style="background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:.4rem 1rem;cursor:pointer;font-size:.8rem;">✕ Close</button>
-    </div>
-    <div style="padding:2.5rem 2rem;">
-      <h1 id="mtitle" style="font-family:var(--serif);font-size:2rem;font-weight:300;margin-bottom:1rem;line-height:1.2;color:var(--text)"></h1>
-      <div style="display:flex;gap:1.5rem;margin-bottom:2rem;font-family:var(--mono);font-size:.72rem;color:var(--dim);">
-        <span id="mdate"></span><span id="mread"></span>
-      </div>
-      <div id="mbody" style="line-height:1.9;color:var(--muted);font-size:.95rem;"></div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="slabel">08 — Contact</div>
-    <h2 class="sh">Let's <em>Connect</em></h2>
-    <div class="cgrid reveal">
-      <div class="ctext">
-        <p>I'm open to research collaborations, academic discussions, graduate school inquiries, and professional opportunities in VLSI, quantum computing, and hardware engineering.</p>
-        <div class="clinks">
-          <a href="mailto:shahriar10rizvi@gmail.com" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></div><div class="cltxt"><strong>Email</strong><span>shahriar10rizvi@gmail.com</span></div></a>
-          <a href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div class="cltxt"><strong>LinkedIn</strong><span>linkedin.com/in/rizvi-sh/</span></div></a>
-          <a href="https://github.com/rizvi19/" target="_blank" class="cli"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></div><div class="cltxt"><strong>GitHub</strong><span>github.com/rizvi19</span></div></a>
-          <div class="cli" style="cursor:default;"><div class="clico"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div class="cltxt"><strong>Location</strong><span>Rajshahi, Bangladesh</span></div></div>
-        </div>
-      </div>
+    <div class="contactBox reveal">
       <div>
-        <form id="cform">
-          <div class="fgroup"><label>Your Name</label><input type="text" id="fn" placeholder="Dr. Jane Smith" required /></div>
-          <div class="fgroup"><label>Email Address</label><input type="email" id="fe" placeholder="jane@university.edu" required /></div>
-          <div class="fgroup"><label>Subject</label><input type="text" id="fs" placeholder="Research Collaboration / Inquiry" /></div>
-          <div class="fgroup"><label>Message</label><textarea id="fm" placeholder="Hello Shahriar, I'd like to discuss..." required></textarea></div>
-          <button type="submit" class="btn btng" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg> Send Message</button>
-          <p class="fnote">* Opens your email client to send.</p>
-        </form>
+        <div class="label">08 — Contact</div>
+        <h2>Research, teaching, or systems collaboration.</h2>
+        <p>I am open to research collaboration, graduate-study discussions, teaching opportunities, and engineering work related to computer architecture, FPGA/RTL systems, hardware acceleration, and computing systems.</p>
+        <div class="meta">Rajshahi / Dhaka, Bangladesh · shahriar10rizvi@gmail.com · +880 1886 967659</div>
+      </div>
+      <div class="contactLinks">
+        <a class="btn primary" href="mailto:shahriar10rizvi@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </div>
 </section>
+</main>
 
-<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="fi">
-      <div class="flogo">Shahriar<span>.</span></div>
-      <p>&copy; <span id="fy"></span> Shahriar Rizvi. All rights reserved.</p>
-      <p style="font-family:var(--mono);font-size:.7rem;">Designed &amp; Built from Scratch</p>
-    </div>
-  </div>
+  <div class="container footerIn"><span>© <span id="year"></span> Shahriar Rizvi.</span><span>Designed as a static, fast, accessible portfolio.</span></div>
 </footer>
-
 <script>
-var NAV_H = 70;
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-function sTo(y) {
-  window.scrollTo({ top: y, behavior: 'smooth' });
-}
+  const progress = document.getElementById('scrollProgress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - doc.clientHeight;
+    const pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+    progress.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+  };
+  addEventListener('scroll', updateProgress, {passive:true});
+  addEventListener('resize', updateProgress);
+  updateProgress();
 
-function nTo(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  var top = el.getBoundingClientRect().top + window.pageYOffset - NAV_H;
-  window.scrollTo({ top: top, behavior: 'smooth' });
-  closeNav();
-}
+  const canvas = document.getElementById('starCanvas');
+  const ctx = canvas.getContext('2d', {alpha:true});
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let seed = 1947;
+  const rand = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
 
-// ── Mobile nav (slide-in drawer) ─────────────────────────────────────────────
-var ntgl = document.getElementById('ntgl');
-var nl   = document.getElementById('nl');
-var bd   = document.getElementById('nav-backdrop');
-
-function openNav() {
-  nl.classList.add('open');
-  ntgl.classList.add('open');
-  bd.classList.add('show');
-  document.body.style.overflow = 'hidden';
-}
-function closeNav() {
-  nl.classList.remove('open');
-  ntgl.classList.remove('open');
-  bd.classList.remove('show');
-  document.body.style.overflow = '';
-}
-ntgl.addEventListener('click', function() {
-  nl.classList.contains('open') ? closeNav() : openNav();
-});
-bd.addEventListener('click', closeNav);
-
-// ── Footer year ───────────────────────────────────────────────────────────────
-document.getElementById('fy').textContent = new Date().getFullYear();
-
-// ── Scroll progress bar ───────────────────────────────────────────────────────
-var pb = document.getElementById('pbar');
-window.addEventListener('scroll', function() {
-  var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-  pb.style.width = Math.min(pct, 100) + '%';
-}, { passive: true });
-
-// ── Back to top ───────────────────────────────────────────────────────────────
-var bt = document.getElementById('btt');
-window.addEventListener('scroll', function() {
-  bt.classList.toggle('show', window.scrollY > 500);
-}, { passive: true });
-
-// ── Active nav highlight ──────────────────────────────────────────────────────
-var secs = document.querySelectorAll('section[id]');
-var nas  = document.querySelectorAll('.nlinks a');
-var navObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      nas.forEach(function(a) { a.classList.remove('active'); });
-      var a = document.querySelector('.nlinks a[href="#' + e.target.id + '"]');
-      if (a) a.classList.add('active');
-    }
-  });
-}, { threshold: 0.3 });
-secs.forEach(function(s) { navObs.observe(s); });
-
-// ── Skill bars ────────────────────────────────────────────────────────────────
-var skObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.skb').forEach(function(b) {
-        b.style.width = b.dataset.w + '%';
-      });
-      skObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('.skcat').forEach(function(c) { skObs.observe(c); });
-
-// ── Animated counters ─────────────────────────────────────────────────────────
-function animCount(el) {
-  var tgt = parseFloat(el.dataset.count);
-  var dec = parseInt(el.dataset.dec || 0);
-  var sfx = el.dataset.sfx || '';
-  var dur = 1400, t0 = performance.now();
-  function step(now) {
-    var p = Math.min((now - t0) / dur, 1);
-    var ease = 1 - Math.pow(1 - p, 3);
-    el.textContent = (tgt * ease).toFixed(dec) + sfx;
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-var cntObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('[data-count]').forEach(animCount);
-      cntObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.4 });
-var hp = document.querySelector('.hpanel');
-if (hp) cntObs.observe(hp);
-
-// ── Typewriter ────────────────────────────────────────────────────────────────
-var phrases = [
-  'RTL Designer & Researcher',
-  'RISC-V CPU Architect',
-  'Quantum Computing Enthusiast',
-  'VLSITHON Champion 2024',
-  'Network Engineer'
-];
-var twEl = document.getElementById('typed-text');
-if (twEl) {
-  var twPi = 0, twCi = 0, twDel = false;
-  function twTick() {
-    var phrase = phrases[twPi];
-    if (!twDel) {
-      twCi++;
-      twEl.textContent = phrase.substring(0, twCi);
-      if (twCi === phrase.length) {
-        twDel = true;
-        setTimeout(twTick, 2000);
-      } else {
-        setTimeout(twTick, 75);
+  function drawSky(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(innerWidth * dpr);
+    canvas.height = Math.round(innerHeight * dpr);
+    canvas.style.width = innerWidth + 'px';
+    canvas.style.height = innerHeight + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    seed = 1947;
+    const area = innerWidth * innerHeight;
+    const count = Math.max(120, Math.min(360, Math.round(area / 5200)));
+    for(let i=0;i<count;i++){
+      let x = rand() * innerWidth;
+      let y = rand() * innerHeight;
+      if(rand() < .30){
+        const band = innerHeight * (.72 - .34 * (x / innerWidth));
+        y = Math.max(0, Math.min(innerHeight, band + (rand() - .5) * innerHeight * .28));
       }
-    } else {
-      twCi--;
-      twEl.textContent = phrase.substring(0, twCi);
-      if (twCi === 0) {
-        twDel = false;
-        twPi = (twPi + 1) % phrases.length;
-        setTimeout(twTick, 400);
-      } else {
-        setTimeout(twTick, 40);
+      const magnitude = rand();
+      const r = magnitude > .985 ? 1.55 : magnitude > .93 ? 1.05 : magnitude > .64 ? .72 : .45;
+      const alpha = magnitude > .985 ? .88 : magnitude > .93 ? .68 : .27 + rand() * .30;
+      const warm = rand() > .84;
+      ctx.beginPath();
+      ctx.fillStyle = warm ? `rgba(244,223,181,${alpha})` : `rgba(220,228,242,${alpha})`;
+      ctx.arc(x,y,r,0,Math.PI*2);
+      ctx.fill();
+      if(r > 1.2){
+        ctx.strokeStyle = `rgba(240,224,192,${alpha*.20})`;
+        ctx.lineWidth = .6;
+        ctx.beginPath();ctx.moveTo(x-3.2,y);ctx.lineTo(x+3.2,y);ctx.moveTo(x,y-3.2);ctx.lineTo(x,y+3.2);ctx.stroke();
       }
     }
   }
-  twTick();
-}
+  drawSky();
+  addEventListener('resize', drawSky);
 
-// ── Blog ──────────────────────────────────────────────────────────────────────
-var PK = 'sr_blog_posts';
-function gp() { try { return JSON.parse(localStorage.getItem(PK)) || []; } catch(e) { return []; } }
-function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function fd(d) { return new Date(d).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }); }
-
-function renderBlog(fc) {
-  if (!fc) fc = 'All';
-  var posts = gp().filter(function(p) { return p.status === 'published'; });
-  var cats = ['All'];
-  posts.forEach(function(p) { if (cats.indexOf(p.category) === -1) cats.push(p.category); });
-  var fEl = document.getElementById('bfilters');
-  fEl.innerHTML = cats.map(function(c) {
-    return '<button onclick="renderBlog(\'' + c + '\')" style="padding:.3rem 1rem;border-radius:99px;font-size:.72rem;font-family:var(--mono);cursor:pointer;transition:all .25s;background:' + (c===fc?'rgba(196,160,90,.15)':'transparent') + ';border:1px solid ' + (c===fc?'var(--gold)':'rgba(255,255,255,.07)') + ';color:' + (c===fc?'var(--gold)':'#7a7870') + '">' + c + '</button>';
-  }).join('');
-  var filtered = fc === 'All' ? posts : posts.filter(function(p) { return p.category === fc; });
-  var sorted = filtered.slice().sort(function(a,b) { return new Date(b.date) - new Date(a.date); });
-  var g = document.getElementById('bgrid');
-  if (!sorted.length) {
-    g.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;background:var(--card);border:1px dashed var(--border);border-radius:var(--r);"><p style="color:var(--muted)">No published posts yet.</p><p style="font-size:.78rem;color:var(--dim);margin-top:.5rem;font-family:var(--mono)">Go to <a href="admin.html" style="color:var(--gold)">admin.html</a> to write your first article.</p></div>';
-    return;
-  }
-  g.innerHTML = sorted.map(function(p) {
-    return '<div class="bcard" onclick="openPost(\'' + p.id + '\')"><div class="bcardbody"><span class="btag">' + esc(p.category) + '</span><h3 class="btitle">' + esc(p.title) + '</h3><p class="bexc">' + esc(p.excerpt || p.content.substring(0,140)+'…') + '</p><div class="bmeta"><span>' + fd(p.date) + '</span><span class="bread">' + (p.readTime||'3 min read') + ' →</span></div></div></div>';
-  }).join('');
-}
-
-function openPost(id) {
-  var p = gp().find(function(x) { return x.id === id; });
-  if (!p) return;
-  document.getElementById('mcat').textContent   = p.category;
-  document.getElementById('mtitle').textContent = p.title;
-  document.getElementById('mdate').textContent  = fd(p.date);
-  document.getElementById('mread').textContent  = p.readTime || '';
-  document.getElementById('mbody').innerHTML    = md2h(p.content);
-  document.getElementById('pmodal').style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
-function closePost() {
-  document.getElementById('pmodal').style.display = 'none';
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePost(); });
-document.getElementById('pmodal').addEventListener('click', function(e) { if (e.target === this) closePost(); });
-
-function md2h(md) {
-  return md
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/^### (.+)$/gm,'<h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:1.5rem 0 .5rem;color:var(--text)">$1</h3>')
-    .replace(/^## (.+)$/gm,'<h2 style="font-family:var(--serif);font-size:1.6rem;font-weight:300;margin:2rem 0 .75rem;color:var(--text)">$1</h2>')
-    .replace(/^# (.+)$/gm,'<h1 style="font-family:var(--serif);font-size:2rem;font-weight:300;margin:2rem 0 1rem;color:var(--text)">$1</h1>')
-    .replace(/\*\*(.+?)\*\*/g,'<strong style="color:var(--text);font-weight:500">$1</strong>')
-    .replace(/\*(.+?)\*/g,'<em>$1</em>')
-    .replace(/`(.+?)`/g,'<code style="font-family:var(--mono);background:rgba(255,255,255,.06);padding:.15rem .4rem;border-radius:4px;font-size:.85em">$1</code>')
-    .replace(/^\> (.+)$/gm,'<blockquote style="border-left:3px solid var(--gold);padding-left:1rem;margin:1rem 0;color:var(--muted);font-style:italic">$1</blockquote>')
-    .replace(/^- (.+)$/gm,'<li style="margin-bottom:.3rem">$1</li>')
-    .replace(/\n\n/g,'</p><p style="margin-bottom:1rem">')
-    .replace(/^(.)/,'<p style="margin-bottom:1rem">$1') + '</p>';
-}
-
-renderBlog();
-
-// ── Contact form ──────────────────────────────────────────────────────────────
-document.getElementById('cform').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var n  = document.getElementById('fn').value;
-  var em = document.getElementById('fe').value;
-  var s  = document.getElementById('fs').value || 'Portfolio Inquiry';
-  var m  = document.getElementById('fm').value;
-  window.location.href = 'mailto:shahriar10rizvi@gmail.com?subject=' + encodeURIComponent(s) + '&body=' + encodeURIComponent('From: ' + n + ' (' + em + ')\n\n' + m);
-});
+  const menu = document.getElementById('menu');
+  const links = document.getElementById('navlinks');
+  menu.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(open));
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open'); menu.setAttribute('aria-expanded','false');
+  }));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
+  }, {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
