@@ -32,7 +32,7 @@
       "https://orcid.org/0009-0003-6098-4056",
       "https://scholar.google.com/citations?hl=en&user=Qt3KWTQAAAAJ"
     ],
-    "knowsAbout":["Computer Architecture","FPGA","RTL Design","Hardware Acceleration","VLSI","Operating Systems","Reconfigurable Computing"]
+    "knowsAbout":["Computer Architecture","FPGA","RTL Design","Hardware Acceleration","VLSI","Operating Systems","Reconfigurable Computing","Post-Quantum Cryptography"]
   }
   </script>
   <style>
@@ -113,6 +113,14 @@
     .menu{min-width:44px;min-height:44px;cursor:pointer}.contactLinks .btn{white-space:nowrap}
     @media(max-width:680px){.navlinks a{display:block;padding:10px 0;width:100%}.phdNotice{font-size:.8rem}.contactBox{padding:24px}.hero{padding-top:110px}}
     @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+    .accreditation{font-size:.82rem;color:var(--muted);margin:12px 0 0;line-height:1.7;max-width:760px}.accreditation a{color:var(--gold2);text-decoration:underline;text-underline-offset:3px}
+    .awardHighlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}
+    .awardMedia{display:grid;gap:14px;margin-top:22px}.awardMedia.pair{grid-template-columns:repeat(2,minmax(0,1fr))}.awardMedia figure{margin:0;min-width:0}
+    .awardMedia figure>a{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#090a0f}.awardMedia img{display:block;width:100%;height:auto}
+    .awardMedia.pair img{height:210px;object-fit:contain}.awardMedia figcaption{font-size:.72rem;color:var(--muted);line-height:1.6;margin-top:9px}.awardMedia figcaption a{color:var(--gold2)}
+    .awardMedia.certificate figure>a{background:#fff}.awardMedia a:hover img{opacity:.94}.awardMedia figcaption a:hover{text-decoration:underline}
+    @media(max-width:900px){.awardHighlights{grid-template-columns:1fr}.awardMedia img{max-height:440px;object-fit:contain}}
+    @media(max-width:480px){.awardMedia.pair{grid-template-columns:1fr}.awardMedia.pair img{height:auto;max-height:380px;object-fit:contain}}
   </style>
 </head>
 <body>
@@ -134,11 +142,11 @@
 <section class="hero">
   <div class="container heroGrid">
     <div>
-      <div class="kicker">Computer Architecture · FPGA / RTL · Hardware Acceleration</div>
+      <div class="kicker">Computer Architecture · FPGA / RTL · Hardware Acceleration · PQC</div>
       <h1>Shahriar <em>Rizvi</em></h1>
       <p class="phdNotice"><span class="availabilityDot" aria-hidden="true"></span>Seeking PhD opportunities in the USA · Fall 2027</p>
       <p class="lead">I build and evaluate computing systems close to the hardware: FPGA accelerators, RTL architectures, and hardware–software co-design. My research interests include computer architecture, reconfigurable computing, and efficient hardware implementations of post-quantum cryptography (PQC).</p>
-      <p style="color:var(--muted)">B.Sc. Engg. in Computer Science &amp; Engineering from RUET with a final CGPA of <strong style="color:var(--text)">3.89/4.00</strong> and <strong style="color:var(--text)">5th rank out of 181</strong> students in the CSE Department.</p>
+      <p style="color:var(--muted)">B.Sc. Engg. in Computer Science &amp; Engineering from RUET with a final CGPA of <strong style="color:var(--text)">3.89/4.00</strong> and <strong style="color:var(--text)">ranked 5th among 181</strong> students in the CSE Department.</p>
       <p class="locationLine">Chicago, Illinois, USA <span aria-hidden="true">·</span> U.S. permanent resident (Green Card holder)</p>
       <div class="actions">
         <a class="btn primary" href="https://drive.google.com/file/d/1BIsbDeDbpldzxZX0AL26oEVuPXjX8sei/view?usp=sharing" target="_blank" rel="noopener">View CV ↗</a>
@@ -155,13 +163,13 @@
     <aside class="statbox reveal">
       <div class="stats">
         <div class="stat"><div class="sv">3.89</div><div class="sl">Final CGPA / 4.00</div></div>
-        <div class="stat"><div class="sv">5th</div><div class="sl">of 181 students · CSE department</div></div>
+        <div class="stat"><div class="sv">5th</div><div class="sl">My graduating rank · 181 CSE students</div></div>
         <div class="stat"><div class="sv">3</div><div class="sl">2 published · 1 accepted paper</div></div>
         <div class="stat"><div class="sv">2026</div><div class="sl">B.Sc. Engg. completed</div></div>
       </div>
       <div class="focus">
-        <div class="label">Current technical focus</div>
-        <p>RISC-V processor design, operating systems, FPGA acceleration, fixed-point hardware, and reconfigurable computing.</p>
+        <div class="label">Current work &amp; study interests</div>
+        <p>RISC-V processor design, operating systems, FPGA acceleration, fixed-point hardware, reconfigurable computing, and studying post-quantum cryptography (PQC).</p>
       </div>
     </aside>
   </div>
@@ -177,14 +185,15 @@
       <div class="panel reveal">
         <p>I am a Computer Science &amp; Engineering graduate from <strong>Rajshahi University of Engineering &amp; Technology (RUET)</strong>. I completed an Outcome-Based Education (OBE) curriculum with a final CGPA of <strong>3.89/4.00</strong>, ranking <strong>5th among 181 students</strong> in the CSE Department.</p>
         <p>My research centers on <strong>computer architecture, FPGA/RTL systems, hardware acceleration, reconfigurable computing, and hardware–software co-design</strong>. My peer-reviewed work also extends into multimodal deepfake detection, digital provenance, and WiFi–visible-light indoor positioning.</p>
+        <p>I am also actively studying <strong>post-quantum cryptography (PQC)</strong>, with particular interest in efficient FPGA/RTL implementations, hardware acceleration, and hardware–software co-design for PQC algorithms. I hope to develop this interest further through doctoral research.</p>
         <p>I enjoy building systems close to the hardware—from SystemVerilog datapaths and finite-state machines to FPGA prototyping, bare-metal execution, and operating-system development—while keeping experimental results reproducible and explainable.</p>
       </div>
       <div class="quick reveal">
         <div class="qrow"><b>Location</b><span>Chicago, Illinois, USA</span></div>
         <div class="qrow"><b>U.S. residency</b><span>Permanent resident · Green Card holder</span></div>
-        <div class="qrow"><b>PhD start</b><span>Fall 2027 · USA</span></div>
+        <div class="qrow"><b>Seeking PhD opportunities</b><span>Fall 2027 admission · USA</span></div>
         <div class="qrow"><b>Education</b><span>B.Sc. Engg. in CSE, RUET · 2026</span></div>
-        <div class="qrow"><b>Research identity</b><span>Computer Architecture · FPGA/RTL · Hardware Acceleration · VLSI</span></div>
+        <div class="qrow"><b>Research interests</b><span>Computer Architecture · FPGA/RTL · Hardware Acceleration · VLSI · Post-Quantum Cryptography (PQC)</span></div>
         <div class="qrow"><b>Teaching</b><span>Programming, algorithms, digital systems, architecture, OS, networks, AI/ML</span></div>
       </div>
     </div>
@@ -289,7 +298,8 @@
       <div><h2>Academic background.</h2><p class="sub">Strong performance across undergraduate engineering and earlier science education.</p></div>
     </div>
     <div class="edu">
-      <div class="eduCard reveal"><div><h3>B.Sc. Engg. in Computer Science &amp; Engineering</h3><div class="desc">Rajshahi University of Engineering &amp; Technology (RUET), Bangladesh</div><div class="meta">Completed 2026 · Outcome-Based Education (OBE) curriculum · Department rank: 5th / 181</div></div><div class="score">3.89 / 4.00<span>CGPA</span></div></div>
+      <div class="eduCard reveal"><div><h3>B.Sc. Engg. in Computer Science &amp; Engineering</h3><div class="desc">Rajshahi University of Engineering &amp; Technology (RUET), Bangladesh</div><div class="meta">Completed 2026 · Outcome-Based Education (OBE) curriculum · Graduated 5th among 181 students in the CSE Department</div>
+        <p class="accreditation">The CSE program is accredited by BAETE for 31 January 2026–30 January 2032, with Washington Accord recognition from 31 January 2026. <a href="https://www.baetebangladesh.org/register.html" target="_blank" rel="noopener">View official accreditation register ↗</a></p></div><div class="score">3.89 / 4.00<span>CGPA</span></div></div>
       <div class="eduCard reveal"><div><h3>Higher Secondary Certificate (HSC), Science</h3><div class="desc">Government Edward College, Pabna, Bangladesh</div><div class="meta">2020</div></div><div class="score">5.00 / 5.00<span>GPA</span></div></div>
       <div class="eduCard reveal"><div><h3>Secondary School Certificate (SSC), Science</h3><div class="desc">Pabna Zilla School, Pabna, Bangladesh</div><div class="meta">2018</div></div><div class="score">5.00 / 5.00<span>GPA</span></div></div>
     </div>
@@ -302,14 +312,16 @@
       <div class="label">05 — Recognition</div>
       <div><h2>Honours &amp; awards.</h2><p class="sub">Selected distinctions spanning RTL/VLSI, quantum computing, scholarships, entrepreneurship, programming, mathematics, and science.</p></div>
     </div>
+    <div class="awardHighlights">
+      <div class="card award reveal"><h3>Champion — VLSITHON 2.0 (2024)</h3><p>RTL Design category · ULKASEMI.</p><p><strong>Team: RUET Digital Dynamos</strong></p><a class="link" href="https://www.thedailystar.net/tech-startup/news/grand-finale-vlsithon-20-held-aust-3774706" target="_blank" rel="noopener">Read coverage in The Daily Star ↗</a><div class="awardMedia pair"><figure><a href="assets/vlsithon-2024-team.png" target="_blank" rel="noopener" aria-label="Open full-size image: RUET Digital Dynamos receiving the RTL champion award at the VLSITHON 2.0 prize-giving ceremony"><img src="assets/vlsithon-2024-team.png" width="800" height="533" loading="lazy" decoding="async" alt="RUET Digital Dynamos receiving the RTL champion award at the VLSITHON 2.0 prize-giving ceremony"></a><figcaption>Team award presentation · <a href="assets/vlsithon-2024-team.png" target="_blank" rel="noopener">View full size ↗</a></figcaption></figure><figure><a href="assets/vlsithon-2024-award.png" target="_blank" rel="noopener" aria-label="Open full-size image: VLSITHON 2.0 champion trophy, certificate, and RUET Digital Dynamos prize cheque"><img src="assets/vlsithon-2024-award.png" width="600" height="800" loading="lazy" decoding="async" alt="VLSITHON 2.0 champion trophy, certificate, and RUET Digital Dynamos prize cheque"></a><figcaption>Trophy and certificate · <a href="assets/vlsithon-2024-award.png" target="_blank" rel="noopener">View full size ↗</a></figcaption></figure></div></div>
+      <div class="card award reveal"><h3>1st Prize &amp; Funding Recipient</h3><p>University Innovation Hub Program (UIHP) · 2025.</p><div class="awardMedia"><figure><a href="assets/uihp-2025-award.png" target="_blank" rel="noopener" aria-label="Open full-size image: UIHP team holding the BDT 50,000 prize and funding cheque"><img src="assets/uihp-2025-award.png" width="800" height="626" loading="lazy" decoding="async" alt="UIHP team holding the BDT 50,000 prize and funding cheque"></a><figcaption>UIHP prize and funding presentation · 2025 · <a href="assets/uihp-2025-award.png" target="_blank" rel="noopener">View full size ↗</a></figcaption></figure></div></div>
+      <div class="card award reveal"><h3>Bronze Honour — IYMC</h3><p>International Youth Math Challenge · 2024 final round.</p><div class="awardMedia certificate"><figure><a href="assets/iymc-2024-certificate.png" target="_blank" rel="noopener" aria-label="Open full-size image: IYMC Bronze Honour certificate awarded to Shahriar Rizvi for the 2024 final round, issued 26 February 2025"><img src="assets/iymc-2024-certificate.png" width="806" height="570" loading="lazy" decoding="async" alt="IYMC Bronze Honour certificate awarded to Shahriar Rizvi for the 2024 final round, issued 26 February 2025"></a><figcaption>2024 final round · Certificate issued February 2025 · <a href="assets/iymc-2024-certificate.png" target="_blank" rel="noopener">View full size ↗</a></figcaption></figure></div></div>
+    </div>
     <div class="awardGrid">
-      <div class="card award reveal"><h3>5th Rank — CSE Department</h3><p>B.Sc. Engg. final result, RUET · 2026.</p></div>
-      <div class="card award reveal"><h3>Champion — VLSITHON 2024</h3><p>RTL Section · ULKASEMI.</p></div>
-      <div class="card award reveal"><h3>Quantum Excellence</h3><p>IBM Qiskit Global Summer School · 2025.</p></div>
+      <div class="card award reveal"><h3>Graduated 5th among 181 CSE Students</h3><p>B.Sc. Engg. final result, RUET · 2026.</p></div>
+      <div class="card award reveal"><h3>Quantum Excellence</h3><p>IBM Qiskit Global Summer School · 2025.</p><a class="link" href="https://www.credly.com/badges/14e81832-7bc7-41c1-986c-aee4f2644d12/public_url" target="_blank" rel="noopener">Verify credential on Credly ↗</a></div>
       <div class="card award reveal"><h3>Government Technical Scholarship</h3><p>Recipient for all four undergraduate years.</p></div>
-      <div class="card award reveal"><h3>1st Prize &amp; Funding Recipient</h3><p>University Innovation Hub Program (UIHP) · 2025.</p></div>
       <div class="card award reveal"><h3>Champion — HULT Prize on Campus RUET</h3><p>2023.</p></div>
-      <div class="card award reveal"><h3>Bronze Honour — IYMC</h3><p>International Youth Math Challenge · 2024.</p></div>
       <div class="card award reveal"><h3>Earlier Academic Distinctions</h3><p>National High School Programming Contest Champion (2016); Science Olympiad Champion (2018, 2019); Creative Talent Hunt Regional Champion (2019); Bangladesh Math Olympiad regional 1st runner-up awards (2017, 2019); Science Fair 1st runner-up (2020).</p></div>
     </div>
   </div>
