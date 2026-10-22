@@ -1,4 +1,4 @@
-const CV_URL = 'https://drive.google.com/file/d/1-fbRAbCe2t2-xWEeoWXrmnBUIK_OWa0Q/view?usp=drive_link';
+const CV_URL = 'https://drive.google.com/file/d/1BIsbDeDbpldzxZX0AL26oEVuPXjX8sei/view?usp=sharing';
 
 export default {
   async fetch(request, env) {

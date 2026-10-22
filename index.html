@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shahriar Rizvi — Computer Architecture, FPGA & VLSI Research</title>
-  <meta name="description" content="Shahriar Rizvi is a CSE graduate from RUET working in computer architecture, FPGA/RTL systems, hardware acceleration, and VLSI research.">
+  <title>Shahriar Rizvi — Computer Architecture & FPGA Research | Fall 2027 PhD</title>
+  <meta name="description" content="Shahriar Rizvi — Chicago-based RUET CSE graduate seeking Fall 2027 PhD opportunities in the USA in computer architecture, FPGA/RTL, and hardware acceleration. U.S. permanent resident.">
   <meta name="author" content="Shahriar Rizvi">
   <meta name="theme-color" content="#0a0b10">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090a0f'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23d3ab63' stroke-width='2'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Arial,sans-serif' font-size='21' font-weight='700' fill='%23f0ca80'%3ESR%3C/text%3E%3C/svg%3E">
-  <meta property="og:title" content="Shahriar Rizvi — Computer Architecture, FPGA & VLSI Research">
-  <meta property="og:description" content="CSE graduate from RUET | Computer Architecture | FPGA/RTL Systems | Hardware Acceleration | VLSI Research">
+  <meta property="og:title" content="Shahriar Rizvi — Computer Architecture & FPGA Research | Fall 2027 PhD">
+  <meta property="og:description" content="Seeking Fall 2027 PhD opportunities in the USA | Computer Architecture & FPGA/RTL | Chicago, Illinois | U.S. permanent resident">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rizv.dev/">
   <link rel="canonical" href="https://rizv.dev/">
@@ -24,6 +24,7 @@
     "url":"https://rizv.dev/",
     "email":"mailto:shahriar10rizvi@gmail.com",
     "jobTitle":"CSE Graduate and Computing Systems Researcher",
+    "address":{"@type":"PostalAddress","addressLocality":"Chicago","addressRegion":"IL","addressCountry":"US"},
     "alumniOf":{"@type":"CollegeOrUniversity","name":"Rajshahi University of Engineering & Technology"},
     "sameAs":[
       "https://github.com/rizvi19",
@@ -100,19 +101,32 @@
     @media(max-width:900px){.heroGrid,.aboutGrid,.sectionHead,.contactBox{grid-template-columns:1fr}.hero{min-height:auto}.pubgrid,.projectGrid,.awardGrid,.roleGrid{grid-template-columns:1fr}.skillGrid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr}.sectionHead{gap:12px}.contactLinks{justify-content:flex-start}}
     @media(max-width:680px){.container{width:min(calc(100% - 28px),var(--max))}.navlinks{display:none;position:absolute;top:var(--nav);left:0;right:0;padding:18px 22px;background:#0c0e14;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu{display:block}.stats{grid-template-columns:1fr 1fr}.eduCard{grid-template-columns:1fr}.score{text-align:left}.skillGrid{grid-template-columns:1fr}.footerIn{flex-direction:column}section{padding:72px 0}.heroGrid{gap:38px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.panel,.card,.statbox{transition:none}}
+
+    .skipLink{position:fixed;top:8px;left:12px;z-index:1100;padding:10px 16px;background:var(--gold2);color:var(--bg);border-radius:8px;transform:translateY(-150%)}
+    .skipLink:focus{transform:none}a:focus-visible,button:focus-visible{outline:2px solid var(--gold2);outline-offset:5px}
+    .phdNotice{display:inline-flex;gap:10px;align-items:center;color:var(--gold2);font-size:.88rem;font-weight:600;line-height:1.6;margin:7px 0 0}
+    .availabilityDot{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:var(--green)}
+    .locationLine{font-size:.82rem;color:var(--muted);line-height:1.8}.locationLine span{margin:0 6px;color:var(--gold)}
+    .publicationHeading{font:500 1.5rem var(--serif);margin:38px 0 20px}.authors strong{color:var(--text);font-weight:600}
+    .meta,.sl,.score span,.metric span{color:var(--muted)}.contactBox .meta{line-height:1.9;overflow-wrap:anywhere}
+    .reveal{opacity:1;transform:none}.js .reveal{opacity:0;transform:translateY(12px)}.js .reveal.show{opacity:1;transform:none}
+    .menu{min-width:44px;min-height:44px;cursor:pointer}.contactLinks .btn{white-space:nowrap}
+    @media(max-width:680px){.navlinks a{display:block;padding:10px 0;width:100%}.phdNotice{font-size:.8rem}.contactBox{padding:24px}.hero{padding-top:110px}}
+    @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
   </style>
 </head>
 <body>
+<a class="skipLink" href="#top">Skip to content</a>
 <div id="scrollProgress" aria-hidden="true"></div>
 <canvas id="starCanvas" aria-hidden="true"></canvas>
-<nav>
+<nav aria-label="Main navigation">
   <div class="container navin">
     <a class="brand" href="#top">Shahriar<span>.</span></a>
     <div class="navlinks" id="navlinks">
       <a href="#about">About</a><a href="#research">Research</a><a href="#projects">Projects</a>
-      <a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      <a href="#achievements">Recognition</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
     </div>
-    <button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <button class="menu" id="menu" aria-label="Toggle navigation" aria-controls="navlinks" aria-expanded="false">☰</button>
   </div>
 </nav>
 
@@ -120,12 +134,14 @@
 <section class="hero">
   <div class="container heroGrid">
     <div>
-      <div class="kicker">CSE Graduate · Computer Architecture · FPGA / RTL · VLSI Research</div>
+      <div class="kicker">Computer Architecture · FPGA / RTL · Hardware Acceleration</div>
       <h1>Shahriar <em>Rizvi</em></h1>
-      <p class="lead">Computing-systems researcher and engineer focused on computer architecture, FPGA/RTL systems, hardware acceleration, and hardware–software co-design.</p>
+      <p class="phdNotice"><span class="availabilityDot" aria-hidden="true"></span>Seeking PhD opportunities in the USA · Fall 2027</p>
+      <p class="lead">I build and evaluate computing systems close to the hardware: FPGA accelerators, RTL architectures, and hardware–software co-design. My research interests center on computer architecture, reconfigurable computing, and efficient hardware systems.</p>
       <p style="color:var(--muted)">B.Sc. Engg. in Computer Science &amp; Engineering from RUET with a final CGPA of <strong style="color:var(--text)">3.89/4.00</strong> and <strong style="color:var(--text)">5th rank out of 181</strong> students in the CSE Department.</p>
+      <p class="locationLine">Chicago, Illinois, USA <span aria-hidden="true">·</span> U.S. permanent resident (Green Card holder)</p>
       <div class="actions">
-        <a class="btn primary" href="Shahriar_Rizvi_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn primary" href="https://drive.google.com/file/d/1BIsbDeDbpldzxZX0AL26oEVuPXjX8sei/view?usp=sharing" target="_blank" rel="noopener">View CV ↗</a>
         <a class="btn" href="#research">View Research</a>
         <a class="btn" href="mailto:shahriar10rizvi@gmail.com">Contact</a>
       </div>
@@ -140,7 +156,7 @@
       <div class="stats">
         <div class="stat"><div class="sv">3.89</div><div class="sl">Final CGPA / 4.00</div></div>
         <div class="stat"><div class="sv">5th</div><div class="sl">of 181 students · CSE department</div></div>
-        <div class="stat"><div class="sv">3</div><div class="sl">Research publications / accepted papers</div></div>
+        <div class="stat"><div class="sv">3</div><div class="sl">2 published · 1 accepted paper</div></div>
         <div class="stat"><div class="sv">2026</div><div class="sl">B.Sc. Engg. completed</div></div>
       </div>
       <div class="focus">
@@ -164,7 +180,9 @@
         <p>I enjoy building systems close to the hardware—from SystemVerilog datapaths and finite-state machines to FPGA prototyping, bare-metal execution, and operating-system development—while keeping experimental results reproducible and explainable.</p>
       </div>
       <div class="quick reveal">
-        <div class="qrow"><b>Location</b><span>Rajshahi / Dhaka, Bangladesh</span></div>
+        <div class="qrow"><b>Location</b><span>Chicago, Illinois, USA</span></div>
+        <div class="qrow"><b>U.S. residency</b><span>Permanent resident · Green Card holder</span></div>
+        <div class="qrow"><b>PhD start</b><span>Fall 2027 · USA</span></div>
         <div class="qrow"><b>Education</b><span>B.Sc. Engg. in CSE, RUET · 2026</span></div>
         <div class="qrow"><b>Research identity</b><span>Computer Architecture · FPGA/RTL · Hardware Acceleration · VLSI</span></div>
         <div class="qrow"><b>Teaching</b><span>Programming, algorithms, digital systems, architecture, OS, networks, AI/ML</span></div>
@@ -173,55 +191,13 @@
   </div>
 </section>
 
-<section id="education">
-  <div class="container">
-    <div class="sectionHead">
-      <div class="label">02 — Education</div>
-      <div><h2>Academic background.</h2><p class="sub">Strong performance across undergraduate engineering and earlier science education.</p></div>
-    </div>
-    <div class="edu">
-      <div class="eduCard reveal"><div><h3>B.Sc. Engg. in Computer Science &amp; Engineering</h3><div class="desc">Rajshahi University of Engineering &amp; Technology (RUET), Bangladesh</div><div class="meta">Completed 2026 · Outcome-Based Education (OBE) curriculum · Department rank: 5th / 181</div></div><div class="score">3.89 / 4.00<span>CGPA</span></div></div>
-      <div class="eduCard reveal"><div><h3>Higher Secondary Certificate (HSC), Science</h3><div class="desc">Government Edward College, Pabna, Bangladesh</div><div class="meta">2020</div></div><div class="score">5.00 / 5.00<span>GPA</span></div></div>
-      <div class="eduCard reveal"><div><h3>Secondary School Certificate (SSC), Science</h3><div class="desc">Pabna Zilla School, Pabna, Bangladesh</div><div class="meta">2018</div></div><div class="score">5.00 / 5.00<span>GPA</span></div></div>
-    </div>
-  </div>
-</section>
 
 <section id="research">
   <div class="container">
     <div class="sectionHead">
-      <div class="label">03 — Research</div>
-      <div><h2>Research publications &amp; undergraduate thesis.</h2><p class="sub">Work across FPGA acceleration, multimodal AI, digital provenance, and hybrid indoor positioning.</p></div>
+      <div class="label">02 — Research</div>
+      <div><h2>FPGA systems, from design to evaluation.</h2><p class="sub">My primary direction is computer architecture and hardware acceleration. The thesis below brings together fixed-point RTL, FPGA prototyping, and reproducible validation; selected publications follow.</p></div>
     </div>
-    <div class="pubgrid">
-      <article class="card pub reveal">
-        <div class="pubNo">[1] IEEE ICECTE 2026</div>
-        <h3>FPGA Acceleration of Quantum Circuit Primitives: Fixed-Point Microcoded Design and CPU Comparison</h3>
-        <p class="authors">Shahriar Rizvi and Md. Nazrul Islam Mondal</p>
-        <p class="venue">IEEE ICECTE 2026 · DOI: 10.1109/ICECTE69292.2026.11429464</p>
-        <a class="link" href="https://doi.org/10.1109/ICECTE69292.2026.11429464" target="_blank" rel="noopener">View DOI ↗</a>
-      </article>
-      <article class="card pub reveal">
-        <div class="pubNo">[2] IEEE ICCIT 2025</div>
-        <h3>Beyond Artifacts: Semantic Deepfake Detection and Digital Provenance Tracking with Multimodal Large Language Models</h3>
-        <p class="authors">Jabunnesa Jahan Sara, Shahriar Rizvi, and Tasfia Jannat Tasfi</p>
-        <p class="venue">IEEE ICCIT 2025 · DOI: 10.1109/ICCIT68739.2025.11490141</p>
-        <a class="link" href="https://doi.org/10.1109/ICCIT68739.2025.11490141" target="_blank" rel="noopener">View DOI ↗</a>
-      </article>
-      <article class="card pub reveal">
-        <div class="pubNo">[3] IEEE SPICSCON 2026 · Accepted, to appear</div>
-        <h3>Topology-Aware Adaptive WiFi–Visible-Light Fusion for Robust Simulated Indoor Positioning</h3>
-        <p class="authors">Shahriar Rizvi, Tasfia Jannat Tasfi, and Md. Nazrul Islam Mondal</p>
-        <p class="venue">IEEE SPICSCON 2026 · Accepted, to appear.</p>
-      </article>
-      <article class="card pub reveal">
-        <div class="pubNo">Research profile</div>
-        <h3>Primary research direction</h3>
-        <p class="authors">Computer architecture; FPGA/RTL systems; hardware acceleration; reconfigurable computing; hardware–software co-design; operating systems; embedded systems.</p>
-        <a class="link" href="https://scholar.google.com/citations?hl=en&user=Qt3KWTQAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
-      </article>
-    </div>
-    <div style="height:18px"></div>
     <article class="thesis reveal">
       <div class="label">Undergraduate Thesis · Completed 2026</div>
       <h3>QFlow: A Fixed-Point FPGA Accelerator for Adaptive Key-Resource-Aware Route-Candidate Evaluation in Trusted-Relay QKD Networks</h3>
@@ -231,14 +207,46 @@
         <div class="metric"><b>≈ 102.02 MHz</b><span>Post-route frequency</span></div>
         <div class="metric"><b>2.048 μs</b><span>Mean kernel latency</span></div>
       </div>
+      <a class="link" href="https://github.com/rizvi19/thesis-qcnfpga" target="_blank" rel="noopener">Explore thesis source files ↗</a>
     </article>
+    <h3 class="publicationHeading">Selected publications</h3>
+    <div class="pubgrid">
+      <article class="card pub reveal">
+        <div class="pubNo">[1] Published · IEEE ICECTE 2026</div>
+        <h3>FPGA Acceleration of Quantum Circuit Primitives: Fixed-Point Microcoded Design and CPU Comparison</h3>
+        <p class="authors"><strong>Shahriar Rizvi</strong> and Md. Nazrul Islam Mondal</p>
+        <p class="venue">IEEE ICECTE 2026 · DOI: 10.1109/ICECTE69292.2026.11429464</p>
+        <a class="link" href="https://doi.org/10.1109/ICECTE69292.2026.11429464" target="_blank" rel="noopener">View DOI ↗</a>
+      </article>
+      <article class="card pub reveal">
+        <div class="pubNo">[2] Published · IEEE ICCIT 2025</div>
+        <h3>Beyond Artifacts: Semantic Deepfake Detection and Digital Provenance Tracking with Multimodal Large Language Models</h3>
+        <p class="authors">Jabunnesa Jahan Sara, <strong>Shahriar Rizvi</strong>, and Tasfia Jannat Tasfi</p>
+        <p class="venue">IEEE ICCIT 2025 · DOI: 10.1109/ICCIT68739.2025.11490141</p>
+        <a class="link" href="https://doi.org/10.1109/ICCIT68739.2025.11490141" target="_blank" rel="noopener">View DOI ↗</a>
+      </article>
+      <article class="card pub reveal">
+        <div class="pubNo">[3] IEEE SPICSCON 2026 · Accepted, to appear</div>
+        <h3>Topology-Aware Adaptive WiFi–Visible-Light Fusion for Robust Simulated Indoor Positioning</h3>
+        <p class="authors"><strong>Shahriar Rizvi</strong>, Tasfia Jannat Tasfi, and Md. Nazrul Islam Mondal</p>
+        <p class="venue">IEEE SPICSCON 2026 · Accepted, to appear.</p>
+      </article>
+      <article class="card pub reveal">
+        <div class="pubNo">Research profile</div>
+        <h3>Research interests for doctoral study</h3>
+        <p class="authors">I am interested in how architecture, numerical precision, and hardware–software partitioning affect accelerator latency and resource use. I hope to investigate these trade-offs through RTL design, FPGA experiments, and reproducible systems evaluation.</p>
+        <a class="link" href="https://scholar.google.com/citations?hl=en&user=Qt3KWTQAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+      </article>
+    </div>
+    <div style="height:18px"></div>
+
   </div>
 </section>
 
 <section id="projects">
   <div class="container">
     <div class="sectionHead">
-      <div class="label">04 — Projects</div>
+      <div class="label">03 — Projects</div>
       <div><h2>Selected technical projects.</h2><p class="sub">Projects chosen to show depth in processor design, systems, computer graphics, and applied computer vision.</p></div>
     </div>
     <div class="projectGrid">
@@ -270,6 +278,20 @@
         <div class="tagrow"><span class="tag">Python</span><span class="tag">Computer Vision</span><span class="tag">Face Recognition</span><span class="tag">GUI</span></div>
         <a class="link" href="https://github.com/rizvi19/AI_powered_Attendance_System" target="_blank" rel="noopener">View project ↗</a>
       </article>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="sectionHead">
+      <div class="label">04 — Education</div>
+      <div><h2>Academic background.</h2><p class="sub">Strong performance across undergraduate engineering and earlier science education.</p></div>
+    </div>
+    <div class="edu">
+      <div class="eduCard reveal"><div><h3>B.Sc. Engg. in Computer Science &amp; Engineering</h3><div class="desc">Rajshahi University of Engineering &amp; Technology (RUET), Bangladesh</div><div class="meta">Completed 2026 · Outcome-Based Education (OBE) curriculum · Department rank: 5th / 181</div></div><div class="score">3.89 / 4.00<span>CGPA</span></div></div>
+      <div class="eduCard reveal"><div><h3>Higher Secondary Certificate (HSC), Science</h3><div class="desc">Government Edward College, Pabna, Bangladesh</div><div class="meta">2020</div></div><div class="score">5.00 / 5.00<span>GPA</span></div></div>
+      <div class="eduCard reveal"><div><h3>Secondary School Certificate (SSC), Science</h3><div class="desc">Pabna Zilla School, Pabna, Bangladesh</div><div class="meta">2018</div></div><div class="score">5.00 / 5.00<span>GPA</span></div></div>
     </div>
   </div>
 </section>
@@ -315,7 +337,7 @@
   <div class="container">
     <div class="sectionHead">
       <div class="label">07 — Skills</div>
-      <div><h2>Technical toolkit.</h2><p class="sub">Presented as domains rather than subjective percentage bars.</p></div>
+      <div><h2>Technical toolkit.</h2><p class="sub">Tools I use across RTL design, systems programming, simulation, and experimental evaluation.</p></div>
     </div>
     <div class="skillGrid">
       <div class="card skill reveal"><h3>Programming</h3><p>C, C++, Python, SQL, JavaScript/Node.js, LaTeX</p></div>
@@ -341,12 +363,13 @@
     <div class="contactBox reveal">
       <div>
         <div class="label">08 — Contact</div>
-        <h2>Research, teaching, or systems collaboration.</h2>
-        <p>I am open to research collaboration, graduate-study discussions, teaching opportunities, and engineering work related to computer architecture, FPGA/RTL systems, hardware acceleration, and computing systems.</p>
-        <div class="meta">Rajshahi / Dhaka, Bangladesh · shahriar10rizvi@gmail.com · +880 1886 967659</div>
+        <h2>Let’s discuss Fall 2027 PhD research.</h2>
+        <p>I am seeking Fall 2027 PhD opportunities at U.S. universities in computer architecture, FPGA/RTL systems, hardware acceleration, and hardware–software co-design. If these interests align with your group, I would welcome a conversation about research fit and potential openings.</p>
+        <div class="meta">Chicago, Illinois, USA · U.S. permanent resident (Green Card holder)<br><a href="mailto:shahriar10rizvi@gmail.com">shahriar10rizvi@gmail.com</a> · <a href="tel:+8801886967659">+880 1886 967659</a></div>
       </div>
       <div class="contactLinks">
-        <a class="btn primary" href="mailto:shahriar10rizvi@gmail.com">Email me</a>
+        <a class="btn primary" href="mailto:shahriar10rizvi@gmail.com?subject=Fall%202027%20PhD%20Research%20Opportunity">Discuss research fit</a>
+        <a class="btn" href="https://drive.google.com/file/d/1BIsbDeDbpldzxZX0AL26oEVuPXjX8sei/view?usp=sharing" target="_blank" rel="noopener">View CV ↗</a>
         <a class="btn" href="https://www.linkedin.com/in/rizvi-sh/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
@@ -358,6 +381,7 @@
   <div class="container footerIn"><span>© <span id="year"></span> Shahriar Rizvi.</span><span>Designed as a static, fast, accessible portfolio.</span></div>
 </footer>
 <script>
+  if ("IntersectionObserver" in window) document.documentElement.classList.add("js");
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const progress = document.getElementById('scrollProgress');
@@ -422,10 +446,17 @@
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     links.classList.remove('open'); menu.setAttribute('aria-expanded','false');
   }));
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
-  }, {threshold:.08});
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) { entry.target.classList.add('show'); observer.unobserve(entry.target); }
+      });
+    }, {threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { links.classList.remove('open'); menu.setAttribute('aria-expanded','false'); }
+  });
 </script>
 </body>
 </html>
